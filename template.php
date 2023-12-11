@@ -3,21 +3,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Accès au site</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
     <!-- HEADER -->
     <header>
-        <h1>Bienvenue sur le site !</h1>
-        <?php
-        if(isset($_SESSION['login'])) {
-            echo 'Vous êtes connecté en tant que : ' . $_SESSION['login'] . '<br><br>';
-            echo '<a href="index.php?module=connexion&action=deconnexion">Se déconnecter</a><br>';
-        } else {
-            echo '<a href="index.php?module=connexion">Se connecter</a><br>';
-        }
-        ?>
+       
     </header>
     <!-- /HEADER -->
 

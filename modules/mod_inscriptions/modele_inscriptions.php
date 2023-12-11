@@ -17,6 +17,8 @@ class ModeleInscriptions extends Connexion {
         
         if ($result) {
             echo 'Vous êtes désormais inscrit !';
+            header('Location: index.php?module=connexion');
+            exit(); 
         } else {
             echo 'Insertion impossible !';
         }

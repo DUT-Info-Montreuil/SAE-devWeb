@@ -1,4 +1,16 @@
-<?php
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Titre de la Page</title>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <!-- Zone du titre principal et des boutons de navigation -->
+  <?php
 session_start();
 
 require_once 'modules/mod_inscriptions/mod_inscriptions.php';
@@ -13,16 +25,40 @@ switch ($module) {
     case "debut":
         $CompMenu = new CompMenu();
         break;
+ 
 
-    case "inscription":
-        $ModInscriptions = new ModInscriptions();
-        break;
-
-    case "connexion":
-        $Modconnexions = new ModConnexions();
-        break; 
 }
 
 $moduleContent = $vueGenerique->getAffichage();
 
 include 'template.php';
+?>
+
+</header>
+
+<main>
+<?php
+    // Créez $Modconnexions ici
+    if ($module === "connexion") {
+      $Modconnexions = new ModConnexions();
+    }
+    else if($module === "inscription"){ 
+        $ModInscriptions = new ModInscriptions();          
+    }
+    ?>
+  <img src="imgAccueil/aliensAccueilremoved.png" alt="Description des aliens">
+  <!-- Contenu principal avec des sections pour le jeu, les actualités, etc. -->
+  <section id="actualité">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+  </section>
+  <section id="jeu">
+  
+  </section>
+
+  <!-- D'autres sections peuvent être ajoutées ici -->
+</main>
+
+
+</body>
+</html>
+

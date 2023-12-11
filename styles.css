@@ -4,6 +4,7 @@ body {
     background: url('imgAccueil/imageFondAccueil.png') no-repeat center center fixed;
     background-size: cover;
     color: white;
+    margin: 0; /* Remove default body margin */
 }
 
 /* Styliser le header */
@@ -17,6 +18,7 @@ header {
 nav ul {
     list-style: none;
     display: flex;
+    align-items: center; /* Align vertically within the flex container */
 }
 
 nav ul li {
@@ -24,7 +26,7 @@ nav ul li {
 }
 
 /* Styliser les liens de navigation pour qu'ils apparaissent comme des boutons */
-nav ul li a {
+nav ul li a, button {
     text-decoration: none;
     color: white;
     background-color: #800080; /* Couleur violette pour les boutons */
@@ -33,31 +35,19 @@ nav ul li a {
     cursor: pointer;
 }
 
-/* Ajouter un effet de survol pour les liens de navigation */
-nav ul li a:hover {
-    background-color: #9932cc; /* Un violet plus clair pour l'effet de survol */
-}
-
-/* Styliser le bouton de connexion */
-button {
-    padding: 10px 25px;
-    background-color: #800080; /* Couleur violette pour les boutons */
-    border: none;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-/* Ajouter un effet de survol pour le bouton de connexion */
-button:hover {
+/* Ajouter un effet de survol pour les liens de navigation et le bouton de connexion */
+nav ul li a:hover, button:hover {
     background-color: #9932cc; /* Un violet plus clair pour l'effet de survol */
 }
 
 /* Styliser le main */
+/* Styliser le main */
 main {
     margin: 20px;
     text-align: center;
+
 }
+
 
 /* Styliser l'image des aliens dans la section principale */
 main img {
@@ -70,14 +60,16 @@ main img {
 /* Styliser les sections */
 
 /* Styliser le footer */
+/* Styliser le footer */
 footer {
     text-align: center;
     padding: 10px 0;
-    position: absolute;
-    bottom: 0;
     width: 100%;
     background-color: #333; /* Fond sombre pour le footer */
+    position: fixed;
+    bottom: 0;
 }
+
 
 /* Les liens du footer */
 footer a {
@@ -104,3 +96,70 @@ footer p {
         margin: 10px;
     }
 }
+.connexion-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 300px; /* Ajustez la largeur maximale selon vos besoins */
+    background-color: rgba(255, 255, 255, 0.1); /* Ajoutez une légère transparence */
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 50px; /* Ajoutez une marge supérieure pour centrer le formulaire */
+}
+
+.inscription-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 300px; /* Ajustez la largeur maximale selon vos besoins */
+    background-color: rgba(255, 255, 255, 0.1); /* Ajoutez une légère transparence */
+    padding: 20px;
+    border-radius: 5px;
+    margin-top: 50px; /* Ajoutez une marge supérieure pour centrer le formulaire */
+}
+/* Ajoutez ces styles à votre fichier styles.css */
+
+/* Style pour le sous-menu */
+nav ul li ul.sub-menu {
+    display: none;
+    position: absolute;
+    background-color: #333; /* Couleur de fond du sous-menu */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre pour le sous-menu */
+    border-radius: 0 0 5px 5px; /* Coins arrondis en bas */
+    z-index: 1;
+}
+
+/* Style pour les éléments du sous-menu */
+nav ul li ul.sub-menu li {
+    padding: 10px;
+    text-align: left;
+}
+
+/* Style pour les liens du sous-menu */
+nav ul li ul.sub-menu li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 8px;
+}
+
+/* Changez la couleur du lien au survol */
+nav ul li ul.sub-menu li a:hover {
+    background-color: #846a86;
+}
+
+/* Affichez le sous-menu au survol du parent */
+nav ul li:hover ul.sub-menu {
+    display: block;
+    margin-top: 0; /* Ajustez cette marge selon vos besoins */
+}
+
+/* Assurez-vous que le sous-menu ne dépasse pas du conteneur parent */
+nav ul li {
+    position: relative;
+}
+

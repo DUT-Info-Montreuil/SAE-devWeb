@@ -21,8 +21,10 @@ class ContConnexions {
 
             if ($this->modele->verifierUtilisateur($login, $password)) {
                 $_SESSION['login'] = $login;
-                echo 'Connexion réussie!';
-                echo '<p><a href="index.php">Retour à la page d\'accueil</a></p>';
+                //echo 'Connexion réussie!';
+                header('Location: index.php?module=debut');
+                exit(); 
+               // echo '<p><a href="index.php">Retour à la page d\'accueil</a></p>';
             } else {
                 echo 'Identifiant ou mot de passe incorrect' . '<br>';
                 $this->vue->form_connexion();
