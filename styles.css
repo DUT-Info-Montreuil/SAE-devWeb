@@ -1,0 +1,106 @@
+/* CSS général pour le body */
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('imgAccueil/imageFondAccueil.png') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
+/* Styliser le header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+/* Styliser les liens de navigation pour qu'ils apparaissent comme des boutons */
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    background-color: #800080; /* Couleur violette pour les boutons */
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Ajouter un effet de survol pour les liens de navigation */
+nav ul li a:hover {
+    background-color: #9932cc; /* Un violet plus clair pour l'effet de survol */
+}
+
+/* Styliser le bouton de connexion */
+button {
+    padding: 10px 25px;
+    background-color: #800080; /* Couleur violette pour les boutons */
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Ajouter un effet de survol pour le bouton de connexion */
+button:hover {
+    background-color: #9932cc; /* Un violet plus clair pour l'effet de survol */
+}
+
+/* Styliser le main */
+main {
+    margin: 20px;
+    text-align: center;
+}
+
+/* Styliser l'image des aliens dans la section principale */
+main img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Styliser les sections */
+
+/* Styliser le footer */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #333; /* Fond sombre pour le footer */
+}
+
+/* Les liens du footer */
+footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+footer p {
+    color: white;
+}
+
+/* Média queries pour la réactivité */
+@media (max-width: 600px) {
+    header, nav ul, footer {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin-bottom: 5px;
+    }
+
+    main {
+        margin: 10px;
+    }
+}
