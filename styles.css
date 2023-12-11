@@ -147,7 +147,7 @@ nav ul li ul.sub-menu li a {
     padding: 8px;
 }
 
-/* Changez la couleur du lien au survol */
+
 nav ul li ul.sub-menu li a:hover {
     background-color: #846a86;
 }
