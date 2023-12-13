@@ -9,12 +9,14 @@
 </head>
 <body>
 <header>
+<a href="?module=debut"><img src="imgAccueil/titre.png" alt="logo" width="110" height="110"></a>
   <!-- Zone du titre principal et des boutons de navigation -->
   <?php
 session_start();
 
 require_once 'modules/mod_inscriptions/mod_inscriptions.php';
 require_once 'modules/mod_connexions/mod_connexions.php';
+require_once 'modules/mod_profil/mod_profil.php';
 require_once 'composants/CompMenu/CompMenu.php';
 
 $vueGenerique = new VueGenerique();
@@ -32,7 +34,9 @@ switch ($module) {
 $moduleContent = $vueGenerique->getAffichage();
 
 include 'template.php';
+
 ?>
+
 
 </header>
 
@@ -45,6 +49,9 @@ include 'template.php';
     else if($module === "inscription"){ 
         $ModInscriptions = new ModInscriptions();          
     }
+    else if($module === "profil"){ 
+      $ModProfil = new ModProfil();          
+  }
     ?>
   <img src="imgAccueil/aliensAccueilremoved.png" alt="Description des aliens">
   <!-- Contenu principal avec des sections pour le jeu, les actualités, etc. -->

@@ -109,29 +109,48 @@ footer p {
     margin-top: 50px; /* Ajoutez une marge supérieure pour centrer le formulaire */
 }
 
-.inscription-form{
+/* Ajoutez ces styles pour changer la police d'écriture */
+body {
+    font-family: 'YourPreferredFont', sans-serif;
+}
+
+.inscription-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.inscription-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0 auto;
-    max-width: 300px; /* Ajustez la largeur maximale selon vos besoins */
-    background-color: rgba(255, 255, 255, 0.1); /* Ajoutez une légère transparence */
+    max-width: 300px;
+    background-color: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 5px;
-    margin-top: 50px; /* Ajoutez une marge supérieure pour centrer le formulaire */
 }
+
+h2 {
+    font-family: 'YourPreferredFont', sans-serif;
+    color: #800080;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
 /* Ajoutez ces styles à votre fichier styles.css */
 
 /* Style pour le sous-menu */
 nav ul li ul.sub-menu {
     display: none;
     position: absolute;
-    background-color: #333; /* Couleur de fond du sous-menu */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Ombre pour le sous-menu */
-    border-radius: 0 0 5px 5px; /* Coins arrondis en bas */
+    background-color: transparent; /* Modifiez cette ligne */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 5px 5px;
     z-index: 1;
 }
+
+/* Reste du code inchangé */
+
 
 /* Style pour les éléments du sous-menu */
 nav ul li ul.sub-menu li {
@@ -154,7 +173,7 @@ nav ul li ul.sub-menu li a:hover {
 
 /* Affichez le sous-menu au survol du parent */
 nav ul li:hover ul.sub-menu {
-    display: block;
+   /display: block;
     margin-top: 0; /* Ajustez cette marge selon vos besoins */
 }
 
@@ -162,4 +181,20 @@ nav ul li:hover ul.sub-menu {
 nav ul li {
     position: relative;
 }
+/* Ajoutez ce style pour centrer le logo */
+/* Ajoutez ce style pour centrer le logo et ajuster sa taille */
+/* Ajoutez ce style pour le logo */
+header img {
+    display: block;
+    margin: 10px; /* Ajoutez une marge pour l'éloigner du bord supérieur et gauche */
+    max-width: 10px; /* Ajustez la taille maximale selon vos besoins */
+    height: auto; /* Assurez-vous que la hauteur s'ajuste automatiquement pour maintenir le ratio */
+}
+
+/* Ajoutez ce style pour rendre l'image cliquable */
+header a {
+    text-decoration: none;
+}
+
+
 

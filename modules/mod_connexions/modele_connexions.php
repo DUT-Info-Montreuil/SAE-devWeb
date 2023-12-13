@@ -22,5 +22,13 @@ class ModeleConnexions extends Connexion {
             return false;
         }
     }
+    function getIdJoueur($login) {
+        $query = $this->connexion->getBdd()->prepare('SELECT id_joueur FROM joueur WHERE Nom_joueur = :login');
+        $query->execute(array(':login' => $login));
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+    
+        return $result['id_joueur'];
+    }
+    
 }
 ?>

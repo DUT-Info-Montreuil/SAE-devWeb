@@ -21,6 +21,10 @@ class ContConnexions {
 
             if ($this->modele->verifierUtilisateur($login, $password)) {
                 $_SESSION['login'] = $login;
+                $idJoueur = $this->modele->getIdJoueur($login);
+    
+                // Enregistrez l'ID du joueur dans la session
+                $_SESSION['id_joueur'] = $idJoueur;
                 //echo 'Connexion réussie!';
                 header('Location: index.php?module=debut');
                 exit(); 
@@ -34,10 +38,11 @@ class ContConnexions {
         }
     }
 
+    
     public function seDeconnecter() {
         unset($_SESSION['login']);
-        echo 'Déconnexion réussie !';
-        echo '<p><a href="index.php">Retour à la page d\'accueil</a></p>';
+        header('Location: index.php?module=debut');
+        exit();
 
     }
 

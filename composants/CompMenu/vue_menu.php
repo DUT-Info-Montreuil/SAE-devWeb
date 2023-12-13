@@ -18,7 +18,7 @@ class VueMenu {
             $this->affichage .= '<li>';
             $this->affichage .= '<a href="#">' . $_SESSION['login'] . '</a>';
             $this->affichage .= '<ul class="sub-menu">';
-            $this->affichage .= '<li><a href="#">Profil</a></li>';
+            $this->affichage .= '<li><a href="index.php?module=profil&action=afficherProfil">Profil</a></li>';
             $this->affichage .= '<li><a href="#">Paramètres</a></li>';
             $this->affichage .= '<li><a href="index.php?module=connexion&action=deconnexion">Déconnexion</a></li>';
             $this->affichage .= '</ul>';
