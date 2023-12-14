@@ -173,7 +173,7 @@ nav ul li ul.sub-menu li a:hover {
 
 /* Affichez le sous-menu au survol du parent */
 nav ul li:hover ul.sub-menu {
-   /display: block;
+   display: block;
     margin-top: 0; /* Ajustez cette marge selon vos besoins */
 }
 
