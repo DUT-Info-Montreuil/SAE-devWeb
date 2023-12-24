@@ -10,7 +10,7 @@ class CompMenu {
         $this->vue = new VueMenu();
     }
 
-    public function affiche() {
+    public function exec()  {
         echo $this->vue->getAffichage();
     }
 }

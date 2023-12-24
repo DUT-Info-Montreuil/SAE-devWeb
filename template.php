@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Accès au site</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titre de la Page</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <!--<link rel="stylesheet" href="css/styles.css">-->
+<head>
+    
 </head>
 <body>
 
     <!-- HEADER -->
     <header>
- 
+    <?php echo $menu->exec(); ?>
     </header>
     <!-- /HEADER -->
 
     <!-- MAIN -->
     <main>
     <?php
-        // Affichage du menu (si CompMenu est utilisé)
-        if(isset($CompMenu)) {
-            $CompMenu->affiche();
-        }
-        
-        // Affichage du contenu du module
-        echo $moduleContent;
-        ?>
+        require_once 'site.php';
+        $site = new Site();
+        $site->exec_module();
+    ?>
+     
     </main>
     <!-- /MAIN -->
 
     <!-- FOOTER -->
     <footer>
-        <p>Informations de contact : <a href="mailto:ylehongcheffson@iut.univ-paris8.fr">ylehongcheffson@iut.univ-paris8.fr</a></p>
-        <p>Informations légales </p>
+        <?php echo $footer->exec();?>
     </footer>
     <!-- /FOOTER -->
 
 </body>
+<script src="js/script_sous_menu.js"></script>
+
 </html>

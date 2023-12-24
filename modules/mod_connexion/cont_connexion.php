@@ -1,6 +1,6 @@
 <?php
-include('modele_connexions.php');
-include('vue_connexions.php');
+include('modele_connexion.php');
+include('vue_connexion.php');
 
 class ContConnexions {
 
@@ -18,31 +18,36 @@ class ContConnexions {
         if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login']) && isset($_POST['password'])) {
             $login = $_POST['login'];
             $password = $_POST['password'];
-
-            if ($this->modele->verifierUtilisateur($login, $password)) {
-                $_SESSION['login'] = $login;
     
-                // Enregistrez l'ID du joueur dans la session
-                //echo 'Connexion réussie!';
+            list($verifie, $idUtilisateur) = $this->modele->verifierUtilisateur($login, $password);
+            if ($verifie) {
+                $_SESSION['login'] = $login;
+                $_SESSION['idUtilisateur'] = $idUtilisateur;
                 header('Location: index.php?module=debut');
                 exit(); 
-               // echo '<p><a href="index.php">Retour à la page d\'accueil</a></p>';
             } else {
-                echo 'Identifiant ou mot de passe incorrect' . '<br>';
                 $this->vue->form_connexion();
             }
         } else {
             echo "Erreur lors de la connexion!";
         }
     }
+    
+    
 
     
     public function seDeconnecter() {
-        unset($_SESSION['login']);
+        // Détruire toutes les variables de session
+        session_unset();
+    
+        // Détruire la session
+        session_destroy();
+    
+        // Rediriger vers la page d'accueil
         header('Location: index.php?module=debut');
         exit();
-
     }
+    
 
     public function exec() {
         switch ($this->action) {
