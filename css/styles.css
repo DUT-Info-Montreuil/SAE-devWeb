@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* CSS général pour le body */
 body {
     font-family: 'Arial', sans-serif;
@@ -364,3 +365,72 @@ header a {
 }
 
 
+=======
+/* Ajoutez des styles pour l'arrière-plan */
+body {
+    background-image: url('background.jpg'); /* Remplacez 'background.jpg' par le chemin de votre image d'arrière-plan */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Styles pour la barre de navigation */
+.navbar {
+    background-color: #000; /* Couleur de fond noire */
+    color: #fff; /* Couleur du texte blanc */
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #ff9900; /* Couleur orange au survol */
+}
+
+/* Styles pour les cartes */
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+.card {
+    background-color: #222; /* Couleur de fond sombre */
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    margin: 10px;
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Agrandir au survol */
+}
+
+.card-image {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.card h2 {
+    color: #ff9900; /* Couleur orange pour les titres */
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+.card p {
+    color: #fff;
+    font-size: 16px;
+}
+
+/* Autres styles personnalisés selon vos besoins */
+>>>>>>> origin/tours
