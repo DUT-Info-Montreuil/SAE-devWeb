@@ -6,12 +6,12 @@ class VueMenu {
 
     public function __construct() {
         
-        $this->affichage = '<a href="?module=debut"><img src="images/titre.png" alt="logo" width = 100></a>'; 
+        $this->affichage = '<a href="?module=debut"><img src="images/logo.png" alt="logo" width = 100></a>'; 
         $this->affichage .= '<nav>';
         $this->affichage .= '<ul>';
 
-        $this->affichage .= '<li><button class="btn"><a href="#tours">Tours</a></button></li>';
-        $this->affichage .= '<li><button class="btn"><a href="#ennemis">Ennemis</a></button></li>';
+        $this->affichage .= '<li><button class="btn"><a href="#">Tours</a></button></li>';
+        $this->affichage .= '<li><button class="btn"><a href="#">Ennemis</a></button></li>';
         $this->affichage .= '<li><button class="btn"><a href="#boutique">Boutique</a></button></li>';
         $this->affichage .= '<li><button class="btn"><a href="#regles">Règles</a></button></li>';
 

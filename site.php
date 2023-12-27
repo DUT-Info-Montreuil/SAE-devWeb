@@ -6,23 +6,21 @@ class Site {
     private $module;
     
     public function __construct() {
-        // Ajustez le module par défaut selon vos besoins
         $this->module_name = isset($_GET['module']) ? $_GET['module'] : "debut"; 
 
         switch ($this->module_name) {
             case "connexion":
-    
                 require_once "modules/mod_connexion/mod_connexion.php";
-                break;
+            break;
             case "inscription":
                 require_once "modules/mod_inscription/mod_inscription.php";
-                break;
+            break;
             case "debut":
                 require_once "modules/mod_debut/mod_debut.php";
-                break;
+            break;
             case "profil":
                 require_once "modules/mod_profil/mod_profil.php";
-            break;   
+            break;     
 
             default:
                 die("Module inexistant");

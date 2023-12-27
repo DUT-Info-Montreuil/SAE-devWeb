@@ -8,11 +8,11 @@ class VueProfil extends VueGenerique {
         echo '<link rel="stylesheet" type="text/css" href="css/style_profil.css">';
         
         $cartes = [
-            ['MES PARTIES JOUÉES', 'index.php?module=profil&action=partie','images/partie.png'],
-            ['MES ENNEMIS TUÉS', 'index.php?module=profil&action=ennemis_tues', 'images/ennemis.png'],
-            ['LES ENNEMIS PARTIE', 'index.php?module=profil&action=ennemis_partie', 'images/ennemis2.png'],
+            ['MES PARTIES JOUÉES', 'index.php?module=profil&action=partie','images/cartes_profil/partie.png'],
+            ['MES ENNEMIS TUÉS', 'index.php?module=profil&action=ennemis_tues', 'images/cartes_profil/ennemis.png'],
+            ['LES ENNEMIS PARTIE', 'index.php?module=profil&action=ennemis_partie', 'images/cartes_profil/ennemis2.png'],
             ['MES TOURS PLACÉS', 'index.php?module=profil&action=tours', ''],
-            ['CLASSEMENT', 'index.php?module=profil&action=classement', 'images/classement.png'],
+            ['CLASSEMENT', 'index.php?module=profil&action=classement', 'images/cartes_profil/classement.png'],
         ];
 
         foreach ($cartes as $carte) {
