@@ -8,11 +8,11 @@ class VueProfil extends VueGenerique {
         echo '<link rel="stylesheet" type="text/css" href="css/style_profil.css">';
         
         $cartes = [
-            ['MES PARTIES JOUÉES', 'index.php?module=profil&action=partie','images/partie.png'],
-            ['MES ENNEMIS TUÉS', 'index.php?module=profil&action=ennemis_tues', 'images/ennemis.png'],
-            ['LES ENNEMIS PARTIE', 'index.php?module=profil&action=ennemis_partie', 'images/ennemis2.png'],
-            ['MES TOURS PLACÉS', 'index.php?module=profil&action=tours', ''],
-            ['CLASSEMENT', 'index.php?module=profil&action=classement', 'images/classement.png'],
+            ['MES PARTIES JOUÉES', 'index.php?module=profil&action=partie','images/profil/partie.png'],
+            ['MES ENNEMIS TUÉS', 'index.php?module=profil&action=ennemis_tues', 'images/profil/ennemis_tues.png'],
+            ['LES ENNEMIS PARTIE', 'index.php?module=profil&action=ennemis_partie', 'images/profil/ennemis.png'],
+            ['MES TOURS PLACÉS', 'index.php?module=profil&action=tours', 'images/profil/tours.png'],
+            ['CLASSEMENT', 'index.php?module=profil&action=classement', 'images/profil/classement.png'],
         ];
 
         foreach ($cartes as $carte) {
@@ -21,7 +21,7 @@ class VueProfil extends VueGenerique {
             echo $carte[0];
             echo '</div>';
         }
-        echo '</div>'; // Fermez le conteneur des cartes
+        echo '</div>';
 
         $this->boutton_profil();
 
