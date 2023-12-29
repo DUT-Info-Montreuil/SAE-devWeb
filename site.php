@@ -11,7 +11,6 @@ class Site {
 
         switch ($this->module_name) {
             case "connexion":
-    
                 require_once "modules/mod_connexion/mod_connexion.php";
                 break;
             case "inscription":
@@ -22,8 +21,10 @@ class Site {
                 break;
             case "profil":
                 require_once "modules/mod_profil/mod_profil.php";
-            break;   
-
+                break;  
+            case "parametre":
+                require_once "modules/mod_parametre/mod_parametre.php";
+                break; 
             default:
                 die("Module inexistant");
         }
