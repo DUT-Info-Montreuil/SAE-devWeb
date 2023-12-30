@@ -10,7 +10,7 @@ body {
   margin: 0; /* Remove default body margin */
 }
 
-.container {
+.container1 {
     position: relative;
     max-width: 500px;
     width: 100%;
@@ -21,14 +21,14 @@ body {
     margin: 0 auto; /* Pour centrer horizontalement */
 }
 
-.container header {
+.container1 header {
     font-size: 1.2rem;
     color: #f9f5f5;
     font-weight: 600;
     text-align: center;
 }
 
-.container .form {
+.container1 .form {
     margin-top: 15px;
 }
   

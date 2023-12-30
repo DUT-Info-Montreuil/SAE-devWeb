@@ -12,7 +12,7 @@ class VueParametre extends VueGenerique {
 
         //echo'<script src="js/script_click_parametre.js"></script>';
 
-        echo '<section class="container">';
+        echo '<section class="container1">';
         echo '<header>Modifier vos paramètres ici :</header>';
         echo '<form  id="votreFormulaire" class="form" action="index.php?module=parametre&action=modifier" method="POST" enctype="multipart/form-data" onsubmit="return verifierMotsDePasse();">';
 
