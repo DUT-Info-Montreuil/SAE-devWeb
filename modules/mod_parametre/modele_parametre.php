@@ -11,11 +11,11 @@ class ModeleParametre extends Connexion {
         $this->connexion->getBdd()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    public function modifierParametre($login, $newPassword, $newEmail) {
+    public function modifierParametre($login, $newPassword, $newEmail, $logo) {
         // Vous devriez utiliser le mot de passe et l'e-mail passés en paramètres plutôt que $mot_de_passe et $email.
         $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);
-        $query = $this->connexion->getBdd()->prepare('UPDATE joueur SET mot_de_passe=?, email=? WHERE Nom_joueur=?');
-        $result = $query->execute(array($hashedPassword, $newEmail, $login));
+        $query = $this->connexion->getBdd()->prepare('UPDATE joueur SET logo =?, mot_de_passe=?, email=? WHERE Nom_joueur=?');
+        $result = $query->execute(array($logo, $hashedPassword, $newEmail, $login));
 
         if ($result) {
             echo 'Paramètres mis à jour avec succès !';

@@ -173,3 +173,62 @@ body, html {
     from { opacity: 0; }
     to   { opacity: 1; }
 }
+
+
+/* Style de l'aperçu de l'image de profil */
+.profil-image-preview {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.profil-image-preview img {
+  max-width: 100px; /* Ajustez la taille de l'aperçu selon vos besoins */
+  max-height: 100px; /* Ajustez la taille de l'aperçu selon vos besoins */
+  border-radius: 50%; /* Création du cercle autour de l'image */
+}
+
+.no-image {
+  text-align: center;
+  color: #999;
+}
+
+/* Style du bouton "+" */
+.profil-image-upload-button {
+  display: inline-block;
+  position: absolute;
+  bottom: 5px; /* Ajustez la position verticale selon vos besoins */
+  right: 5px; /* Ajustez la position horizontale selon vos besoins */
+  width: 30px; /* Largeur du bouton "+" */
+  height: 30px; /* Hauteur du bouton "+" */
+  background-color: #67117e;
+  color: #fff; /* Couleur du texte */
+  font-size: 24px;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 50%; /* Création du cercle */
+  cursor: pointer;
+  z-index: 3;
+    position: relative;  
+}
+
+/* Style de l'aperçu de l'image de profil */
+.profil-image-preview {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.profile-image-container {
+  display: inline-block;
+  position: relative;
+}
+
+.profile-image-container img {
+  max-width: 100px; /* Ajustez la taille de l'aperçu selon vos besoins */
+  max-height: 100px; /* Ajustez la taille de l'aperçu selon vos besoins */
+  border-radius: 50%; /* Création du cercle autour de l'image */
+}
+
+
+.profil-image-upload-button:hover {
+  background-color: #0056b3; /* Couleur de fond du bouton "+" au survol */
+}

@@ -23,12 +23,23 @@ class ControleurParametre {
             $newEmail = $_POST['email'];
             $login = $_SESSION['login'];
     
-            // Authentification de l'utilisateur en vérifiant l'ancien mot de passe
+            // Vérification du mot de passe et traitement de l'image de profil
             if ($newPassword === $password_confirm && $this->modele->verifierMotDePasse($login, $ancienPassword)) {
-                // L'authentification est réussie, vous pouvez mettre à jour la base de données
-                $this->modele->modifierParametre($login, $newPassword, $newEmail);
-                echo 'Paramètres mis à jour avec succès.';
-
+                if (isset($_FILES['profil_image']) && $_FILES['profil_image']['error'] === UPLOAD_ERR_OK) {
+                    $logo = $_FILES['profil_image']['name'];
+                    $cheminDestination = 'modules/mod_parametre/logos/' . $logo;
+                    
+                    if (move_uploaded_file($_FILES['profil_image']['tmp_name'], $cheminDestination)) {
+                        $this->modele->modifierParametre($login, $newPassword, $newEmail, $cheminDestination);
+                        echo 'Paramètres mis à jour avec succès.';
+                    } else {
+                        echo 'Erreur lors du téléchargement de l\'image de profil.';
+                    }
+                } else {
+                    echo 'Veuillez sélectionner une image de profil valide.';
+                }
+            } else {
+                echo 'Mot de passe incorrect ou les mots de passe ne correspondent pas.';
             }
         }
     }

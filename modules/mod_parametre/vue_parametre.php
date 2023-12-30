@@ -16,6 +16,19 @@ class VueParametre extends VueGenerique {
         echo '<header>Modifier vos paramètres ici :</header>';
         echo '<form  id="votreFormulaire" class="form" action="index.php?module=parametre&action=modifier" method="POST" enctype="multipart/form-data" onsubmit="return verifierMotsDePasse();">';
 
+        echo '<div class="profil-image-preview">';
+        if (!empty($_SESSION['profil_image'])) {
+            echo '<div class="profile-image-container">';
+            echo '<img src="' . $_SESSION['profil_image'] . '" alt="Image de profil">';
+            echo '<div class="profil-image-upload">+';
+            echo '<label for="profil_image" class="profil-image-upload-button">+</label>';
+            echo '<input id="profil_image" type="file" name="profil_image" accept="image/*" style="display: none;" />';
+            echo '</div>';
+            echo '</div>';
+        } else {
+            echo '<div class="no-image">Aucune image de profil actuellement.</div>';
+        }
+        echo '</div>';
 
         echo '<div class="input-box">';
         echo '<label for="login">Nom d\'utilisateur</label>';
@@ -42,12 +55,11 @@ class VueParametre extends VueGenerique {
         echo '<input id="password_confirm" type="password" name="password_confirm" required placeholder="Confirmer le mot de passe" />';
         echo '</div>';
 
+       
+
         echo '<button class="submit" type="submit">Modifier</button>';
         echo '</form>';
         echo '</section>';
-
     }
 }
-
-
 ?>
