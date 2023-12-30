@@ -20,8 +20,10 @@ class Site {
             break;
             case "profil":
                 require_once "modules/mod_profil/mod_profil.php";
-            break;     
-
+                break;  
+            case "parametre":
+                require_once "modules/mod_parametre/mod_parametre.php";
+                break; 
             default:
                 die("Module inexistant");
         }

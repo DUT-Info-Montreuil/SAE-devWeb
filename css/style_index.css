@@ -97,6 +97,8 @@ footer {
     padding: 10px 0;
     width: 100%;
     background-color: #333;
+    z-index: 3;
+    position: relative;  
 }
 
 
@@ -365,5 +367,11 @@ header a {
 }
 
 
-
+/* Style de l'image de profil */
+#userMenu img {
+    width: 70px; /* Ajustez la taille de l'image de profil selon vos besoins */
+    height: 70px; /* Ajustez la taille de l'image de profil selon vos besoins */
+    border-radius: 50%; /* Création du cercle autour de l'image */
+    vertical-align: middle;
+  }
 
