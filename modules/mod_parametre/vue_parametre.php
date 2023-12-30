@@ -3,53 +3,51 @@ require_once 'vue_generique.php';
 
 class VueParametre extends VueGenerique {
 
-    public function form_modification() {
-        echo '<link rel="stylesheet" type="text/css" href="css/style_connexion.css">';
-        echo '<div class="animated-background">';
+    public function form_modification(){
+      
+        echo '<link rel="stylesheet" type="text/css" href="css/style_parametre.css">';
+        echo '<div class="animated-background"></div>';
 
-        echo '<h2>Modifier vos paramètres ici :</h2>';
+        //echo'<div id="erreurMessage" style="color: red;"></div>';
 
-        echo '<form action="index.php?module=parametre&action=parametre" method="POST" enctype="multipart/form-data" onsubmit="return verifierMotsDePasse();">';
-        echo '<div class="input-container">';
-        echo '<div class="input-content">';
-        echo '<div class="input-dist">';
-        echo '<div class="input-type">';
-        echo '<input type="hidden" name="id" value="'.$_SESSION['id'].'" required>';
-        echo '<input class="input-is" type="text" name="login" placeholder="Nom d\'utilisateur" value="'.$_SESSION['nom'].'" required>';
-        echo '<input class="input-is" type="email" name="email" placeholder="Adresse e-mail" value="'.$_SESSION['email'].'" required>';
-        echo '<input class="input-is" type="password" name="password" placeholder="Mot de passe" required>';
-        echo '<input class="input-is" type="password" name="password_confirm" required placeholder="Confirmer le mot de passe" />';
+        //echo'<script src="js/script_click_parametre.js"></script>';
+
+        echo '<section class="container">';
+        echo '<header>Modifier vos paramètres ici :</header>';
+        echo '<form  id="votreFormulaire" class="form" action="index.php?module=parametre&action=modifier" method="POST" enctype="multipart/form-data" onsubmit="return verifierMotsDePasse();">';
+
+
+        echo '<div class="input-box">';
+        echo '<label for="login">Nom d\'utilisateur</label>';
+        echo '<input id="login" type="text" name="login" placeholder="Nom d\'utilisateur" value="'.$_SESSION['login'].'" required>';
+        echo '</div>';
+
+        echo '<div class="input-box">';
+        echo '<label for="email">Adresse e-mail</label>';
+        echo '<input id="email" type="email" name="email" placeholder="Adresse e-mail" value="'.$_SESSION['email'].'" required>';
+        echo '</div>';
+
+        echo '<div class="input-box">';
+        echo '<label for="ancienPassword">Ancien Mot de passe</label>';
+        echo '<input id="ancienPassword" type="password" name="ancienPassword" placeholder="Mot de passe" required>';
+        echo '</div>';
+
+        echo '<div class="input-box">';
+        echo '<label for="newPassword">Nouveau Mot de passe</label>';
+        echo '<input id="newPassword" type="password" name="newPassword" placeholder="Mot de passe" required>';
+        echo '</div>';
+
+        echo '<div class="input-box">';
+        echo '<label for="password_confirm">Confirmer le mot de passe</label>';
+        echo '<input id="password_confirm" type="password" name="password_confirm" required placeholder="Confirmer le mot de passe" />';
+        echo '</div>';
+
         echo '<button class="submit" type="submit">Modifier</button>';
-        echo '</div>';
-        echo '</div>';
-        echo '</div>';
-        echo '</div>';
         echo '</form>';
-        
-            
-        echo '</div>';
-        echo'<script src="js/script_champ_manquant.js"></script>';
-        echo'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>';
-        echo'<script src="js/script_erreur_mp.js"></script>';
-    
-        
-    }
+        echo '</section>';
 
-    public function boutton_parametre() {
-        echo '<link rel="stylesheet" type="text/css" href="css/style_parametre_bouton.css">';
-        echo '<div class="btn-container">';
-        echo '<a href="index.php?module=parametre&action=parametre" class="boutton">';
-        echo '<strong>PARAMETRES</strong>';
-        echo '<div id="container-stars">';
-        echo '<div id="stars"></div>';
-        echo '</div>';
-        echo '<div id="glow">';
-        echo '<div class="circle"></div>';
-        echo '<div class="circle"></div>';
-        echo '</div>';
-        echo '</a>';
-        echo '</div>';     
     }
-    
 }
+
+
 ?>

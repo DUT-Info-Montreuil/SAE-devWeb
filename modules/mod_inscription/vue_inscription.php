@@ -31,9 +31,6 @@ class VueInscriptions extends VueGenerique {
         echo '</div>';
         echo '</form>';
         
-        // Ajoutez le code HTML pour afficher un logo (remplacez "votre-logo.png" par le chemin vers votre logo)
-        echo '<img src="votre-logo.png" alt="Logo" />';
-        
         echo '<p>Pour vous connecter, <a href="index.php?module=connexion">cliquer ici</a></p>';
         
         echo '</div>';

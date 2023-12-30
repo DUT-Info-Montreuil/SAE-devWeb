@@ -11,8 +11,7 @@ function validateForm() {
         loginField.focus();
         return false; // Empêche la soumission du formulaire si la validation échoue
     }
-    
-    // Vous pouvez ajouter d'autres validations ici
+
     
     return true; // Permet la soumission du formulaire si la validation réussit
 }

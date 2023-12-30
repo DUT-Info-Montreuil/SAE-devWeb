@@ -19,9 +19,10 @@ class ContConnexions {
             $login = $_POST['login'];
             $password = $_POST['password'];
     
-            list($verifie, $idUtilisateur) = $this->modele->verifierUtilisateur($login, $password);
+            list($verifie, $email, $idUtilisateur) = $this->modele->verifierUtilisateur($login, $password);
             if ($verifie) {
                 $_SESSION['login'] = $login;
+                $_SESSION['email'] = $email; // Ajout de l'email à la session
                 $_SESSION['idUtilisateur'] = $idUtilisateur;
                 header('Location: index.php?module=debut');
                 exit(); 

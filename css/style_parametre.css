@@ -1,0 +1,175 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: auto; /* Modifié de 'hidden' à 'auto' */
+    background: #000;
+    z-index: 2;
+    position: relative;
+}
+
+
+.animated-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        270deg,
+        rgba(0, 0, 0, 0.8), /* Noir semi-transparent */
+        rgba(75, 0, 130, 0.8), /* Violet foncé */
+        rgba(0, 0, 0, 0.8) /* Retour au noir */
+    );
+    background-size: 400% 400%;
+    animation: moveGradient 10s ease infinite;
+    
+}
+
+@keyframes moveGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.container {
+    position: relative;
+    max-width: 500px;
+    width: 100%;
+    background: #FCEDDA;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Pour centrer horizontalement */
+}
+
+.container header {
+    font-size: 1.2rem;
+    color: #000;
+    font-weight: 600;
+    text-align: center;
+}
+
+.container .form {
+    margin-top: 15px;
+}
+
+  
+.input-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centre verticalement les champs de saisie */
+    text-align: center; /* Centre le texte horizontalement dans les champs de saisie */
+    margin-bottom: 15px; /* Ajoute de l'espace entre les rubriques */
+}
+
+.input-box label {
+    color: #000;
+    font-weight: 600; /* Ajoute du poids à l'étiquette pour la mettre en évidence */
+    margin-bottom: 5px; /* Espacement entre l'étiquette et le champ de saisie */
+}
+
+.form :where(.input-box input, .select-box) {
+    position: relative;
+    height: 15px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+    color: #808080;
+    margin-top: 5px;
+    border: 1px solid #28032e;
+    border-radius: 6px;
+    padding: 5px 5px; /* Augmente la marge intérieure pour un meilleur aspect */
+    background: #FCEDDA;
+}
+
+.input-box input:focus {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+  .form .column {
+    display: flex;
+    column-gap: 15px;
+  }
+  
+  .form .gender-box {
+    margin-top: 50px;
+  }
+  
+  .form :where(.gender-option, .gender) {
+    display: flex;
+    align-items: center;
+    column-gap: 50px;
+    flex-wrap: wrap;
+  }
+  
+  .form .gender {
+    column-gap: 5px;
+  }
+  
+  .gender input {
+    accent-color: #67117e;
+  }
+  
+  .form :where(.gender input, .gender label) {
+    cursor: pointer;
+  }
+  
+  .gender label {
+    color: #000;
+  }
+  
+  .address :where(input, .select-box) {
+    margin-top: 10px;
+  }
+  
+  .select-box select {
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    color: #808080;
+    font-size: 1rem;
+    background: #FCEDDA;
+  }
+  
+  .form button {
+    height: 30px; /* Ajustez la hauteur à la même valeur que les champs de saisie */
+    width: 100%;
+    color: #000;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-top: 5px; /* Ajustez la marge supérieure à la même valeur que les champs de saisie */
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: #67117e;
+}
+
+  
+  .form button:hover {
+    background: #67117e;
+  }
+
+  .erreur-message {
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+    animation: fadein 2s;
+    z-index: 3;
+    position: relative; 
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
