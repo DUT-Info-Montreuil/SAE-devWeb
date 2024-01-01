@@ -21,7 +21,7 @@ class VueConnexions extends VueGenerique {
             echo '<div class="input-content">';
             echo '<div class="input-dist">';
             echo '<div class="input-type">';
-            echo '<input class="input-is" type="text" name="login" required placeholder="Nom d\'utilisateur" />';
+            echo '<input class="input-is" type="email" name="email" required placeholder="E-mail" />';
             echo '<input class="input-is" type="password" name="password" required placeholder="Mot de Passe" />';
     
             echo '<button class="submit" type="submit">Connexion</button>';
