@@ -38,6 +38,7 @@ class VueMenu {
 
         $this->affichage .= '</ul>';
         $this->affichage .= '</nav>';
+        echo' <script src="js/script_sous_menu.js"></script>';
     }
 
     public function getAffichage() {

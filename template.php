@@ -34,6 +34,5 @@
     <!-- /FOOTER -->
 
 </body>
-<script src="js/script_sous_menu.js"></script>
 
 </html>
