@@ -19,7 +19,7 @@ class VueMenu {
             // Utilisateur connecté - Afficher le sous-menu
             $this->affichage .= '<li id="userMenu">';
             if (!empty($_SESSION['profil_image'])) {
-                $this->affichage .= '<img src="' . $_SESSION['profil_image'] . '" alt="Image de profil">';
+                $this->affichage .= '<img src="' . $_SESSION['profil_image'] . '"'. $_SESSION['profil_image'] .'">';
             } else {
                 $this->affichage .= '<button class="btn"><a href="#">' . $_SESSION['login'] . '</a></button>';  
             }

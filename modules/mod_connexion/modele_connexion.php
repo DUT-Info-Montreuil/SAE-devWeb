@@ -12,7 +12,7 @@ class ModeleConnexions extends Connexion {
 
     function verifierUtilisateur($email, $password) {
         // Modification de la requête pour récupérer également l'id_joueur
-        $query = $this->connexion->getBdd()->prepare('SELECT id_joueur, Nom_joueur, mot_de_passe, logo FROM joueur WHERE email = :email');
+        $query = $this->connexion->getBdd()->prepare('SELECT id_joueur, Nom_joueur, logo, mot_de_passe FROM joueur WHERE email = :email');
         $query->execute(array(':email' => $email));
     
         $result = $query->fetch(PDO::FETCH_ASSOC);
@@ -22,7 +22,7 @@ class ModeleConnexions extends Connexion {
             return array(true, $result['id_joueur'], $result['Nom_joueur'], $result['logo']);
         } else {
             // Retourne false, null et null si le mot de passe est incorrect
-            return array(false, null, null);
+            return array(false, null, null, null);
         }
     }
     

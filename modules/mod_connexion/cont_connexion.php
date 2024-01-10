@@ -18,12 +18,12 @@ class ContConnexions {
         if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['email']) && isset($_POST['password'])) {
             $email = $_POST['email'];
             $password = $_POST['password'];
-    
+            $_SESSION['email'] = $email;
             list($verifie, $idUtilisateur, $login,  $logo) = $this->modele->verifierUtilisateur($email, $password);
             if ($verifie) {
                 $_SESSION['idUtilisateur'] = $idUtilisateur;
-                $_SESSION['profil_image'] = $logo;
                 $_SESSION['login'] = $login;
+                $_SESSION['profil_image'] = $logo;
                 header('Location: index.php?module=debut');
                 exit(); 
             } else {
