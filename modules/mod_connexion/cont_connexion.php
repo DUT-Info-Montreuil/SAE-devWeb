@@ -15,16 +15,15 @@ class ContConnexions {
     }
 
     public function seConnecter() {
-        if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['login']) && isset($_POST['password'])) {
-            $login = $_POST['login'];
+        if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['email']) && isset($_POST['password'])) {
+            $email = $_POST['email'];
             $password = $_POST['password'];
     
-            list($verifie, $email, $idUtilisateur, $logo) = $this->modele->verifierUtilisateur($login, $password);
+            list($verifie, $idUtilisateur, $login,  $logo) = $this->modele->verifierUtilisateur($email, $password);
             if ($verifie) {
-                $_SESSION['login'] = $login;
-                $_SESSION['email'] = $email; // Ajout de l'email à la session
                 $_SESSION['idUtilisateur'] = $idUtilisateur;
                 $_SESSION['profil_image'] = $logo;
+                $_SESSION['login'] = $login;
                 header('Location: index.php?module=debut');
                 exit(); 
             } else {
@@ -54,8 +53,8 @@ class ContConnexions {
     public function exec() {
         switch ($this->action) {
             case 'formulaire':
-                if (isset($_SESSION['login'])) {
-                    $this->vue->form_connexion($_SESSION['login']);
+                if (isset($_SESSION['email'])) {
+                    $this->vue->form_connexion($_SESSION['email']);
                 } else {
                     $this->vue->form_connexion();
                 }

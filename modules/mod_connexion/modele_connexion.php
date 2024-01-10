@@ -10,22 +10,21 @@ class ModeleConnexions extends Connexion {
         $this->connexion->getBdd()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    function verifierUtilisateur($login, $password) {
-        // Modification de la requête pour récupérer également l'email et l'id_joueur
-        $query = $this->connexion->getBdd()->prepare('SELECT id_joueur, email, mot_de_passe, logo FROM joueur WHERE Nom_joueur = :login');
-        $query->execute(array(':login' => $login));
+    function verifierUtilisateur($email, $password) {
+        // Modification de la requête pour récupérer également l'id_joueur
+        $query = $this->connexion->getBdd()->prepare('SELECT id_joueur, Nom_joueur, mot_de_passe, logo FROM joueur WHERE email = :email');
+        $query->execute(array(':email' => $email));
     
         $result = $query->fetch(PDO::FETCH_ASSOC);
     
         if ($result && password_verify($password, $result['mot_de_passe'])) {
-            // Retourne l'email et l'ID de l'utilisateur si le mot de passe est correct
-            return array(true, $result['email'], $result['id_joueur'], $result['logo']);
+            // Retourne l'ID de l'utilisateur si le mot de passe est correct
+            return array(true, $result['id_joueur'], $result['Nom_joueur'], $result['logo']);
         } else {
             // Retourne false, null et null si le mot de passe est incorrect
             return array(false, null, null);
         }
     }
-    
     
     
 

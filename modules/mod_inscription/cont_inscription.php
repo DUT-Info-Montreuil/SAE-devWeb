@@ -23,12 +23,22 @@ class ContInscriptions {
     
             // Vérifiez d'abord si les mots de passe correspondent
             if ($password === $password_confirm) {
-                $this->modele->ajoutInscription($login, $password, $email);
-                header('Location: index.php?module=debut');
-                exit(); 
+                // Vérifiez si l'email n'est pas déjà présent dans la base de données
+                $emailExiste = $this->modele->verifierEmailExistant($email);
+    
+                if (!$emailExiste) {
+                    // L'email n'existe pas, ajoutez l'inscription
+                    $this->modele->ajoutInscription($login, $password, $email);
+                    header('Location: index.php?module=debut');
+                    exit();
+                }
+                else {
+                    echo "<script>alert('L'email existe déjà.');</script>";   
+                }
             }
         }
     }
+    
 
     public function exec() {
         switch ($this->action) {

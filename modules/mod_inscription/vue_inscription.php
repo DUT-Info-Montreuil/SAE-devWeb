@@ -37,7 +37,10 @@ class VueInscriptions extends VueGenerique {
         echo'<script src="js/script_champ_manquant.js"></script>';
         echo'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>';
         echo'<script src="js/script_erreur_mp.js"></script>';
-        
+
+        echo' <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>';
+        echo'<script src="js/script_mail.js"></script>';
+
     }
     
 }
