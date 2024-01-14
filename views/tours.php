@@ -6,42 +6,27 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-links left">
-            <img src="photos/logo.png" alt="Interstellar Havoc Logo" class="navbar-logo">    
-            <a href="towers.html">Tours</a>
-            <a href="ennemie.html">Ennemis</a>
-            <a href="#boutique">Boutique</a>
-            <a href="#regle">Règle</a>
-        </div>
-        <div class="nav-links right">
-            <a href="#connexion">Connexion</a>
-            <a href="#jouer" class="play-button">Jouer</a>
-        </div>
-    </nav>
-    <br><br>
     <div class="content-container">
         <div class="card-container">
             <div class="card">
-                <img src="photos/Ennemie/Balliste.png" alt="Ennemie Balliste" class="card-image">
+                <img src="photos/Tours/Oppenheimer.png" alt="Tour Oppenheimer" class="card-image">
                 <div class="card-content">
-                    <h2>Balliste</h2>
+                    <h2>Oppenheimer</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="photos/Tours/Edisson.png" alt="Tour Edison" class="card-image">
+                <div class="card-content">
+                    <h2>Edison</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
             </div>
 
             <div class="card">
-                <img src="photos/Ennemie/Behemoth.png" alt="Ennemie Behemoth" class="card-image">
+                <img src="photos/Tours/Nikola.png" alt="Tour Nikolas" class="card-image">
                 <div class="card-content">
-                    <h2>Behemoth</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="photos/Ennemie/Scavenger.png" alt="Ennemie Scavenger" class="card-image">
-                <div class="card-content">
-                    <h2>Scavenger</h2>
+                    <h2>Nikolas</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                 </div>
             </div>
