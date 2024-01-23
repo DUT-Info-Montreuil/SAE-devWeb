@@ -20,13 +20,14 @@ class VueParametre extends VueGenerique {
         if (!empty($_SESSION['profil_image'])) {
             echo '<div class="profile-image-container">';
             echo '<img src="' . $_SESSION['profil_image'] . '" alt="Image de profil">';
-            echo '<div class="profil-image-upload">+';
             echo '<label for="profil_image" class="profil-image-upload-button">+</label>';
             echo '<input id="profil_image" type="file" name="profil_image" accept="image/*" style="display: none;" />';
             echo '</div>';
             echo '</div>';
         } else {
-            echo '<div class="no-image">Aucune image de profil actuellement.</div>';
+            echo '<label for="profil_image" class="profil-image-upload-button">+</label>';
+            echo '<input id="profil_image" type="file" name="profil_image" accept="image/*" style="display: none;" />';
+            echo '</div>';
         }
         echo '</div>';
 
