@@ -1,4 +1,27 @@
 
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: auto;
+    background: linear-gradient(45deg, #000000, #220033, #220055, #220077, #ff00ff, #00ffff); /* Noir en premier, puis les autres couleurs */
+    background-size: 500% 500%;
+    animation: gradientAnimation 10s ease infinite;
+    z-index: 2;
+    position: relative;
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 .content-container {
     max-width: 1200px;
     margin: 20px auto;
@@ -18,11 +41,11 @@
     width: 300px;
     margin: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    transition: transform 0.3s;
+    transition: transform 0.3s ease;
   }
   
   .card-boutique:hover {
-    transform: scale(1.05);
+    transform: scale(1.5);
   }
   
   .card-image {
@@ -36,4 +59,27 @@
     color: #ff9900;
     margin-bottom: 10px;
   }
-  
+  .descriptionBombe, .audio-player {
+    display: none; /* Cache le texte et le lecteur audio par défaut */
+}
+
+.card-boutique:hover .descriptionBombe, 
+.card-boutique:hover .audio-player {
+    display: block; 
+}
+.descriptionHydro, .audio-player {
+    display: none; /* Cache le texte et le lecteur audio par défaut */
+}
+
+.card-boutique:hover .descriptionHydro, 
+.card-boutique:hover .audio-player {
+    display: block; 
+} 
+.descriptionMur, .audio-player {
+    display: none; /* Cache le texte et le lecteur audio par défaut */
+}
+
+.card-boutique:hover .descriptionMur, 
+.card-boutique:hover .audio-player {
+    display: block; 
+}
