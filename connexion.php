@@ -5,9 +5,9 @@ class Connexion {
     private static $bdd;
 
     public static function initConnexion(){
-        $serveur = 'localhost'; 
-        $utilisateur = 'root'; 
-        $motDePasse = ''; 
+        $serveur = 'localhost';
+        $utilisateur = 'root';
+        $motDePasse = 'toto';
         $baseDeDonnees = 'interstellarhavoc';
 
         try {
@@ -16,7 +16,7 @@ class Connexion {
             die("Erreur de connexion ! " . $e->getMessage());
         }
     }
-    
+
     public function getBdd(){
         return self::$bdd;
     }

@@ -1,21 +1,22 @@
 <?php
 require_once 'vue_generique.php';
 
-class VueInscriptions extends VueGenerique { 
+class VueInscriptions extends VueGenerique {
 
-    public function form_inscription() {
+    public function form_inscription($errorMessage = "") {
         echo '<link rel="stylesheet" type="text/css" href="css/style_connexion.css">';
         echo '<div class="animated-background"></div>';
-    
-        // Bloc de message de bienvenue
         echo '<div class="welcome-message">';
         echo '<p>"Chaque grand voyage commence par un petit pas."</p>';
         echo '</div>';
-
         echo '<h3>Votre légende commence ici !</h3>';
 
+        if (!empty($errorMessage)) {
+            echo '<p class="error-message">' . htmlspecialchars($errorMessage) . '</p>';
+        }
+
         echo '<div class="form-container">';
-        echo '<form class="container" action="index.php?module=inscription&action=inscription" method="POST" onsubmit="return verifierMotsDePasse();">';
+        echo '<form class="container" action="index.php?module=inscription&action=inscription" method="POST">';
         echo '<div class="input-container">';
         echo '<div class="input-content">';
         echo '<div class="input-dist">';
@@ -30,19 +31,8 @@ class VueInscriptions extends VueGenerique {
         echo '</div>';
         echo '</div>';
         echo '</form>';
-        
-        // Ajoutez le code HTML pour afficher un logo (remplacez "votre-logo.png" par le chemin vers votre logo)
-        echo '<img src="votre-logo.png" alt="Logo" />';
-        
         echo '<p>Pour vous connecter, <a href="index.php?module=connexion">cliquer ici</a></p>';
-        
         echo '</div>';
-        echo'<script src="js/script_champ_manquant.js"></script>';
-        echo'<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>';
-        echo'<script src="js/script_erreur_mp.js"></script>';
-        
     }
-    
 }
 ?>
-
