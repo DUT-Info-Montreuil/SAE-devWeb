@@ -17,18 +17,21 @@ class VueParametre extends VueGenerique {
         echo '<form  id="votreFormulaire" class="form" action="index.php?module=parametre&action=modifier" method="POST" enctype="multipart/form-data" onsubmit="return verifierMotsDePasse();">';
 
         echo '<div class="profil-image-preview">';
+       // echo '<div class="profil-image-preview">';
+
         if (!empty($_SESSION['profil_image'])) {
             echo '<div class="profile-image-container">';
             echo '<img src="' . $_SESSION['profil_image'] . '" alt="Image de profil">';
             echo '<label for="profil_image" class="profil-image-upload-button">+</label>';
             echo '<input id="profil_image" type="file" name="profil_image" accept="image/*" style="display: none;" />';
             echo '</div>';
-            echo '</div>';
         } else {
-            echo '<label for="profil_image" class="profil-image-upload-button">+</label>';
+            echo '<label for="profil_image" class="profil-image-upload-button">';
+            echo '<img src="" alt="">';
+            echo ' + </label>';
             echo '<input id="profil_image" type="file" name="profil_image" accept="image/*" style="display: none;" />';
-            echo '</div>';
         }
+        
         echo '</div>';
 
         echo '<div class="input-box">';
