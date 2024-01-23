@@ -49,6 +49,7 @@ class VueProfil extends VueGenerique {
     public function afficherTableauParties($donnees) {
         echo '<link rel="stylesheet" type="text/css" href="css/style_profil_tableau.css">';
         if ($donnees) {
+            // Afficher le tableau
             echo '<div class="parties-container">';
             echo '<table class="styled-table">';
             echo '<thead><tr><th>ID Partie</th><th>Date</th><th>Heure</th><th>Score</th><th>Temps</th><th>ID Joueur</th><th>ID Terrain</th></tr></thead>';
@@ -64,10 +65,66 @@ class VueProfil extends VueGenerique {
                 echo '<td>' . htmlspecialchars($row['id_terrain']) . '</td>';
                 echo '</tr>';
             }
-            echo '</tbody></table></div>';
+            echo '</tbody></table>';
+            
+            // Afficher le graphique simplifié
+            $this->afficherGraphiquePartiesSimplifie($donnees);
+    
+            echo '</div>'; // Fermeture de la div parties-container
+    
+            // Afficher le bouton après le graphique
+           
         } 
+    }
+    
+    
+    public function afficherGraphiquePartiesSimplifie($donnees) {
+        echo '<canvas id="partiesChart" width="370" height="200"></canvas>';
+        echo '<script>';
+        echo 'var ctx = document.getElementById("partiesChart").getContext("2d");';
+        echo 'var partiesData = ' . json_encode($donnees) . ';'; // Convertir les données PHP en JSON
+        echo 'var labels = partiesData.map(function(partie) { return partie.idPartie; });';
+        echo 'var scores = partiesData.map(function(partie) { return partie.score; });';
+        echo 'var chart = new Chart(ctx, {';
+        echo '    type: "bar",';
+        echo '    data: {';
+        echo '        labels: labels,';
+        echo '        datasets: [{';
+        echo '            label: "Scores des parties",';
+        echo '            data: scores,';
+        echo '            backgroundColor: "rgba(75, 192, 192, 0.2)",';
+        echo '            borderColor: "rgba(75, 192, 192, 1)",';
+        echo '            borderWidth: 1';
+        echo '        }]';
+        echo '    }';
+        echo '});';
+        echo '</script>';
+    }
+    
+    public function afficherExplicationTableau() {
+        echo '<link rel="stylesheet" type="text/css" href="css/style_profil.css">';
+        echo' <div class="explication-tableau">
+        <h2>Graphique des Scores</h2>
+        <p>Bienvenue sur votre tableau des scores, un aperçu visuel de votre performance dans différentes parties du jeu. Ce graphique présente un résumé des scores obtenus au fil des parties.</p>
+        <p><strong>Comment lire le tableau :</strong></p>
+        <ul>
+            <li><strong>ID Partie :</strong> Identifiant unique de chaque partie enregistrée.</li>
+            <li><strong>Date et Heure :</strong> Le moment précis où la partie a été jouée.</li>
+            <li><strong>Score :</strong> Le score total obtenu dans cette partie.</li>
+            <li><strong>Temps :</strong> La durée totale de la partie.</li>
+            <li><strong>ID Joueur :</strong> Votre identifiant unique associé à cette partie.</li>
+            <li><strong>ID Terrain :</strong> L\'identifiant du terrain sur lequel la partie a eu lieu.</li>
+        </ul>
+        <p>Explorez ce tableau interactif pour analyser les tendances, repérer les performances exceptionnelles, et suivre l\'évolution des scores au fil du temps.</p>
+        <p>Prenez le contrôle de votre progression et aspirez à de nouveaux sommets. Bonne exploration ! 🚀🎮</p>
+    </div>';
+    
+        echo '<div style="margin-bottom: 80px;"></div>';
+    
         $this->boutton_profil();
     }
+    
+    
 
     public function afficherTableauEnnemisPartie($donnees) {
         echo '<link rel="stylesheet" type="text/css" href="css/style_profil_tableau.css">';
@@ -91,6 +148,8 @@ class VueProfil extends VueGenerique {
         }
         $this->boutton_profil();
     }
+
+    
     
     public function afficherTableauEnnemisTues($donnees) {
         echo '<link rel="stylesheet" type="text/css" href="css/style_profil_tableau.css">';

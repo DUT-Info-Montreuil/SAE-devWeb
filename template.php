@@ -5,6 +5,7 @@
     <title>Titre de la Page</title>
     <link rel="stylesheet" type="text/css" href="css/style_index.css">
     <!--<link rel="stylesheet" href="css/styles.css">-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <head>
     
 </head>
