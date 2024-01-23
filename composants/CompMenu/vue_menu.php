@@ -12,7 +12,7 @@ class VueMenu {
 
         $this->affichage .= '<li><button class="btn"><a href="#">Tours</a></button></li>';
         $this->affichage .= '<li><button class="btn"><a href="#">Ennemis</a></button></li>';
-        $this->affichage .= '<li><button class="btn"><a href="#boutique">Boutique</a></button></li>';
+        $this->affichage .= '<li><button class="btn"><a href="index.php?module=boutique&action=boutique">Boutique</a></button></li>';
         $this->affichage .= '<li><button class="btn"><a href="#regles">Règles</a></button></li>';
 
         if (isset($_SESSION['login'])) {
