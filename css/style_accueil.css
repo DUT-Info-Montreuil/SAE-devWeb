@@ -1,4 +1,74 @@
 
+/* Styliser le header */
+header {
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding: 1em;
+    z-index: 2; /* Ajouté ici */
+    position: relative;  
+}
+
+nav {
+   
+    /* ou */
+    padding-left: 490px; /* Ajoutez un padding à gauche */
+    /* ... autres propriétés ... */
+}
+
+.sub-menu {
+    display: none;
+    /* ... autres styles ... */
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center; /* Align vertically within the flex container */
+    
+}
+
+nav ul li {
+    margin-right: 20px;
+    position: relative; 
+}
+
+/* Styliser les liens de navigation pour qu'ils apparaissent comme des boutons */
+nav ul li a.btn {
+    text-decoration: none;
+    color: var(--color);
+    position: relative;
+    isolation: isolate;
+    display: inline-grid;
+    place-content: center;
+    padding: .5em 1.5em;
+    font-size: 17px;
+    border: 0;
+    text-transform: uppercase;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
+    clip-path: polygon(
+        /* Top-left */
+        0% var(--curve-size),
+
+        var(--curve-size) 0,
+        /* top-right */
+        100% 0,
+        100% calc(100% - var(--curve-size)),
+
+        /* bottom-right 1 */
+        calc(100% - var(--curve-size)) 100%,
+        /* bottom-right 2 */
+        0 100%);
+    transition: color 250ms;
+}
+
+/* Ajouter un effet de survol pour les liens de navigation */
+nav ul li a.btn:hover {
+    color: #fff;
+    list-style: none;
+}
+
 /* Style pour le sous-menu */
 nav ul li ul.sub-menu {
     display: none;
@@ -48,6 +118,7 @@ header img {
     max-width: 110px;
     height: auto;
 }
+
 
 /* Ajoutez ce style pour rendre l'image cliquable */
 header a {
@@ -238,16 +309,17 @@ header a {
     height: 70px; /* Ajustez la taille de l'image de profil selon vos besoins */
     border-radius: 50%; /* Création du cercle autour de l'image */
     vertical-align: middle;
-  }
+}
 
-
-.html{
-    height: 100%;
+/* Reset de base pour assurer la cohérence entre les navigateurs */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /* CSS général pour le body */
 body {
-    height: 100%;
     font-family: 'Arial', sans-serif;
     background: url('../images/imageFondAccueil.png') no-repeat center center scroll;
     background-size: cover;
@@ -255,74 +327,6 @@ body {
     margin: 0; /* Remove default body margin */
 }
 
-/* Styliser le header */
-header {
-    display: flex;
-    position: relative;
-    align-items: center;
-    padding: 1em;
-    z-index: 2; /* Ajouté ici */
-    position: relative;  
-}
-
-nav {
-   
-    /* ou */
-    padding-left: 490px; /* Ajoutez un padding à gauche */
-    /* ... autres propriétés ... */
-}
-
-.sub-menu {
-    display: none;
-    /* ... autres styles ... */
-}
-
-
-nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center; /* Align vertically within the flex container */
-    
-}
-
-nav ul li {
-    margin-right: 20px;
-    position: relative; 
-}
-
-/* Styliser les liens de navigation pour qu'ils apparaissent comme des boutons */
-nav ul li a.btn {
-    text-decoration: none;
-    color: var(--color);
-    position: relative;
-    isolation: isolate;
-    display: inline-grid;
-    place-content: center;
-    padding: .5em 1.5em;
-    font-size: 17px;
-    border: 0;
-    text-transform: uppercase;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
-    clip-path: polygon(
-        /* Top-left */
-        0% var(--curve-size),
-
-        var(--curve-size) 0,
-        /* top-right */
-        100% 0,
-        100% calc(100% - var(--curve-size)),
-
-        /* bottom-right 1 */
-        calc(100% - var(--curve-size)) 100%,
-        /* bottom-right 2 */
-        0 100%);
-    transition: color 250ms;
-}
-
-/* Ajouter un effet de survol pour les liens de navigation */
-nav ul li a.btn:hover {
-    color: #fff;
-}
 
 /* Styliser le main */
 main {
@@ -338,6 +342,10 @@ main img {
     display: block;
     margin: 0 auto;
 }
+/* Styles pour le footer */
+
+
+
 /* Styles pour le footer LoL */
 footer {
     color: #fff;
@@ -345,7 +353,7 @@ footer {
     text-align: center;
     padding: 10px 0;
     width: 100%;
-    background-color: purple;
+    background-color: #222;
     position: relative;
     bottom: 0;
     width: 100%;
@@ -385,54 +393,158 @@ footer {
     font-size: 14px;
 }
 
+.footer-links a:hover {
+    color: orangered;
+}
 
-.parent {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .child {
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform-style: preserve-3d;
-    transition: all 0.5s ease-in-out;
-    border-radius: 50%;
-    margin: 0 5px;
-  }
-  
-  .child:hover {
-    background-color: white;
-    background-position: -100px 100px, -100px 100px;
-    transform: rotate3d(0.5, 1, 0, 30deg);
-    transform: perspective(180px) rotateX(60deg) translateY(2px);
-    box-shadow: 0px 10px 10px rgb(1, 49, 182);
-  }
-  
-  button {
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+.footer-social {
+    margin-top: 20px;
+}
+
+.footer-social .button {
+    background: none;
     border: none;
-    background-color: transparent;
-    font-size: 20px;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.footer-social .button svg {
+    fill: white; /* Assurez-vous que vos SVGs gèrent la propriété fill pour la couleur */
+    height: 30px;
+    width: 30px;
+    transition: fill 0.3s ease;
+}
+
+.footer-social .button:hover svg {
+    fill: #1e90ff;
+}
+
+.reseaux_sociaux {
+    width: fit-content;
+    height: fit-content;
+    background-color: rgb(238, 238, 238);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 25px;
+    gap: 20px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
   }
   
-  .button:hover {
-    width: inherit;
-    height: inherit;
+  /* for all social containers*/
+  .socialContainer {
+    width: 52px;
+    height: 52px;
+    border-radius: 5px;
+    background-color: rgb(44, 44, 44);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition-duration: 0.3s;
+  }
+  /* instagram*/
+  .containerOne:hover {
+    background-color: #d62976;
+    transition-duration: 0.3s;
+  }
+  /* twitter*/
+  .containerTwo:hover {
+    background-color: #00acee;
+    transition-duration: 0.3s;
+  }
+  /* linkdin*/
+  .containerThree:hover {
+    background-color: #0072b1;
+    transition-duration: 0.3s;
+  }
+  /* Whatsapp*/
+  .containerFour:hover {
+    background-color: green;
+    transition-duration: 0.3s;
+  }
+  
+  .socialContainer:active {
+    transform: scale(0.9);
+    transition-duration: 0.3s;
+  }
+  
+  .socialSvg {
+    width: 17px;
+  }
+  
+  .socialSvg path {
+    fill: rgb(255, 255, 255);
+  }
+  
+  .socialContainer:hover .socialSvg {
+    animation: slide-in-top 0.3s both;
+  }
+  
+  @keyframes slide-in-top {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+
+
+/* Styles pour la section newsletter si elle est dans le footer */
+.footer-newsletter {
+    flex-basis: 40%;
+    background: #333;
+    color: #fff;
+    padding: 2em;
+    text-align: center;
+    width: 100%; /* Assurez-vous que la newsletter s'étend sur toute la largeur si nécessaire */
+}
+
+.newsletter h2 {
+    margin-bottom: 20px;
+}
+
+.newsletter form {
     display: flex;
     justify-content: center;
-    align-items: center;
-    transform: translate3d(0px, 0px, 15px) perspective(180px) rotateX(-35deg) translateY(2px);
-    border-radius: 50%;
-  }
+    gap: 10px;
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.newsletter button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: purple;
+    color: white;
+    cursor: pointer;
+}
+
+.newsletter button:hover {
+    background-color: orangered;
+}
 
 
 
-/* Ajoutez ces styles pour changer la police d'écriture */
-body {
-    font-family: 'YourPreferredFont', sans-serif;
+/* Responsive design */
+@media (max-width: 768px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
 }
