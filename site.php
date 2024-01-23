@@ -27,6 +27,9 @@ class Site {
             case "boutique":
                 require_once "modules/mod_boutique/mod_boutique.php";
                 break; 
+            case "boutique":
+                require_once "modules/mod_regles/mod_regles.php";
+                 break; 
             default:
                 die("Module inexistant");
         }
