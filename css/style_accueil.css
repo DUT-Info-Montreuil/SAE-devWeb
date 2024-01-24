@@ -1,3 +1,12 @@
+body {
+    /*url('../images/imageFondAccueil.png') no-repeat center center scroll;*/
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    background: black;
+    background-size: cover;
+    color: white;
+    margin: 0; /* Remove default body margin */
+}
 
 html, body {
     height: 100%;
@@ -328,14 +337,7 @@ header a {
     box-sizing: border-box;
 }
 
-/* CSS général pour le body */
-body {
-    font-family: 'Arial', sans-serif;
-    background: url('../images/imageFondAccueil.png') no-repeat center center scroll;
-    background-size: cover;
-    color: white;
-    margin: 0; /* Remove default body margin */
-}
+
 
 
 /* Styliser le main */
@@ -527,4 +529,84 @@ footer {
     .content {
         grid-template-columns: 1fr;
     }
+}
+
+.style_bouton {
+    padding: 15px 30px;
+    background-color: #f018da;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.heading {
+    font-family: 'Press Start 2P', cursive; /* Votre police d'origine */
+    /* Ajoutez une police majuscule de style "gaming" comme alternative */
+    font-family: 'Exo 2', sans-serif;
+    font-size: 36px;
+    color: #d80adf;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 20px;
+    border: 3px double #292829;
+    padding: 10px;
+    transition: background-color 0.5s ease-in-out;
+    animation: fadeInUpTitle 1s ease-in-out;
+}
+@keyframes fadeInUpTitle {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+  
+.paragraphe {
+    margin-top: 30px; 
+    font-size: 14px;    
+    color: #777;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    align-items: center;
+}
+
+.grid-container:first-child {
+    margin-bottom: 100px; /* Ajoute un grand espace en bas du premier grid-container */
+}
+
+/* Style pour le deuxième grid-container */
+.grid-container:last-child {
+    margin-top: 100px; /* Ajoute un grand espace en haut du deuxième grid-container */
+}
+.image-description {
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+}
+
+.description {
+    font-family: 'Press Start 2P', cursive; /* Utilisation de la police Press Start 2P */
+    font-size: 24px; /* Taille de la police */
+    color: #dc790e; /* Couleur du texte en noir */
+    text-align: center; /* Centrer le texte */
+    margin-top: 10px; /* Marge supérieure */
+    z-index: 3; /* Ajouté ici */
+    position: relative; 
+}
+
+/* Style pour les images de profil */
+.img-profil {
+    max-width: 500px;
+    height: auto;
+    margin: 20px;
+    margin-bottom: 100px;
 }
