@@ -5,6 +5,7 @@ class VueCompFooter {
     public function __construct() {
         $this->affichage = '
         <footer>
+       
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-links">

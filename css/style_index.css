@@ -5,9 +5,10 @@
 
 /* CSS général pour le body */
 body {
+    /*url('../images/imageFondAccueil.png') no-repeat center center scroll;*/
     height: 100%;
     font-family: 'Arial', sans-serif;
-    background: url('../images/imageFondAccueil.png') no-repeat center center scroll;
+    background: black;
     background-size: cover;
     color: white;
     margin: 0; /* Remove default body margin */
@@ -189,11 +190,6 @@ footer {
   }
 
 
-
-/* Ajoutez ces styles pour changer la police d'écriture */
-body {
-    font-family: 'YourPreferredFont', sans-serif;
-}
 
 /* Style pour le sous-menu */
 nav ul li ul.sub-menu {
@@ -436,3 +432,66 @@ header a {
     vertical-align: middle;
   }
 
+  .style_bouton {
+    padding: 15px 30px;
+    background-color: #12a32c;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.heading {
+    font-family: 'Press Start 2P', cursive; /* Votre police d'origine */
+    /* Ajoutez une police majuscule de style "gaming" comme alternative */
+    font-family: 'Exo 2', sans-serif;
+    font-size: 36px;
+    color: #d80adf;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 20px;
+    border: 3px double #292829;
+    padding: 10px;
+    transition: background-color 0.5s ease-in-out;
+    animation: fadeInUpTitle 1s ease-in-out;
+}
+@keyframes fadeInUpTitle {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+  
+.paragraphe {
+    margin-top: 30px; 
+    font-size: 14px;    
+    color: #777;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    align-items: center;
+}
+.image-description {
+    text-align: center;
+    font-size: 14px;
+    color: #777;
+    margin-top: 10px;
+}
+
+.description {
+    font-family: 'Press Start 2P', cursive; /* Utilisation de la police Press Start 2P */
+    font-size: 24px; /* Taille de la police */
+    color: #dc790e; /* Couleur du texte en noir */
+    text-align: center; /* Centrer le texte */
+    margin-top: 10px; /* Marge supérieure */
+    z-index: 3; /* Ajouté ici */
+    position: relative; 
+}

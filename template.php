@@ -29,6 +29,7 @@
 
     <!-- FOOTER -->
     <footer>
+        
         <?php echo $footer->exec();?>
     </footer>
     <!-- /FOOTER -->
