@@ -10,8 +10,8 @@ class ContConnexions {
 
     public function __construct() {
         $this->modele = new ModeleConnexions();
-        $this->vue = new VueConnexions();    
-        $this->action = isset($_GET['action']) ? $_GET['action'] : 'formulaire';  
+        $this->vue = new VueConnexions();
+        $this->action = isset($_GET['action']) ? $_GET['action'] : 'formulaire';
     }
 
     public function seConnecter() {
@@ -25,7 +25,7 @@ class ContConnexions {
                 $_SESSION['login'] = $login;
                 $_SESSION['profil_image'] = $logo;
                 header('Location: index.php?module=debut');
-                exit(); 
+                exit();
             } else {
                 $this->vue->form_connexion();
             }
@@ -33,22 +33,22 @@ class ContConnexions {
             echo "Erreur lors de la connexion!";
         }
     }
-    
-    
 
-    
+
+
+
     public function seDeconnecter() {
         // Détruire toutes les variables de session
         session_unset();
-    
+
         // Détruire la session
         session_destroy();
-    
+
         // Rediriger vers la page d'accueil
         header('Location: index.php?module=debut');
         exit();
     }
-    
+
 
     public function exec() {
         switch ($this->action) {
