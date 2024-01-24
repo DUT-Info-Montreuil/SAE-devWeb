@@ -10,8 +10,8 @@ class VueMenu {
         $this->affichage .= '<nav>';
         $this->affichage .= '<ul>';
 
-        $this->affichage .= '<li><button class="btn"><a href="#">Tours</a></button></li>';
-        $this->affichage .= '<li><button class="btn"><a href="#">Ennemis</a></button></li>';
+        $this->affichage .= '<li><button class="btn"><a href="index.php?module=tours&action=tours">Tours</a></button></li>';
+        $this->affichage .= '<li><button class="btn"><a href="index.php?module=ennemi&action=ennemi">Ennemis</a></button></li>';
         $this->affichage .= '<li><button class="btn"><a href="index.php?module=boutique&action=boutique">Boutique</a></button></li>';
         $this->affichage .= '<li><button class="btn"><a href="#regles">Règles</a></button></li>';
 
