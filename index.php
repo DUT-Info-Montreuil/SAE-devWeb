@@ -7,7 +7,5 @@
     $footer = new CompFooter();
 
     require_once 'template.php';
-    
-?>
 
- 
+?>
