@@ -45,11 +45,11 @@ class VueDebut extends VueGenerique {
         </section>
     </main>
 
-
-    <!-- Footer -->
-    <footer>
-     
-    </footer>
+         <!-- Footer -->
+    <?php
+        // Inclure la vue du footer ici
+        include('vueFooter.php');
+    ?>
 </body>
 </html>
 

@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page d'accueil</title>
     <!-- Feuille de style pour la page d'accueil -->
-    <!--link rel="stylesheet" type="text/css" href="css/style_accueil.css"-->
-    <!--link rel="stylesheet" type="text/css" href="css/style_index.css"-->
+    <link rel="stylesheet" type="text/css" href="css/style_accueil.css">
     <!-- Feuille de style dédiée au footer -->
 </head>
 <body>
