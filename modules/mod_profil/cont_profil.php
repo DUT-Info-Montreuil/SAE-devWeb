@@ -39,6 +39,18 @@ class ContProfil {
                 $donnees = $this->modele->recupererClassementPartiesJoueurConnecte();
                 $this->vue->afficherClassementParties($donnees);
             break;
+            case 'ami':
+                $donneesAmis = $this->modele->recupererAmisJoueurConnecte();
+                $this->vue->afficherListeAmis($donneesAmis);
+            break;
+            case 'rechercher':
+                if (isset($_POST['recherche'])) {
+                    $recherche = $_POST['recherche'];
+                    $resultats = $this->modele->rechercherJoueur($recherche);
+                    $this->vue->afficherResultatsRecherche($resultats);
+                }
+            break;
+
             
         }
     }

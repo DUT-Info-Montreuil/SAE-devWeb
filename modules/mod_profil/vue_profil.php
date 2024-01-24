@@ -13,6 +13,7 @@ class VueProfil extends VueGenerique {
             ['LES ENNEMIS PARTIE', 'index.php?module=profil&action=ennemis_partie', 'images/profil/ennemis.png'],
             ['MES TOURS PLACÉS', 'index.php?module=profil&action=tours', 'images/profil/tours.png'],
             ['CLASSEMENT', 'index.php?module=profil&action=classement', 'images/profil/classement.png'],
+            ['Ami', 'index.php?module=profil&action=ami', 'images/profil/amis.png'],
         ];
 
         foreach ($cartes as $carte) {
@@ -172,7 +173,41 @@ class VueProfil extends VueGenerique {
         }
         $this->boutton_profil();
     }
+    public function afficherListeAmis($listeAmis) {
+        echo '<div class="liste-amis">';
+        foreach ($listeAmis as $ami) {
+            echo '<div class="ami">';
+            echo '<p>Nom : ' . htmlspecialchars($ami['nom_joueur']) . '</p>';
+            echo '</div>';
+        }
+        echo '</div>';
+        $this->boutton_profil();
+    }
     
+    public function afficherFormulaireRecherche() {
+        echo '<form action="index.php?module=profil&action=rechercher" method="post">';
+        echo '<input type="text" name="recherche" placeholder="Rechercher un joueur par nom ou ID">';
+        echo '<button type="submit">Rechercher</button>';
+        echo '</form>';
+        $this->boutton_profil();
+    }
+    public function afficherResultatsRecherche($resultats) {
+        if (!empty($resultats)) {
+            echo '<div class="resultats-recherche">';
+            foreach ($resultats as $joueur) {
+                echo '<div class="joueur">';
+                echo '<p>ID: ' . htmlspecialchars($joueur['id_joueur']) . '</p>';
+                echo '<p>Nom: ' . htmlspecialchars($joueur['nom_joueur']) . '</p>';
+                echo '</div>';
+            }
+            echo '</div>';
+        } else {
+            echo '<p>Aucun joueur trouvé.</p>';
+        }
+        $this->boutton_profil();
+    }
+    
+
     
 }
 ?>
