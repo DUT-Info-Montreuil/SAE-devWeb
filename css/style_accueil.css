@@ -1,12 +1,82 @@
-/* CSS général pour le body */
-body {
-    /*url('../images/imageFondAccueil.png') no-repeat center center scroll;*/
+
+html, body {
     height: 100%;
-    font-family: 'Arial', sans-serif;
-    background: black;
-    background-size: cover;
-    color: white;
-    margin: 0; /* Remove default body margin */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto; /* Flex grow, no shrink, auto basis */
+}
+/* Styliser le header */
+header {
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding: 1em;
+    z-index: 2; /* Ajouté ici */
+    position: relative;  
+}
+
+nav {
+   
+    /* ou */
+    padding-left: 490px; /* Ajoutez un padding à gauche */
+    /* ... autres propriétés ... */
+}
+
+.sub-menu {
+    display: none;
+    /* ... autres styles ... */
+}
+
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center; /* Align vertically within the flex container */
+    
+}
+
+nav ul li {
+    margin-right: 20px;
+    position: relative; 
+}
+
+/* Styliser les liens de navigation pour qu'ils apparaissent comme des boutons */
+nav ul li a.btn {
+    text-decoration: none;
+    color: var(--color);
+    position: relative;
+    isolation: isolate;
+    display: inline-grid;
+    place-content: center;
+    padding: .5em 1.5em;
+    font-size: 17px;
+    border: 0;
+    text-transform: uppercase;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
+    clip-path: polygon(
+        /* Top-left */
+        0% var(--curve-size),
+
+        var(--curve-size) 0,
+        /* top-right */
+        100% 0,
+        100% calc(100% - var(--curve-size)),
+
+        /* bottom-right 1 */
+        calc(100% - var(--curve-size)) 100%,
+        /* bottom-right 2 */
+        0 100%);
+    transition: color 250ms;
+}
+
+/* Ajouter un effet de survol pour les liens de navigation */
+nav ul li a.btn:hover {
+    color: #fff;
+    list-style: none;
 }
 
 /* Style pour le sous-menu */
@@ -58,6 +128,7 @@ header img {
     max-width: 110px;
     height: auto;
 }
+
 
 /* Ajoutez ce style pour rendre l'image cliquable */
 header a {
@@ -248,82 +319,24 @@ header a {
     height: 70px; /* Ajustez la taille de l'image de profil selon vos besoins */
     border-radius: 50%; /* Création du cercle autour de l'image */
     vertical-align: middle;
-  }
-
-
-  .html{
-    height: 100%;
 }
 
-
-/* Styliser le header */
-header {
-    display: flex;
-    position: relative;
-    align-items: center;
-    padding: 1em;
-    z-index: 2; /* Ajouté ici */
-    position: relative;  
+/* Reset de base pour assurer la cohérence entre les navigateurs */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-nav {
-   
-    /* ou */
-    padding-left: 490px; /* Ajoutez un padding à gauche */
-    /* ... autres propriétés ... */
+/* CSS général pour le body */
+body {
+    font-family: 'Arial', sans-serif;
+    background: url('../images/imageFondAccueil.png') no-repeat center center scroll;
+    background-size: cover;
+    color: white;
+    margin: 0; /* Remove default body margin */
 }
 
-.sub-menu {
-    display: none;
-    /* ... autres styles ... */
-}
-
-
-nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center; /* Align vertically within the flex container */
-    
-}
-
-nav ul li {
-    margin-right: 20px;
-    position: relative; 
-}
-
-/* Styliser les liens de navigation pour qu'ils apparaissent comme des boutons */
-nav ul li a.btn {
-    text-decoration: none;
-    color: var(--color);
-    position: relative;
-    isolation: isolate;
-    display: inline-grid;
-    place-content: center;
-    padding: .5em 1.5em;
-    font-size: 17px;
-    border: 0;
-    text-transform: uppercase;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
-    clip-path: polygon(
-        /* Top-left */
-        0% var(--curve-size),
-
-        var(--curve-size) 0,
-        /* top-right */
-        100% 0,
-        100% calc(100% - var(--curve-size)),
-
-        /* bottom-right 1 */
-        calc(100% - var(--curve-size)) 100%,
-        /* bottom-right 2 */
-        0 100%);
-    transition: color 250ms;
-}
-
-/* Ajouter un effet de survol pour les liens de navigation */
-nav ul li a.btn:hover {
-    color: #fff;
-}
 
 /* Styliser le main */
 main {
@@ -339,6 +352,9 @@ main img {
     display: block;
     margin: 0 auto;
 }
+
+
+
 /* Styles pour le footer LoL */
 footer {
     color: #fff;
@@ -346,7 +362,7 @@ footer {
     text-align: center;
     padding: 10px 0;
     width: 100%;
-    background-color: purple;
+    background-color: #222;
     position: relative;
     bottom: 0;
     width: 100%;
@@ -386,6 +402,39 @@ footer {
     font-size: 14px;
 }
 
+.footer-links a:hover {
+    color: orangered;
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 0.8em;
+    opacity: 0.7;
+}
+
+.footer-social {
+    margin-top: 20px;
+}
+
+.footer-social .button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.footer-social .button svg {
+    fill: white; /* Assurez-vous que vos SVGs gèrent la propriété fill pour la couleur */
+    height: 30px;
+    width: 30px;
+    transition: fill 0.3s ease;
+}
+
+.footer-social .button:hover svg {
+    fill: #1e90ff;
+}
+
+/* Social buttons */
 
 .parent {
     width: 100%;
@@ -432,8 +481,50 @@ footer {
   }
 
 
+/* Styles pour la section newsletter si elle est dans le footer */
+.footer-newsletter {
+    flex-basis: 40%;
+    background: #333;
+    color: #fff;
+    padding: 2em;
+    text-align: center;
+    width: 100%; /* Assurez-vous que la newsletter s'étend sur toute la largeur si nécessaire */
+}
 
-/* Ajoutez ces styles pour changer la police d'écriture */
-body {
-    font-family: 'YourPreferredFont', sans-serif;
+.newsletter h2 {
+    margin-bottom: 20px;
+}
+
+.newsletter form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.newsletter button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: purple;
+    color: white;
+    cursor: pointer;
+}
+
+.newsletter button:hover {
+    background-color: orangered;
+}
+
+
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
 }
