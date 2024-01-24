@@ -172,7 +172,25 @@ class ModeleProfil extends Connexion {
         return $resultats;
     }
     
+    public function AmiRecupererEnnemisTues($idJoueur) {
+        $donnees = [];
+        $requete = "SELECT e.*, ep.* 
+                    FROM ennemi_partie ep
+                    INNER JOIN ennemi e ON ep.id_ennemi = e.id_ennemi
+                    WHERE ep.idPartie IN (SELECT idPartie FROM partie WHERE id_joueur = :idJoueur) 
+                    AND ep.Vie_partie = 0";
+        $stmt = $this->connexion->getBdd()->prepare($requete);
+        $stmt->bindParam(':idJoueur', $idJoueur, PDO::PARAM_INT);
     
+        if ($stmt->execute()) {
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $donnees[] = $row;
+            }
+            return $donnees;
+        } else {
+            return null;
+        }
+    }
     
     
     

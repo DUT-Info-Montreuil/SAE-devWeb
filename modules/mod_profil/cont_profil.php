@@ -50,6 +50,16 @@ class ContProfil {
                     $this->vue->afficherResultatsRecherche($resultats);
                 }
             break;
+            case 'voir_stats_joueur':
+                if (isset($_GET['idJoueur'])) {
+                    $idJoueur = $_GET['idJoueur'];
+                    $donneesEnnemisPartie = $this->modele->AmiRecupererEnnemisPartie($idJoueur);
+                    $donneesEnnemisTues = $this->modele->AmiRecupererEnnemisTues($idJoueur);
+                    $donneesToursPlacees = $this->modele->AmiRecupererToursPlacees($idJoueur);
+                    $donneesClassement = $this->modele->AmiRecupererClassementParties($idJoueur);
+                    $this->vue->afficherStatsJoueur($donneesEnnemisPartie, $donneesEnnemisTues, $donneesToursPlacees, $donneesClassement);
+                }
+                break;
 
             
         }

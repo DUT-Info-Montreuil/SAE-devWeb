@@ -198,6 +198,7 @@ class VueProfil extends VueGenerique {
                 echo '<div class="joueur">';
                 echo '<p>ID: ' . htmlspecialchars($joueur['id_joueur']) . '</p>';
                 echo '<p>Nom: ' . htmlspecialchars($joueur['nom_joueur']) . '</p>';
+                echo '<a href="index.php?module=profil&action=voir_stats_joueur&idJoueur=' . htmlspecialchars($joueur['id_joueur']) . '">Voir les statistiques</a>';
                 echo '</div>';
             }
             echo '</div>';
@@ -205,6 +206,17 @@ class VueProfil extends VueGenerique {
             echo '<p>Aucun joueur trouvé.</p>';
         }
         $this->boutton_profil();
+    }
+    
+    public function afficherStatsJoueur($donneesEnnemisTues, $donneesToursPlacees, $donneesClassement) {
+        echo '<div class="stats-joueur">';
+        echo '<h2>Ennemis Tués</h2>';
+            $this->afficherTableau($donneesEnnemisTues, [ 'Nom Ennemi', 'Vie Ennemi', 'Dégat']);
+        echo '<h2>Tours Placées</h2>';
+            $this->afficherTableau($donneesToursPlacees, ['Vie Partie', 'Position X', 'Position Y', 'Nom Tour']);
+        echo '<h2>Classement des Parties</h2>';
+            $this->afficherTableau($donneesClassement, ['Classement', 'ID Partie', 'Score']);
+         echo '</div>';
     }
     
 
