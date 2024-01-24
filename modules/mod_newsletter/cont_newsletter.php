@@ -11,14 +11,6 @@ class ContNewsletter {
         $this->vue = new VueNewsletter();
     }
 
-    public function souscrire() {
-        if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['email'])) {
-            $email = $_POST['email'];
-            $message = $this->modele->souscrire($email);
-            $this->vue->afficherMessage($message);
-        } else {
-            $this->vue->afficherForm();
-        }
-    }
+ 
 }
 ?>

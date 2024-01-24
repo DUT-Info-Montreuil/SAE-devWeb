@@ -23,6 +23,7 @@ class ModNewsletter {
             $this->controleur->afficherForm();
         }
     }
+
 }
 
 ?>

@@ -21,7 +21,7 @@ class VueCompFooter {
                 <div class="footer-newsletter">
                     <section class="newsletter">
                         <h2>Abonnez-vous à la Newsletter !</h2>
-                        <form action="path/to/your/newsletter_signup.php" method="post">
+                        <form action="index.php?module=debut&action=souscrire" method="post">
                             <input type="email" name="email" placeholder="Enter your email" required>
                             <button type="submit">S'abonner</button>
                         </form>

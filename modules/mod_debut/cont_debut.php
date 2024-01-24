@@ -22,6 +22,16 @@ class ContDebut {
     public function seDeconnecter() {
       
     }
+
+    public function traiter() {
+        if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['email'])) {
+            $email = $_POST['email'];
+            $message = $this->modele->souscrire($email);
+           // $this->vue->afficherMessage($message);
+        } else {
+           // $this->vue->afficherForm();
+        }
+    }
     
 
     public function exec() {
@@ -29,6 +39,12 @@ class ContDebut {
             case 'pagePrincipale':
                 $this->vue->afficherAccueil();
                 break;
+            case 'souscrire':
+                $this->vue->afficherAccueil();
+                $this->traiter();
+                echo 'Ca marche';
+                break;
+            
         }
     }
 }
