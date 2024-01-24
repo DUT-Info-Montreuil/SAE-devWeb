@@ -14,8 +14,8 @@ header {
     position: relative;
     align-items: center;
     padding: 1em;
-    z-index: 2; /* Ajouté ici */
-    position: relative;  
+    z-index: 2;
+ 
 }
 
 nav {
@@ -92,6 +92,7 @@ main img {
 }
 /* Styles pour le footer LoL */
 footer {
+    display: flex;
     background-color: #111;
     color: #fff;
     padding: 20px 0;

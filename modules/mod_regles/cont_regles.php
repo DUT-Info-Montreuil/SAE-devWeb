@@ -6,23 +6,24 @@ class ContRegles {
 
     private $vue;
     private $action;
+    private $modele;
 
-    public function __construct() {
-        $this->vue = new VueRegles();    
+     function __construct() {
+        $this->vue = new VueRegles(); 
+        $this->modele = new ModeleRegles();
         $this->action = isset($_GET['action']) ? $_GET['action'] : 'regles';  
     }
 
     public function exec() {
         switch ($this->action) {
+         
             case 'regles':
-                $this->vue->afficherLesRegles();
-            break;
-            case 'step2':
-                $this->vue->afficherLesRegles();
-                $this->vue->afficherStep2();
-            break;
+                $regles = $this->modele->recupererRegles();
+                $this->vue->afficherRegles($regles);
+                break;
         }
     }
+    
 
 }
 

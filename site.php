@@ -24,9 +24,9 @@ class Site {
             case "parametre":
                 require_once "modules/mod_parametre/mod_parametre.php";
                 break; 
-            case "regles":
+             case "regles":
                 require_once "modules/mod_regles/mod_regles.php";
-            break;     
+                 break; 
             default:
                 die("Module inexistant");
         }
