@@ -13,6 +13,7 @@ class VueProfil extends VueGenerique {
             ['LES ENNEMIS PARTIE', 'index.php?module=profil&action=ennemis_partie', 'images/profil/ennemis.png'],
             ['MES TOURS PLACÉS', 'index.php?module=profil&action=tours', 'images/profil/tours.png'],
             ['CLASSEMENT', 'index.php?module=profil&action=classement', 'images/profil/classement.png'],
+            ['Ami', 'index.php?module=profil&action=ami', 'images/profil/ami.png'],
         ];
 
         foreach ($cartes as $carte) {
@@ -155,6 +156,7 @@ class VueProfil extends VueGenerique {
         echo '<link rel="stylesheet" type="text/css" href="css/style_profil_tableau.css">';
         if ($donnees) {
             echo '<div class="parties-container">';
+            echo '<div class="table-container">';
             echo '<table class="styled-table">';
             echo '<thead><tr><th>ID Ennemi</th><th>Nom Ennemi</th><th>Vie Ennemi</th><th>Dégat</th><th>Portée</th><th>Contourner Mur</th><th>Récompense</th><th>ID Partie</th><th>Vie Partie</th><th>Position X</th><th>Position Y</th></tr></thead>';
             echo '<tbody>';
@@ -174,11 +176,46 @@ class VueProfil extends VueGenerique {
                 echo '</tr>';
             }
             echo '</tbody></table></div>';
-        } else {
-            echo "Aucun ennemi tué trouvé pour le joueur connecté.";
+            echo '<div class="graph-container">';
+            $this->afficherGraphiqueTypesEnnemisTues($donnees);
+            echo '</div>';
+            echo '</div>'; 
         }
+         
         $this->boutton_profil();
     }
+
+    public function afficherGraphiqueTypesEnnemisTues($donnees) {
+        $typesEnnemis = [];
+        foreach ($donnees as $ennemi) {
+            $type = $ennemi['nom_ennemi'];
+            if (!isset($typesEnnemis[$type])) {
+                $typesEnnemis[$type] = 1;
+            } else {
+                $typesEnnemis[$type]++;
+            }
+        }
+        echo '<canvas id="typesEnnemisChart" width="370" height="200"></canvas>';
+        echo '<script>';
+        echo 'var ctx = document.getElementById("typesEnnemisChart").getContext("2d");';
+        echo 'var typesEnnemisData = ' . json_encode(array_values($typesEnnemis)) . ';';
+        echo 'var labels = ' . json_encode(array_keys($typesEnnemis)) . ';';
+        echo 'var chart = new Chart(ctx, {';
+        echo '    type: "bar",';
+        echo '    data: {';
+        echo '        labels: labels,';
+        echo '        datasets: [{';
+        echo '            label: "Nombre d\'ennemis tués par type",';
+        echo '            data: typesEnnemisData,';
+        echo '            backgroundColor: "rgba(75, 192, 192, 0.2)",';
+        echo '            borderColor: "rgba(75, 192, 192, 1)",';
+        echo '            borderWidth: 1';
+        echo '        }]';
+        echo '    }';
+        echo '});';
+        echo '</script>';
+    }
+    
 
     public function afficherTableauToursPlacees($donnees) {
         echo '<link rel="stylesheet" type="text/css" href="css/style_profil_tableau.css">';
@@ -231,7 +268,105 @@ class VueProfil extends VueGenerique {
         }
         $this->boutton_profil();
     }
+
+
+    public function afficherListeAmis($listeAmis) {
+        echo '<div class="liste-amis">';
+        foreach ($listeAmis as $ami) {
+            echo '<div class="ami">';
+            echo '<p>Nom : ' . htmlspecialchars($ami['Nom_joueur']) . '</p>';
+            echo '</div>';
+        }
+        echo '</div>';
+        $this->boutton_profil();
+    }
     
+    public function afficherFormulaireRecherche() {
+        echo '<form action="index.php?module=profil&action=rechercher" method="post">';
+        echo '<input type="text" name="recherche" placeholder="Rechercher un joueur par nom ou ID">';
+        echo '<button type="submit">Rechercher</button>';
+        echo '</form>';
+        $this->boutton_profil();
+    }
+    public function afficherResultatsRecherche($resultats) {
+        if (!empty($resultats)) {
+            echo'<link rel="stylesheet" type="text/css" href="css/style_ami_affichage.css">';
+            echo '<div class="resultats-recherche">';
+            foreach ($resultats as $joueur) {
+                echo '<div class="joueur">';
+                echo '<span class="info-joueur"><strong>ID:</strong> ' . htmlspecialchars($joueur['id_joueur']) . '</span>';
+                echo '<span class="info-joueur"><strong>Nom:</strong> ' . htmlspecialchars($joueur['Nom_joueur']) . '</span>';
+                echo '<a href="index.php?module=profil&action=voir_stats_joueur&idJoueur=' . htmlspecialchars($joueur['id_joueur']) . '" class="lien-stats">Voir les statistiques</a>';
+                echo '</div>';
+            }
+            echo '</div>';
+        } else {
+            echo '<p>Aucun joueur trouvé.</p>';
+        }
+        $this->boutton_profil();
+    }
+    
+   /* 
+    public function afficherStatsJoueur($donneesEnnemisTues) {
+        echo '<div class="stats-joueur">';
+        echo '<h2>Ennemis Tués</h2>';
+            $this->afficherTableau($donneesEnnemisTues, [ 'Nom Ennemi', 'Vie Ennemi', 'Dégat']);
+         echo '</div>';
+    }
+
+    public function afficherTableaau($donnees) {
+        if (empty($donnees)) {
+            echo "Aucune donnée à afficher.";
+            return;
+        }
+        $entetes = array_keys($donnees[0]);
+
+        echo '<table class="Table Stat>';
+        echo '<thead><tr>';
+        foreach ($entetes as $entete) {
+            echo '<th>' . htmlspecialchars($entete) . '</th>';
+        }
+        echo '</tr></thead>';
+        echo '<tbody>';
+        foreach ($donnees as $ligne) {
+            echo '<tr>';
+            foreach ($ligne as $cellule) {
+                echo '<td>' . htmlspecialchars($cellule) . '</td>';
+            }
+            echo '</tr>';
+        }
+        echo '</tbody></table>';
+    }
+    public function afficherTableau($donnees) {
+        echo'<link rel="stylesheet" type="text/css" href="css/style_amis_stats.css">';
+        echo '<div class="stat-carte">'; 
+        echo '<h3 class="titre-carte"> Ennemis Tués</h3>'; 
+    
+        echo '<div class="contenu-carte">'; 
+        if (empty($donnees)) {
+            echo "Aucune donnée à afficher.";
+        } else {
+            $entetes = array_keys($donnees[0]);
+            echo '<table class="compact-table">';
+            echo '<thead><tr>';
+            foreach ($entetes as $entete) {
+                echo '<th>' . htmlspecialchars($entete) . '</th>';
+            }
+            echo '</tr></thead>';
+            echo '<tbody>';
+            foreach ($donnees as $ligne) {
+                echo '<tr>';
+                foreach ($ligne as $cellule) {
+                    echo '<td>' . htmlspecialchars($cellule) . '</td>';
+                }
+                echo '</tr>';
+            }
+            echo '</tbody></table>';
+            echo '</table>';
+        }
+        echo '</div>'; 
+        echo '</div>'; 
+    }*/
     
 }
 ?>

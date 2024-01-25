@@ -1,0 +1,38 @@
+.content-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+  
+  .card-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .card-boutique {
+    background-color: #222;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s;
+  }
+  
+  .card-boutique:hover {
+    transform: scale(1.05);
+  }
+  
+  
+  .card-boutique h2 {
+    color: #ff9900;
+    margin-bottom: 10px;
+  } 
+
+  .carte-details {
+    display: none;
+  }
+  .carte-details .carte-details:hover{
+    display: block;
+  }

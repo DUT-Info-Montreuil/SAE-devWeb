@@ -24,10 +24,10 @@ class ModeleProfil extends Connexion {
                 }
                 return $donnees;
             } else {
-                return null; // ou gérer l'erreur différemment
+                return null; 
             }
         } else {
-            return null; // ou gérer l'erreur différemment
+            return null; 
         }
     }
 
@@ -45,10 +45,10 @@ class ModeleProfil extends Connexion {
                 }
                 return $donnees;
             } else {
-                return null; // Gérez l'erreur différemment si nécessaire
+                return null; 
             }
         } else {
-            return null; // Gérez l'erreur différemment si nécessaire
+            return null; 
         }
     }
 
@@ -70,10 +70,10 @@ class ModeleProfil extends Connexion {
                 }
                 return $donnees;
             } else {
-                return null; // Gérez l'erreur différemment si nécessaire
+                return null; 
             }
         } else {
-            return null; // Gérez l'erreur différemment si nécessaire
+            return null; 
         }
     }
 
@@ -94,10 +94,10 @@ class ModeleProfil extends Connexion {
                 }
                 return $donnees;
             } else {
-                return null; // Gérez l'erreur différemment si nécessaire
+                return null; 
             }
         } else {
-            return null; // Gérez l'erreur différemment si nécessaire
+            return null; 
         }
     }
 
@@ -116,13 +116,9 @@ class ModeleProfil extends Connexion {
                 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                     $classement[] = $row;
                 }
-    
-                // Triez le classement par score (du plus élevé au plus bas)
                 usort($classement, function($a, $b) {
                     return $b['score'] - $a['score'];
                 });
-    
-                // Ajoutez une colonne pour le classement
                 $classementAvecClassement = [];
                 $classementCounter = 1;
                 foreach ($classement as $partie) {
@@ -132,10 +128,68 @@ class ModeleProfil extends Connexion {
     
                 return $classementAvecClassement;
             } else {
-                return null; // Gérez l'erreur différemment si nécessaire
+                return null; 
             }
         } else {
-            return null; // Gérez l'erreur différemment si nécessaire
+            return null;
+        }
+    }
+    
+    public function recupererAmisJoueurConnecte() {
+        $amis = [];
+        if (isset($_SESSION['idUtilisateur'])) {
+            $idJoueur = $_SESSION['idUtilisateur'];
+            $requete = "SELECT j.* FROM joueur j
+                        INNER JOIN amis a ON j.id_joueur = a.idJoueur2
+                        WHERE a.idJoueur1 = :idJoueur AND a.statutAmi = 'accepte'";
+            $stmt = $this->connexion->getBdd()->prepare($requete);
+            $stmt->bindParam(':idJoueur', $idJoueur, PDO::PARAM_INT);
+    
+            if ($stmt->execute()) {
+                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                    $amis[] = $row;
+                }
+                return $amis;
+            } else {
+                return null; 
+            }
+        } else {
+            return null; 
+        }
+    }
+    public function rechercherJoueur($recherche) {
+        $resultats = [];
+        $requete = is_numeric($recherche) ? 
+            "SELECT * FROM joueur WHERE id_joueur = :recherche" :
+            "SELECT * FROM joueur WHERE nom_joueur LIKE :recherche";
+        $stmt = $this->connexion->getBdd()->prepare($requete);
+        $param = is_numeric($recherche) ? $recherche : "%$recherche%";
+        $stmt->bindParam(':recherche', $param, PDO::PARAM_STR);
+        if ($stmt->execute()) {
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $resultats[] = $row;
+            }
+        }
+        return $resultats;
+    }
+    
+    public function AmiRecupererEnnemisTues($idJoueur) {
+        $donnees = [];
+        $requete = "SELECT e.*, ep.* 
+                    FROM ennemi_partie ep
+                    INNER JOIN ennemi e ON ep.id_ennemi = e.id_ennemi
+                    WHERE ep.idPartie IN (SELECT idPartie FROM partie WHERE id_joueur = :idJoueur) 
+                    AND ep.Vie_partie = 0";
+        $stmt = $this->connexion->getBdd()->prepare($requete);
+        $stmt->bindParam(':idJoueur', $idJoueur, PDO::PARAM_INT);
+    
+        if ($stmt->execute()) {
+            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                $donnees[] = $row;
+            }
+            return $donnees;
+        } else {
+            return null;
         }
     }
     
