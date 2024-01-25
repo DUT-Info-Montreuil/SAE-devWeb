@@ -1,9 +1,9 @@
 body, html {
     margin: 0;
     padding: 0;
-    height: 100%;
+    min-height: 100%; /* Utilisation de min-height pour s'assurer que le contenu s'étend au moins sur toute la hauteur de l'écran */
     overflow: auto;
-    background: linear-gradient(45deg, #000000, #220033, #220055, #220077, #ff00ff, #00ffff); /* Noir en premier, puis les autres couleurs */
+    background: linear-gradient(45deg, #000000, #220033, #220055, #220077, #ff00ff, #00ffff);
     background-size: 500% 500%;
     animation: gradientAnimation 10s ease infinite;
     z-index: 2;
@@ -22,7 +22,6 @@ body, html {
     }
 }
 
-/* Styles pour chaque carte */
 .card {
     position: relative;
     width: 190px;
@@ -70,12 +69,12 @@ body, html {
     font-size: 20px;
     text-transform: capitalize;
     font-weight: 700;
-    color: white; /* Couleur du texte */
+    color: white;
 }
 
 .card p:not(.heading) {
     font-size: 14px;
-    color: white; /* Couleur du texte */
+    color: white;
 }
 
 .card p:last-child {
@@ -93,9 +92,13 @@ body, html {
 
 .cartes-container {
     display: flex;
-    justify-content: space-between; /* Pour espacer les cartes horizontalement */
-  }
+    justify-content: space-between;
+}
 
-   
- 
-  
+.explication-tableau {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    position: relative;
+}

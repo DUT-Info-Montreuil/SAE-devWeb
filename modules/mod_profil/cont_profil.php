@@ -22,6 +22,7 @@ class ContProfil {
             case 'partie':
                 $donnees = $this->modele->recupererPartiesJoueurConnecte();
                 $this->vue->afficherTableauParties($donnees);
+                $this->vue->afficherExplicationTableau();
             break;
             case 'ennemis_tues':
                 $donnees = $this->modele->recupererEnnemisTuesParJoueurConnecte();

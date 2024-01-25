@@ -24,6 +24,15 @@ class Site {
             case "parametre":
                 require_once "modules/mod_parametre/mod_parametre.php";
                 break; 
+            case "boutique":
+                require_once "modules/mod_boutique/mod_boutique.php";
+                break; 
+            case "ennemi":
+                require_once "modules/mod_ennemi/mod_ennemi.php";
+                break; 
+            case "tours":
+                require_once "modules/mod_tours/mod_tours.php";
+                break; 
             default:
                 die("Module inexistant");
         }
