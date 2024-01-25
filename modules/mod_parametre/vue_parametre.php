@@ -15,7 +15,7 @@ class VueParametre extends VueGenerique {
         echo '<section class="container1">';
         echo '<header>Modifier vos paramètres ici :</header>';
         echo '<form  id="votreFormulaire" class="form" action="index.php?module=parametre&action=modifier" method="POST" enctype="multipart/form-data" onsubmit="return verifierMotsDePasse();">';
-
+        echo '<input type="hidden" name="csrf_token" value="' . $_SESSION['csrf_token'] . '">'; 
         echo '<div class="profil-image-preview">';
         if (!empty($_SESSION['profil_image'])) {
             echo '<div class="profile-image-container">';

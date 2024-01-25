@@ -30,7 +30,7 @@ class VueRegles extends VueGenerique {
         }
         echo '</div>'; 
         echo '</div>'; 
-        echo '<script src="js/script_regles_categorie.js"></script>'; // Si nécessaire
+        echo '<script src="js/script_regles_categorie.js"></script>'; // Si nécessaire 
     }
 }
 ?>

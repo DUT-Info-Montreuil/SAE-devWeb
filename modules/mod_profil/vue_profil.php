@@ -216,29 +216,7 @@ class VueProfil extends VueGenerique {
             $this->afficherTableau($donneesEnnemisTues, [ 'Nom Ennemi', 'Vie Ennemi', 'Dégat']);
          echo '</div>';
     }
-    public function afficherTableaau($donnees) {
-        if (empty($donnees)) {
-            echo "Aucune donnée à afficher.";
-            return;
-        }
-        $entetes = array_keys($donnees[0]);
-
-        echo '<table class="Table Stat>';
-        echo '<thead><tr>';
-        foreach ($entetes as $entete) {
-            echo '<th>' . htmlspecialchars($entete) . '</th>';
-        }
-        echo '</tr></thead>';
-        echo '<tbody>';
-        foreach ($donnees as $ligne) {
-            echo '<tr>';
-            foreach ($ligne as $cellule) {
-                echo '<td>' . htmlspecialchars($cellule) . '</td>';
-            }
-            echo '</tr>';
-        }
-        echo '</tbody></table>';
-    }
+    
     public function afficherTableau($donnees) {
         echo'<link rel="stylesheet" type="text/css" href="css/style_amis_stats.css">';
         echo '<div class="stat-carte">'; 

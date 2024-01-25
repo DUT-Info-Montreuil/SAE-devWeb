@@ -6,6 +6,7 @@ class Site {
     private $module;
     
     public function __construct() {
+        
         $this->module_name = isset($_GET['module']) ? $_GET['module'] : "debut"; 
 
         switch ($this->module_name) {

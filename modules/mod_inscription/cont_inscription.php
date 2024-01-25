@@ -16,6 +16,10 @@ class ContInscriptions {
 
     public function traiterSoumissionFormulaire() {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+                echo 'Erreur CSRF : Qui es-tu ?';
+                exit;
+            }
             $login = $_POST["login"];
             $email = $_POST["email"];
             $password = $_POST["password"];
