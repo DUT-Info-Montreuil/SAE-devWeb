@@ -4,9 +4,12 @@ require_once 'vue_generique.php';
 class VueProfil extends VueGenerique { 
 
     public function afficherCartes() {
+        echo '<div>';
+        echo '<p >Bienvenue sur votre page de profil ! Découvrez nos objets de défense exceptionnels et améliorez votre arsenal dès maintenant.</p>';
+        echo '</div>';
+
         echo '<div class="cartes-container">';
         echo '<link rel="stylesheet" type="text/css" href="css/style_profil.css">';
-        
         $cartes = [
             ['MES PARTIES JOUÉES', 'index.php?module=profil&action=partie','images/profil/partie.png'],
             ['MES ENNEMIS TUÉS', 'index.php?module=profil&action=ennemis_tues', 'images/profil/ennemis_tues.png'],
@@ -23,7 +26,11 @@ class VueProfil extends VueGenerique {
         }
         echo '</div>';
 
-        $this->boutton_profil();
+      
+        echo '<div>';
+        echo '<h2 class="decouvrir-badges">Découvrez Vos Badges</h2>';
+        echo '</div>';
+       
 
         echo '<script src="js/script_click_profil.js"></script>';
        

@@ -97,5 +97,16 @@ body, html {
   }
 
    
- 
+  .decouvrir-badges {
+    margin-top: 20px;
+    font-size: 1.5em; /* Taille de police ajustée selon vos préférences */
+    color: black; /* Couleur du texte ajustée selon vos préférences */
+    margin-top: 100px;
+}
   
+p {
+    font-size: 1.5em; /* Taille de police augmentée */
+    font-weight: bold; /* Texte en gras */
+    color: #333; /* Couleur du texte */
+    line-height: 1.5; /* Hauteur de ligne pour un meilleur espacement */
+}
