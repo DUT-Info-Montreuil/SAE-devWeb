@@ -83,3 +83,22 @@ body, html {
 .card-boutique:hover .audio-player {
     display: block;
 }
+.carte-details {
+  display: none;
+  transition: display 0.3s ease;
+}
+.card-boutique:hover .carte-details {
+  display: block;
+}
+.card-boutique {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.card-boutique:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+

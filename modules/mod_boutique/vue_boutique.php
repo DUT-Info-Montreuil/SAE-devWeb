@@ -12,10 +12,8 @@ class VueBoutique extends VueGenerique {
 				<img src="images/Boutique/bombe.png" alt="Objet Bombe" class="card-image">
 				<div class="card-content">
 					<h2>Bombe</h2>
-				   <p class ="descriptionBombe">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-					<audio class="audio-player" controls>
-					<source src="sons/ExplosionBombe.wav" type="audio/wav">
-					</audio>
+				   <p class ="descriptionBombe">Une bombe à faible puissance, mais sa capacité à éxploser si un ennemi est suffisament proche, la rend destructrice</p>
+					
 				</div>
 			</div>
 
@@ -23,10 +21,8 @@ class VueBoutique extends VueGenerique {
 				<img src="images/Boutique/hydrogene.png" alt="Objet Hydrogène" class="card-image">
 				<div class="card-content">
 					<h2>Hydrogène</h2>
-					<p class ="descriptionHydro">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-					<audio class="audio-player" controls>
-					<source src="sons/bruit.wav" type="audio/wav">
-					</audio>
+					<p class ="descriptionHydro">Sa version initiale était tellement puissante que les structures alliés tombé sous son souffle, cette version moins puissante, permet de ravager les lignes ennemis, sans se soucier des pertes alliées.</p>
+					
 				</div>
 			</div>
 
@@ -34,10 +30,7 @@ class VueBoutique extends VueGenerique {
 				<img src="images/Boutique/mur.png" alt="Objet Mur" class="card-image">
 				<div class="card-content">
 					<h2>Mur</h2>
-					<p class ="descriptionMur">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-					<audio class="audio-player" controls>
-					<source src="sons/travail_termine.wav" type="audio/wav">
-					</audio>
+					<p class ="descriptionMur">Le Mur, batit par le plus grand maçon de bordeldeciel, il est très résistant, permettant ainsi de bloquer les lignes ennemis, et "accompagné le avec une bombe et bonjour les dégâts".</p>
 				</div>
 			</div>
 		</div>
