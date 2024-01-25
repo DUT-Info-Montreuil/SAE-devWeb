@@ -15,8 +15,10 @@ class VueConnexions extends VueGenerique {
         if ($login) {
             echo 'Vous êtes déjà connecté.';
         } else {
+            
             echo '<div class="form-container">';
             echo '<form class="container" action="index.php?module=connexion&action=connexion" method="POST">';
+            echo '<input type="hidden" name="csrf_token" value="' . $_SESSION['csrf_token'] . '">';
             echo '<div class="input-container">';
             echo '<div class="input-content">';
             echo '<div class="input-dist">';
