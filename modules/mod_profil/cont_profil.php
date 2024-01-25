@@ -41,7 +41,7 @@ class ContProfil {
             break;
             case 'ami':
                 $donneesAmis = $this->modele->recupererAmisJoueurConnecte();
-                $this->vue->afficherListeAmis($donneesAmis);
+                $this->vue->afficherResultatsRecherche($donneesAmis);
             break;
             case 'rechercher':
                 if (isset($_POST['recherche'])) {
@@ -53,11 +53,8 @@ class ContProfil {
             case 'voir_stats_joueur':
                 if (isset($_GET['idJoueur'])) {
                     $idJoueur = $_GET['idJoueur'];
-                    $donneesEnnemisPartie = $this->modele->AmiRecupererEnnemisPartie($idJoueur);
                     $donneesEnnemisTues = $this->modele->AmiRecupererEnnemisTues($idJoueur);
-                    $donneesToursPlacees = $this->modele->AmiRecupererToursPlacees($idJoueur);
-                    $donneesClassement = $this->modele->AmiRecupererClassementParties($idJoueur);
-                    $this->vue->afficherStatsJoueur($donneesEnnemisPartie, $donneesEnnemisTues, $donneesToursPlacees, $donneesClassement);
+                    $this->vue->afficherStatsJoueur($donneesEnnemisTues);
                 }
                 break;
 
