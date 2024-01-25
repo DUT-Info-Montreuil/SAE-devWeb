@@ -1,7 +1,7 @@
 body, html {
     margin: 0;
     padding: 0;
-    min-height: 100%; /* Utilisation de min-height pour s'assurer que le contenu s'étend au moins sur toute la hauteur de l'écran */
+    min-height: 100%; /* Utilisation de min-height pour s'assurer que le contenu s'Ã©tend au moins sur toute la hauteur de l'Ã©cran */
     overflow: auto;
     background: linear-gradient(45deg, #000000, #220033, #220055, #220077, #ff00ff, #00ffff);
     background-size: 500% 500%;
@@ -24,8 +24,9 @@ body, html {
 
 .card {
     position: relative;
-    width: 190px;
-    height: 254px;
+    width: 20%;
+    max-width: 190px;
+    height: auto;
     background-color: #000;
     display: flex;
     flex-direction: column;
@@ -34,9 +35,8 @@ body, html {
     gap: 12px;
     border-radius: 8px;
     cursor: pointer;
-    margin-right: 40px; 
-    margin-left: 40px;
-    margin-top: 40px; 
+    margin: 2%; /* Utilisation de pourcentage pour l'espacement entre les cartes */
+    margin-top: 40px;
     top: 50px;
 }
 
@@ -44,13 +44,11 @@ body, html {
     content: '';
     position: absolute;
     inset: 0;
-    left: -5px;
-    margin: auto;
-    width: 200px;
-    height: 264px;
-    border-radius: 10px;
+    border-radius: 8px;
+    width: 100%; /* DÃ©finir la largeur Ã  100% de la carte parente */
+    height: 100%; /* DÃ©finir la hauteur Ã  100% de la carte parente */
     background: linear-gradient(-45deg, #e81cff 0%, #40c9ff 100%);
-    z-index: -10;
+    z-index: -1;
     pointer-events: none;
     transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -92,13 +90,35 @@ body, html {
 
 .cartes-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Pour espacer les cartes horizontalement */
+  }
+
+
+  .explication-tableau {
+    background-color: rgba(248, 249, 250, 0.2); /* Couleur avec opacitÃ© */
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
-.explication-tableau {
-    background-color: rgba(255, 255, 255, 0.2);
-    padding: 20px;
-    border-radius: 10px;
-    margin: 20px 0;
-    position: relative;
+.explication-tableau h2 {
+    color: #007bff;
+}
+
+.explication-tableau p {
+    margin-bottom: 10px;
+}
+
+.explication-tableau ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.explication-tableau li {
+    margin-bottom: 5px;
+}
+
+.explication-tableau strong {
+    color: #007bff;
 }
