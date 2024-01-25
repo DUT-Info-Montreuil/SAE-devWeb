@@ -34,7 +34,7 @@ class VueBoutique extends VueGenerique {
                 <img src="images/Boutique/mur.png" alt="Objet Mur" class="card-image">
                 <div class="card-content">
                     <h2>Mur</h2>
-                    <p class ="descriptionMur">Le Mur, batit par le plus grand maçon de bordeldeciel, il est très résistant, permettant ainsi de bloquer les lignes ennemis, et "accompagnés d &rsquo une bombe derrière et bonjour les dégâts"</p>
+                    <p class ="descriptionMur">Le Mur, batit par le plus grand maçon de bordeldeciel, il est très résistant, permettant ainsi de bloquer les lignes ennemis, et "accompagné le avec une bombe et bonjour les dégâts"</p>
                     <audio class="audio-player" controls>
                     <source src="sons/travail_termine.wav" type="audio/wav">
                     </audio>
