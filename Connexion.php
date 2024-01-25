@@ -8,6 +8,7 @@ class Connexion {
         $serveur = 'localhost';
         $utilisateur = 'root';
         $motDePasse = '';
+
         $baseDeDonnees = 'interstellarhavoc';
 
         try {
