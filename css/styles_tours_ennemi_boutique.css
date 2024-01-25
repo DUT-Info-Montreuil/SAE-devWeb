@@ -88,7 +88,7 @@ font-family: 'Arial', sans-serif;
 font-size: 16px;
 line-height: 1.5;
 color: #f3f5f7;
-font-weight: bold; /* Ajout du style gras */
+
 margin-bottom: 15px;
 }
 
@@ -99,6 +99,7 @@ margin-bottom: 20px;
 border: 2px solid #f7f2f6; /* Ajout de la bordure */
 padding: 10px; /* Ajout du padding pour l'encadré */
 border-radius: 8px; /* Coins arrondis */
+font-weight: bold; /* Ajout du style gras */
 background-color: rgba(52, 152, 219, 0.1); /* Couleur de fond transparente */
 }
 
@@ -110,3 +111,21 @@ display: inline;
 color: #e74c3c;
 font-style: italic;
 }
+
+/* Ajoutez ces styles pour les règles */
+.rules-container {
+  margin-top: 20px;
+  padding: 10px;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  background-color: rgba(242, 242, 242, 0.2); /* Couleur de fond avec opacité */
+}
+
+.rules-container p {
+  margin-bottom: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+  font-style: italic; 
+}
+
+
