@@ -1,0 +1,30 @@
+.resultats-recherche {
+    margin-top: 20px;
+}
+
+.joueur {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.info-joueur {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.lien-stats {
+    background-color: #4CAF50;
+    color: white;
+    padding: 6px 12px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.lien-stats:hover {
+    background-color: #45a049;
+}

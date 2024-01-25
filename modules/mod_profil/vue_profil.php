@@ -13,7 +13,7 @@ class VueProfil extends VueGenerique {
             ['LES ENNEMIS PARTIE', 'index.php?module=profil&action=ennemis_partie', 'images/profil/ennemis.png'],
             ['MES TOURS PLACÉS', 'index.php?module=profil&action=tours', 'images/profil/tours.png'],
             ['CLASSEMENT', 'index.php?module=profil&action=classement', 'images/profil/classement.png'],
-            ['Ami', 'index.php?module=profil&action=ami', 'images/profil/amis.png'],
+            ['Ami', 'index.php?module=profil&action=ami', 'images/profil/ami.png'],
         ];
 
         foreach ($cartes as $carte) {
@@ -193,12 +193,13 @@ class VueProfil extends VueGenerique {
     }
     public function afficherResultatsRecherche($resultats) {
         if (!empty($resultats)) {
+            echo'<link rel="stylesheet" type="text/css" href="css/style_ami_affichage.css">';
             echo '<div class="resultats-recherche">';
             foreach ($resultats as $joueur) {
                 echo '<div class="joueur">';
-                echo '<p>ID: ' . htmlspecialchars($joueur['id_joueur']) . '</p>';
-                echo '<p>Nom: ' . htmlspecialchars($joueur['Nom_joueur']) . '</p>';
-                echo '<a href="index.php?module=profil&action=voir_stats_joueur&idJoueur=' . htmlspecialchars($joueur['id_joueur']) . '">Voir les statistiques</a>';
+                echo '<span class="info-joueur"><strong>ID:</strong> ' . htmlspecialchars($joueur['id_joueur']) . '</span>';
+                echo '<span class="info-joueur"><strong>Nom:</strong> ' . htmlspecialchars($joueur['Nom_joueur']) . '</span>';
+                echo '<a href="index.php?module=profil&action=voir_stats_joueur&idJoueur=' . htmlspecialchars($joueur['id_joueur']) . '" class="lien-stats">Voir les statistiques</a>';
                 echo '</div>';
             }
             echo '</div>';
@@ -208,13 +209,14 @@ class VueProfil extends VueGenerique {
         $this->boutton_profil();
     }
     
+    
     public function afficherStatsJoueur($donneesEnnemisTues) {
         echo '<div class="stats-joueur">';
         echo '<h2>Ennemis Tués</h2>';
             $this->afficherTableau($donneesEnnemisTues, [ 'Nom Ennemi', 'Vie Ennemi', 'Dégat']);
          echo '</div>';
     }
-    public function afficherTableau($donnees) {
+    public function afficherTableaau($donnees) {
         if (empty($donnees)) {
             echo "Aucune donnée à afficher.";
             return;
@@ -237,8 +239,36 @@ class VueProfil extends VueGenerique {
         }
         echo '</tbody></table>';
     }
-
-
+    public function afficherTableau($donnees) {
+        echo'<link rel="stylesheet" type="text/css" href="css/style_amis_stats.css">';
+        echo '<div class="stat-carte">'; 
+        echo '<h3 class="titre-carte"> Ennemis Tués</h3>'; 
+    
+        echo '<div class="contenu-carte">'; 
+        if (empty($donnees)) {
+            echo "Aucune donnée à afficher.";
+        } else {
+            $entetes = array_keys($donnees[0]);
+            echo '<table class="compact-table">';
+            echo '<thead><tr>';
+            foreach ($entetes as $entete) {
+                echo '<th>' . htmlspecialchars($entete) . '</th>';
+            }
+            echo '</tr></thead>';
+            echo '<tbody>';
+            foreach ($donnees as $ligne) {
+                echo '<tr>';
+                foreach ($ligne as $cellule) {
+                    echo '<td>' . htmlspecialchars($cellule) . '</td>';
+                }
+                echo '</tr>';
+            }
+            echo '</tbody></table>';
+            echo '</table>';
+        }
+        echo '</div>'; 
+        echo '</div>'; 
+    }
     
 }
 ?>
