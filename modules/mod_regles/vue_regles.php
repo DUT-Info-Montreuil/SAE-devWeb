@@ -16,13 +16,14 @@ class VueRegles extends VueGenerique {
         foreach ($reglesParCategorie as $categorie => $reglesDansCategorie) {
             echo '<div class="card-boutique">';
             
-            echo '<h2>' . htmlspecialchars("Catégorie " . $categorie) . '</h2>'; 
+            echo '<h2>' . htmlspecialchars("Article " . $categorie) . '</h2>'; 
             
             echo '<div class="carte-details">';
             foreach ($reglesDansCategorie as $regle) {
                 echo '<p>';
-                echo '<strong>ID:</strong> ' . htmlspecialchars($regle['ID']) . '<br>';
-                echo '<strong>Description:</strong> ' . htmlspecialchars($regle['description']);
+                echo  htmlspecialchars($regle['ID']) ;
+                echo '&nbsp';
+                echo  htmlspecialchars($regle['description']);
                 echo '</p>';
             }
             echo '</div>';

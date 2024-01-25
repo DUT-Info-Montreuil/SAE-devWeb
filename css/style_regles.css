@@ -3,7 +3,9 @@
     margin: 20px auto;
     padding: 20px;
   }
-  
+  h2{
+
+  }
   .card-container {
     display: flex;
     justify-content: space-around;
@@ -26,6 +28,7 @@
   
   
   .card-boutique h2 {
+    font-family: 'Times New Roman', Times, serif;
     color: #ff9900;
     margin-bottom: 10px;
   } 
@@ -35,4 +38,7 @@
   }
   .carte-details .carte-details:hover{
     display: block;
+  }
+  .Article-titre{
+    font-family: sans-serif;
   }
