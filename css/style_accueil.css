@@ -1,11 +1,12 @@
 body {
     height: 100%;
     font-family: 'Arial', sans-serif;
-    background-color: #555555;
+    background: linear-gradient(to right, #000000, #8A2BE2); /* Dégradé de noir à violet */
     background-size: cover;
     color: white;
     margin: 0; 
 }
+
 
 html, body {
     height: 100%;
@@ -494,7 +495,7 @@ footer {
 /* bouton jouer */
 .style_bouton {
     padding: 15px 30px;
-    background-color: #464546;
+    background-color: purple;
     color: white;
     text-decoration: none;
     border-radius: 8px;
@@ -509,11 +510,11 @@ footer {
     font-family: 'Press Start 2P', cursive; 
     font-family: 'Exo 2', sans-serif;
     font-size: 36px;
-    color: black;
+    color: white;
     text-align: center;
     text-transform: uppercase;
     margin-top: 20px;
-    border: 3px double #292829;
+    border: 3px double white;
     padding: 10px;
     transition: background-color 0.5s ease-in-out;
     animation: fadeInUpTitle 1s ease-in-out;
@@ -560,7 +561,7 @@ footer {
 .description {
     font-family: 'Press Start 2P', cursive;
     font-size: 24px;
-    color: #292829; 
+    color: white; 
     text-align: center; 
     margin-top: 10px; 
     z-index: 3; 
@@ -659,7 +660,7 @@ button {
     bottom: 0;
     padding: 0.75rem 0;
     margin: 0 0 0 1.85rem;
-    color: #282936;
+    color: white;
     font-weight: 700;
     line-height: 1.6;
     text-align: center;
