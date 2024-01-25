@@ -30,11 +30,10 @@ body, html {
     height: 60vh;       /* Hauteur de la vue complète */
     margin: 0;
     padding: 20px;
-    overflow-x: auto;    /* Pour gérer le débordement horizontal */
+    overflow-x: hidden;    /* Pour gérer le débordement horizontal */
     top: 60px; /* Ajustez selon vos besoins */
     
 }
-
 
 .styled-table {
     border-collapse: collapse;

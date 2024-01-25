@@ -54,7 +54,7 @@ class ContProfil {
                 if (isset($_GET['idJoueur'])) {
                     $idJoueur = $_GET['idJoueur'];
                     $donneesEnnemisTues = $this->modele->AmiRecupererEnnemisTues($idJoueur);
-                    $this->vue->afficherStatsJoueur($donneesEnnemisTues);
+                    $this->vue->afficherTableauEnnemisTues($donneesEnnemisTues);
                 }
                 break;
 

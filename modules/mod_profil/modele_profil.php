@@ -134,6 +134,7 @@ class ModeleProfil extends Connexion {
             return null;
         }
     }
+    
     public function recupererAmisJoueurConnecte() {
         $amis = [];
         if (isset($_SESSION['idUtilisateur'])) {

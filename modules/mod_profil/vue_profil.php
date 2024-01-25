@@ -97,6 +97,7 @@ class VueProfil extends VueGenerique {
         echo '<link rel="stylesheet" type="text/css" href="css/style_profil_tableau.css">';
         if ($donnees) {
             echo '<div class="parties-container">';
+            echo '<div class="table-container">';
             echo '<table class="styled-table">';
             echo '<thead><tr><th>ID Ennemi</th><th>Nom Ennemi</th><th>Vie Ennemi</th><th>Dégat</th><th>Portée</th><th>Contourner Mur</th><th>Récompense</th><th>ID Partie</th><th>Vie Partie</th><th>Position X</th><th>Position Y</th></tr></thead>';
             echo '<tbody>';
@@ -116,11 +117,46 @@ class VueProfil extends VueGenerique {
                 echo '</tr>';
             }
             echo '</tbody></table></div>';
-        } else {
-            echo "Aucun ennemi tué trouvé pour le joueur connecté.";
+            echo '<div class="graph-container">';
+            $this->afficherGraphiqueTypesEnnemisTues($donnees);
+            echo '</div>';
+            echo '</div>'; 
         }
+         
         $this->boutton_profil();
     }
+
+    public function afficherGraphiqueTypesEnnemisTues($donnees) {
+        $typesEnnemis = [];
+        foreach ($donnees as $ennemi) {
+            $type = $ennemi['nom_ennemi'];
+            if (!isset($typesEnnemis[$type])) {
+                $typesEnnemis[$type] = 1;
+            } else {
+                $typesEnnemis[$type]++;
+            }
+        }
+        echo '<canvas id="typesEnnemisChart" width="370" height="200"></canvas>';
+        echo '<script>';
+        echo 'var ctx = document.getElementById("typesEnnemisChart").getContext("2d");';
+        echo 'var typesEnnemisData = ' . json_encode(array_values($typesEnnemis)) . ';';
+        echo 'var labels = ' . json_encode(array_keys($typesEnnemis)) . ';';
+        echo 'var chart = new Chart(ctx, {';
+        echo '    type: "bar",';
+        echo '    data: {';
+        echo '        labels: labels,';
+        echo '        datasets: [{';
+        echo '            label: "Nombre d\'ennemis tués par type",';
+        echo '            data: typesEnnemisData,';
+        echo '            backgroundColor: "rgba(75, 192, 192, 0.2)",';
+        echo '            borderColor: "rgba(75, 192, 192, 1)",';
+        echo '            borderWidth: 1';
+        echo '        }]';
+        echo '    }';
+        echo '});';
+        echo '</script>';
+    }
+    
 
     public function afficherTableauToursPlacees($donnees) {
         echo '<link rel="stylesheet" type="text/css" href="css/style_profil_tableau.css">';
@@ -173,6 +209,8 @@ class VueProfil extends VueGenerique {
         }
         $this->boutton_profil();
     }
+
+
     public function afficherListeAmis($listeAmis) {
         echo '<div class="liste-amis">';
         foreach ($listeAmis as $ami) {
@@ -209,14 +247,14 @@ class VueProfil extends VueGenerique {
         $this->boutton_profil();
     }
     
-    
+   /* 
     public function afficherStatsJoueur($donneesEnnemisTues) {
         echo '<div class="stats-joueur">';
         echo '<h2>Ennemis Tués</h2>';
             $this->afficherTableau($donneesEnnemisTues, [ 'Nom Ennemi', 'Vie Ennemi', 'Dégat']);
          echo '</div>';
     }
-    
+
     public function afficherTableaau($donnees) {
         if (empty($donnees)) {
             echo "Aucune donnée à afficher.";
@@ -269,7 +307,7 @@ class VueProfil extends VueGenerique {
         }
         echo '</div>'; 
         echo '</div>'; 
-    }
+    }*/
     
 }
 ?>
