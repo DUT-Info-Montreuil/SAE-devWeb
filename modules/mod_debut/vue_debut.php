@@ -22,7 +22,7 @@ class VueDebut extends VueGenerique {
                 Des hordes d\'ennemis extraterrestres n\'attendent que vous pour tester votre courage et vos compétences. Explorez des mondes hostiles, déjouez des stratégies machiavéliques, et devenez le héros de votre propre aventure spatiale.
                 Plongez dans l\'inconnu, affrontez des défis épiques, et forgez votre destin dans un univers où chaque rencontre est une opportunité de grandeur. Êtes-vous prêt à relever le défi ?</p>
                 <br> 
-                <a href="index.php?module=profil&action=profil"><button class="learn-more"><span class="circle" aria-hidden="true"><span class="icon arrow"></span></span><span class="button-text">Découvrir</span></button></a>
+                <a href="index.php?module=ennemi&action=ennemi"><button class="learn-more"><span class="circle" aria-hidden="true"><span class="icon arrow"></span></span><span class="button-text">Découvrir</span></button></a>
                 </div>
                 </div>
 
@@ -32,7 +32,7 @@ class VueDebut extends VueGenerique {
                 <br> 
                 <p class="image-description">Explorez nos tours de défense stratégiques, chacune dotée de capacités uniques pour protéger votre royaume numérique. Relevez le défi de la sécurité en ligne avec nos tours de défense exceptionnelles. Explorez chaque type de défense pour trouver celle qui correspond le mieux à vos besoins.</p>
                 <br> 
-                <a href="index.php?module=profil&action=profil"><button class="learn-more"><span class="circle" aria-hidden="true"><span class="icon arrow"></span></span><span class="button-text">Découvrir</span></button></a>
+                <a href="index.php?module=tours&action=tours"><button class="learn-more"><span class="circle" aria-hidden="true"><span class="icon arrow"></span></span><span class="button-text">Découvrir</span></button></a>
                 </div>
                 <img src="images/tours.png" alt="Description des aliens"  class="img-profil">
                 </div>
@@ -44,7 +44,7 @@ class VueDebut extends VueGenerique {
                 <br> 
                 <p class="image-description"> Parcourez notre collection exclusive d\'objets de défense soigneusement sélectionnés pour garantir la sécurité de votre royaume numérique. Des armures cybernétiques aux outils de cryptage, chaque objet est une pièce essentielle pour renforcer vos défenses en ligne. Découvrez notre gamme complète et équipez-vous pour faire face à toute menace qui se présente.</p>
                 <br> 
-                <a href="index.php?module=profil&action=profil"><button class="learn-more"><span class="circle" aria-hidden="true"><span class="icon arrow"></span></span><span class="button-text">Découvrir</span></button></a>
+                <a href="index.php?module=boutique&action=boutique"><button class="learn-more"><span class="circle" aria-hidden="true"><span class="icon arrow"></span></span><span class="button-text">Découvrir</span></button></a>
                 </div>
                 </div>
                 
