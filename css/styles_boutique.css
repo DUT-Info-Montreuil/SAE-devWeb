@@ -35,7 +35,7 @@ body, html {
   }
   
   .card-boutique {
-    background-color: #222;
+    background-color: #070404;
     border-radius: 10px;
     padding: 20px;
     width: 300px;
@@ -56,7 +56,7 @@ body, html {
   }
   
   .card-boutique h2 {
-    color: #ff9900;
+    color: #f8f7f6;
     margin-bottom: 10px;
   }
   .descriptionBombe, .audio-player {
@@ -82,4 +82,31 @@ body, html {
 .card-boutique:hover .descriptionMur, 
 .card-boutique:hover .audio-player {
     display: block; 
+}
+p {
+  font-family: 'Arial', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #f3f5f7;
+  font-weight: bold; /* Ajout du style gras */
+  margin-bottom: 15px;
+}
+
+p.intro {
+  font-size: 18px;
+  color: #f9f5f9;
+  margin-bottom: 20px;
+  border: 2px solid #f7f2f6; /* Ajout de la bordure */
+  padding: 10px; /* Ajout du padding pour l'encadré */
+  border-radius: 8px; /* Coins arrondis */
+  background-color: rgba(52, 152, 219, 0.1); /* Couleur de fond transparente */
+}
+
+p.highlight {
+  background-color: #ecf0f1;
+  padding: 10px;
+  border-radius: 5px;
+  display: inline;
+  color: #e74c3c;
+  font-style: italic;
 }

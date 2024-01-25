@@ -7,7 +7,12 @@ class VueBoutique extends VueGenerique {
       
         echo '<link rel="stylesheet" href="css/styles_boutique.css">';
         echo '<div class="content-container">
+        <p class="intro">Bienvenue dans notre boutique en ligne de Tower Defense !</p>
+        <p>Nous proposons une variété d\'objets pour renforcer votre défense.</p>
+        <p>Explorez notre collection et découvrez des <span class="highlight">articles exclusifs</span> pour améliorer votre stratégie.</p>
+
         <div class="card-container">
+
             <div class="card-boutique">
                 <img src="images/Boutique/bombe.png" alt="Objet Bombe" class="card-image">
                 <div class="card-content">
@@ -40,7 +45,10 @@ class VueBoutique extends VueGenerique {
                     </audio>
                 </div>
             </div>
+
         </div>
+        <p>Explorez ces objets uniques, choisissez judicieusement en fonction de votre stratégie, et préparez-vous à dominer le champ de bataille. La victoire vous attend !</p>
+        <p class="invite">Téléchargez dès maintenant notre jeu et plongez dans l\'aventure ! 🚀🎮</p>
     </div>';
     echo '<script src="chemin/vers/boutique.js"></script>';
     } 
