@@ -1,11 +1,10 @@
 body {
-    /*url('../images/imageFondAccueil.png') no-repeat center center scroll;*/
     height: 100%;
     font-family: 'Arial', sans-serif;
     background-color: #555555;
     background-size: cover;
     color: white;
-    margin: 0; /* Remove default body margin */
+    margin: 0; 
 }
 
 html, body {
@@ -16,7 +15,7 @@ html, body {
 }
 
 main {
-    flex: 1 0 auto; /* Flex grow, no shrink, auto basis */
+    flex: 1 0 auto; 
 }
 /* Styliser le header */
 header {
@@ -24,27 +23,23 @@ header {
     position: relative;
     align-items: center;
     padding: 1em;
-    z-index: 2; /* Ajouté ici */
+    z-index: 2; 
     position: relative;  
 }
 
 nav {
-   
-    /* ou */
-    padding-left: 490px; /* Ajoutez un padding à gauche */
-    /* ... autres propriétés ... */
+    padding-left: 490px;
 }
 
 .sub-menu {
     display: none;
-    /* ... autres styles ... */
 }
 
 
 nav ul {
     list-style: none;
     display: flex;
-    align-items: center; /* Align vertically within the flex container */
+    align-items: center; 
     
 }
 
@@ -67,22 +62,18 @@ nav ul li a.btn {
     text-transform: uppercase;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
     clip-path: polygon(
-        /* Top-left */
         0% var(--curve-size),
 
         var(--curve-size) 0,
-        /* top-right */
         100% 0,
         100% calc(100% - var(--curve-size)),
 
-        /* bottom-right 1 */
         calc(100% - var(--curve-size)) 100%,
-        /* bottom-right 2 */
+
         0 100%);
     transition: color 250ms;
 }
 
-/* Ajouter un effet de survol pour les liens de navigation */
 nav ul li a.btn:hover {
     color: #fff;
     list-style: none;
@@ -94,8 +85,8 @@ nav ul li ul.sub-menu {
     position: absolute;
     background-color: transparent;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    top: 115%; /* Commence juste en dessous du menu parent */
-    left: -45%; /* Aligné avec le bord gauche du menu parent */
+    top: 115%; 
+    left: -45%; 
     border-radius: 0 0 5px 5px;
     z-index: 1;
 }
@@ -106,7 +97,6 @@ nav ul li ul.sub-menu li {
     text-align: left;
 }
 
-/* Style pour les liens du sous-menu */
 nav ul li ul.sub-menu li a {
     color: white;
     text-decoration: none;
@@ -124,13 +114,11 @@ nav ul li:hover ul.sub-menu {
     margin-top: 0;
 }
 
-/* Assurez-vous que le sous-menu ne dépasse pas du conteneur parent */
 nav ul li {
     position: relative;
     
 }
 
-/* Ajoutez ce style pour centrer le logo et ajuster sa taille */
 header img {
     display: block;
     margin: 10px;
@@ -138,8 +126,6 @@ header img {
     height: auto;
 }
 
-
-/* Ajoutez ce style pour rendre l'image cliquable */
 header a {
     text-decoration: none;
 }
@@ -206,7 +192,6 @@ header a {
     --bg: #080312;
     --color: #afffff;
     color: var(--color);
-      /* use position: relative; so that BG is only for .btn */
     position: relative;
     isolation: isolate;
     display: inline-grid;
@@ -217,17 +202,16 @@ header a {
     text-transform: uppercase;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, .6);
     clip-path: polygon(
-              /* Top-left */
+         
               0% var(--curve-size),
   
               var(--curve-size) 0,
-              /* top-right */
+           
               100% 0,
               100% calc(100% - var(--curve-size)),
   
-              /* bottom-right 1 */
               calc(100% - var(--curve-size)) 100%,
-              /* bottom-right 2 */
+
               0 100%);
     transition: color 250ms;
   }
@@ -264,29 +248,24 @@ header a {
     background: var(--bg);
     z-index: -1;
     clip-path: polygon(
-              /* Top-left */
               var(--border-width) 
               calc(var(--curve-size) + var(--border-width) * .5),
   
               calc(var(--curve-size) + var(--border-width) * .5) var(--border-width),
   
-              /* top-right */
               calc(100% - var(--border-width)) 
               var(--border-width),
   
               calc(100% - var(--border-width)) 
               calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
   
-              /* bottom-right 1 */
               calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) calc(100% - var(--border-width)),
-              /* bottom-right 2 */
               var(--border-width) calc(100% - var(--border-width)));
     transition: clip-path 500ms;
   }
   
   .btn:where(:hover, :focus)::after {
     clip-path: polygon(
-                  /* Top-left */
                   calc(100% - var(--border-width)) 
   
                   calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
@@ -295,7 +274,6 @@ header a {
   
                   var(--border-width),
       
-                  /* top-right */
                   calc(100% - var(--border-width))
   
                    var(--border-width),
@@ -304,11 +282,9 @@ header a {
   
                   calc(100% - calc(var(--curve-size) + var(--border-width) * .5)),
       
-                  /* bottom-right 1 */
                   calc(100% - calc(var(--curve-size) + var(--border-width) * .5)) 
                   calc(100% - var(--border-width)),
   
-                  /* bottom-right 2 */
                   calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
                   calc(100% - var(--border-width)));
     transition: 200ms;
@@ -318,15 +294,15 @@ header a {
     color: #fff;
   }
   .main-content {
-    min-height: 100vh; /* Hauteur minimale égale à 100% de la hauteur de la fenêtre du navigateur */
+    min-height: 100vh; 
 }
 
 
 /* Style de l'image de profil */
 #userMenu img {
-    width: 70px; /* Ajustez la taille de l'image de profil selon vos besoins */
-    height: 70px; /* Ajustez la taille de l'image de profil selon vos besoins */
-    border-radius: 50%; /* Création du cercle autour de l'image */
+    width: 70px; 
+    height: 70px; 
+    border-radius: 50%;
     vertical-align: middle;
 }
 
@@ -338,23 +314,12 @@ header a {
 }
 
 
-
-
 /* Styliser le main */
 main {
     margin: 20px;
     text-align: center;
     flex: 1;
 }
-
-/* Styliser l'image des aliens dans la section principale */
-main img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-
 
 
 /* Styles pour le footer LoL */
@@ -424,7 +389,7 @@ footer {
 }
 
 .footer-social .button svg {
-    fill: white; /* Assurez-vous que vos SVGs gèrent la propriété fill pour la couleur */
+    fill: white; 
     height: 30px;
     width: 30px;
     transition: fill 0.3s ease;
@@ -433,9 +398,7 @@ footer {
 .footer-social .button:hover svg {
     fill: #1e90ff;
 }
-
 /* Social buttons */
-
 .parent {
     width: 100%;
     height: 100%;
@@ -481,14 +444,14 @@ footer {
   }
 
 
-/* Styles pour la section newsletter si elle est dans le footer */
+/* Styles pour la section newsletter */
 .footer-newsletter {
     flex-basis: 40%;
     background: #333;
     color: #fff;
     padding: 2em;
     text-align: center;
-    width: 100%; /* Assurez-vous que la newsletter s'étend sur toute la largeur si nécessaire */
+    width: 100%; 
 }
 
 .newsletter h2 {
@@ -522,13 +485,13 @@ footer {
 
 
 
-/* Responsive design */
 @media (max-width: 768px) {
     .content {
         grid-template-columns: 1fr;
     }
 }
 
+/* bouton jouer */
 .style_bouton {
     padding: 15px 30px;
     background-color: #464546;
@@ -537,13 +500,13 @@ footer {
     border-radius: 8px;
     font-size: 18px;
     margin-top: 20px;
-    border: 2px solid black; /* Ajout d'un contour noir */
+    border: 2px solid black; 
     display: inline-block; 
 }
 
+/* titre de la page d'accueil */
 .heading {
-    font-family: 'Press Start 2P', cursive; /* Votre police d'origine */
-    /* Ajoutez une police majuscule de style "gaming" comme alternative */
+    font-family: 'Press Start 2P', cursive; 
     font-family: 'Exo 2', sans-serif;
     font-size: 36px;
     color: black;
@@ -579,38 +542,32 @@ footer {
     align-items: center;
 }
 
-.grid-container:first-child {
-    margin-bottom: 100px; /* Ajoute un grand espace en bas du premier grid-container */
-}
 
-/* Style pour le deuxième grid-container */
-.grid-container:last-child {
-    margin-top: 100px; /* Ajoute un grand espace en haut du deuxième grid-container */
-}
-
+/* style des descriptions des images*/
 .image-description {
     text-align: justify;
     font-size: 15px;
     line-height: 1.6;
     color: #ddd;
-    font-family: 'Press Start 2P', cursive; /* Utilisation de la police Press Start 2P */
+    font-family: 'Press Start 2P', cursive;
 }
 
 .image-description:hover {
     color: #fff;
 }
 
+/* style du texte*/
 .description {
-    font-family: 'Press Start 2P', cursive; /* Utilisation de la police Press Start 2P */
-    font-size: 24px; /* Taille de la police */
-    color: #292829; /* Couleur du texte en noir */
-    text-align: center; /* Centrer le texte */
-    margin-top: 10px; /* Marge supérieure */
-    z-index: 3; /* Ajouté ici */
+    font-family: 'Press Start 2P', cursive;
+    font-size: 24px;
+    color: #292829; 
+    text-align: center; 
+    margin-top: 10px; 
+    z-index: 3; 
     position: relative; 
 }
 
-/* Style pour les images de profil */
+/* Style pour les images de la page d'accueil avec annimation */
 .img-profil {
     max-width: 500px;
     height: auto;
@@ -618,12 +575,6 @@ footer {
     margin-bottom: 100px;
 }
 
-.img-profil {
-    opacity: 0; /* Gardez l'image transparente par défaut */
-    transform-origin: top center; /* Définissez le point d'origine de la transformation en haut au centre */
-}
-
-/* Animation CSS de balancement */
 @keyframes slideInFromRight {
     0% {
         opacity: 0;
@@ -635,12 +586,11 @@ footer {
     }
 }
 
-/* Appliquez l'animation à l'image */
 .img-profil.show {
     animation: slideInFromRight 1s ease-in-out;
 }
-
-
+ 
+/* bouton decouvrir */
 button {
     position: relative;
     display: inline-block;

@@ -6,7 +6,6 @@
     <title>Page d'accueil</title>
     <!-- Feuille de style pour la page d'accueil -->
     <link rel="stylesheet" type="text/css" href="css/style_accueil.css">
-    <!-- Feuille de style dédiée au footer -->
 </head>
 <body>
 
