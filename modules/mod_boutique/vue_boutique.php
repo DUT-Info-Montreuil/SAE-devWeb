@@ -5,7 +5,7 @@ class VueBoutique extends VueGenerique {
 
     public function afficherBoutique() {
       
-        echo '<link rel="stylesheet" href="css/styles_boutique.css">';
+        echo '<link rel="stylesheet" href="css/styles_tours_ennemi_boutique.css">';
         echo '<div class="content-container">
         <p class="intro">Bienvenue dans notre boutique en ligne de Tower Defense !</p>
         <p>Nous proposons une variété d\'objets pour renforcer votre défense.</p>
@@ -47,8 +47,11 @@ class VueBoutique extends VueGenerique {
             </div>
 
         </div>
+        <br> 
         <p>Explorez ces objets uniques, choisissez judicieusement en fonction de votre stratégie, et préparez-vous à dominer le champ de bataille. La victoire vous attend !</p>
         <p class="invite">Téléchargez dès maintenant notre jeu et plongez dans l\'aventure ! 🚀🎮</p>
+        <br> 
+        <a href="https://github.com/DUT-Info-Montreuil/SAE---devWeb.git" class = "style_bouton">Commencer l\'aventure</a>
     </div>';
     echo '<script src="chemin/vers/boutique.js"></script>';
     } 

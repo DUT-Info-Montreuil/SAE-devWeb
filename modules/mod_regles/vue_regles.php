@@ -4,7 +4,7 @@ require_once 'vue_generique.php';
 class VueRegles extends VueGenerique { 
 
     public function afficherRegles($regles) {
-        echo '<link rel="stylesheet" href="css/style_regles.css">';
+        echo '<link rel="stylesheet" href="css/styles_tours_ennemi_boutique.css">';
         echo '<div class="content-container">'; 
 
         $reglesParCategorie = [];
