@@ -7,7 +7,7 @@ class Connexion {
     public static function initConnexion(){
         $serveur = 'localhost';
         $utilisateur = 'root';
-        $motDePasse = 'toto';
+        $motDePasse = '';
         $baseDeDonnees = 'interstellarhavoc';
 
         try {
