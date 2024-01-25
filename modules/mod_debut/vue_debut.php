@@ -38,7 +38,7 @@ class VueDebut extends VueGenerique {
                 </div>
 
                 <div class="grid-container">
-                <img src="images/profil/ennemis.png" alt="Description des aliens"  class="img-profil">
+                <img src="images/boutique.png" alt="Description des aliens"  class="img-profil">
                 <div>
                 <h2 class="description">Explorez Notre Collection d\'Objets de Défense Innovants</h2>
                 <br> 
