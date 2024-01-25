@@ -216,6 +216,7 @@ class VueProfil extends VueGenerique {
             $this->afficherTableau($donneesEnnemisTues, [ 'Nom Ennemi', 'Vie Ennemi', 'Dégat']);
          echo '</div>';
     }
+    
     public function afficherTableaau($donnees) {
         if (empty($donnees)) {
             echo "Aucune donnée à afficher.";
