@@ -45,8 +45,20 @@ class ContProfil {
                 $this->vue->afficherExplicationClassement();
             break;
             case 'ami':
+                $this->vue->afficherButtonRechercheAmi();
                 $donneesAmis = $this->modele->recupererAmisJoueurConnecte();
                 $this->vue->afficherResultatsRecherche($donneesAmis);
+                
+            break;
+            case 'rechercher':
+                if (isset($_POST['recherche'])) {
+                    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+                        die('Erreur de validation CSRF.');
+                    }
+                    $recherche = $_POST['recherche'];
+                    $resultats = $this->modele->rechercherJoueur($recherche);
+                    $this->vue->afficherResultatsRecherche($resultats);
+                }
             break;
             case 'voir_stats_joueur':
                 if (isset($_GET['idJoueur'])) {

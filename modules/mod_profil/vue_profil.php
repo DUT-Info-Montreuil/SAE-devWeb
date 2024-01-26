@@ -495,21 +495,32 @@ public function afficherTableauToursPlacees($donnees) {
         
         public function afficherResultatsRecherche($resultats) {
             if (!empty($resultats)) {
-        ?>
-                <link rel="stylesheet" type="text/css" href="css/style_ami_affichage.css">
-                <div class="resultats-recherche">
-                    <?php foreach ($resultats as $joueur): ?>
-                        <div class="joueur">
-                            <span class="info-joueur"><strong>ID:</strong> <?= htmlspecialchars($joueur['id_joueur']) ?></span>
-                            <span class="info-joueur"><strong>Nom:</strong> <?= htmlspecialchars($joueur['Nom_joueur']) ?></span>
-                            <a href="index.php?module=profil&action=voir_stats_joueur&idJoueur=<?= htmlspecialchars($joueur['id_joueur']) ?>" class="lien-stats">Voir les statistiques</a>
-                        </div>
-                    <?php endforeach; ?>
-                </div>
-            <?php
+                echo'<link rel="stylesheet" type="text/css" href="css/style_ami_affichage.css">';
+                echo '<div class="resultats-recherche">';
+                foreach ($resultats as $joueur) {
+                    echo '<div class="joueur">';
+                    echo '<span class="info-joueur"><strong>ID:</strong> ' . htmlspecialchars($joueur['id_joueur']) . '</span>';
+                    echo '<span class="info-joueur"><strong>Nom:</strong> ' . htmlspecialchars($joueur['Nom_joueur']) . '</span>';
+                    echo '<a href="index.php?module=profil&action=voir_stats_joueur&idJoueur=' . htmlspecialchars($joueur['id_joueur']) . '" class="lien-stats">Voir les statistiques</a>';
+                    echo '</div>';
+                }
+                echo '</div>';
             } else {
                 echo '<p>Aucun joueur trouvé.</p>';
             }
-        }        
+           // $this->boutton_profil();
+        }
+        public function afficherButtonRechercheAmi() {
+            ?>
+           <link rel="stylesheet" type="text/css" href="css/style_profil.css">
+           <div class="recherche-ami-container">
+           <form action="index.php?module=profil&action=rechercher" method="POST">
+            <input type="text" name="recherche" placeholder="Rechercher un Joueur..." />
+            <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+            <button type="submit">Rechercher</button>
+            </form>
+            </div>
+        <?php
+        }  
 }
 ?>
