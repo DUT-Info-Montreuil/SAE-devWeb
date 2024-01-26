@@ -37,6 +37,9 @@ class Site {
             case "tours":
                 require_once "modules/mod_tours/mod_tours.php";
                 break; 
+            case "aPropos":
+                require_once "modules/mod_aPropos/mod_aPropos.php";
+            break; 
             default:
                 die("Module inexistant");
         }
