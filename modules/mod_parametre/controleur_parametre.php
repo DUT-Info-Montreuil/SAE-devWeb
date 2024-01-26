@@ -26,7 +26,15 @@ class ControleurParametre {
             $newEmail = $_POST['email'];
             $login = $_SESSION['login'];
 
-            // Vérification du mot de passe et traitement de l'image de profil
+            if (strlen($newPassword) < 10) {
+                $this->afficherAlerte("Mot de passe trop court (minimum 10 caractères).");
+            }
+            if (!preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).*$/', $newPassword)) {
+                $this->afficherAlerte("Mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial.");         
+            }
+            if ($newPassword === $ancienPassword) {
+                $this->afficherAlerte("Le nouveau mot de passe ne peut pas être similaire à l'ancien.");         
+            }
             if ($newPassword === $password_confirm && $this->modele->verifierMotDePasse($login, $ancienPassword)) {
                 if (isset($_FILES['profil_image']) && $_FILES['profil_image']['error'] === UPLOAD_ERR_OK) {
                     $logo = $_FILES['profil_image']['name'];

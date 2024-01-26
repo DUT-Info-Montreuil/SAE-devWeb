@@ -10,9 +10,9 @@ class VueCompFooter {
                 <!-- Section pour les liens (à gauche) -->
                 <div class="footer-links">
                     <ul>
-                        <li><a href="?module=debut">Accueil</a></li>
+                        <li><a href="index.php?module=debut">Accueil</a></li>
                         <li><a href="index.php?module=aPropos&action=aPropos">A propos</a></li>
-                        <li><a href="#">Contacts</a></li>
+                        <li><a href="index.php?module=contacts&action=afficher_formulaire">Contacts</a></li>
                         <li><a href="#">Communauté</a></li>
                     </ul>
                 </div>
