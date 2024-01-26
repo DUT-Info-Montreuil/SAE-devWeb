@@ -29,6 +29,8 @@ class ModeleDebut extends Connexion {
                 return "Vous êtes désormais abonné.";
             }
         } else {
+            session_unset();
+            session_destroy();
             header('Location: index.php?module=inscription');
             return "Merci de vous être abonné à notre newsletter.";
         }

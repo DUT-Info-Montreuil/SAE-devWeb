@@ -27,8 +27,7 @@ class ContDebut {
         if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['email'])) {
             $email = $_POST['email'];
             $message = $this->modele->souscrire($email);
-            echo json_encode(['message' => $message]);
-            exit;
+            echo "<script>alert('" . addslashes($message) . "');</script>";
         }
     }
     
@@ -39,8 +38,9 @@ class ContDebut {
                 $this->vue->afficherAccueil();
                 break;
             case 'souscrire':
-                $this->traiter();
                 $this->vue->afficherAccueil();
+                $this->traiter();
+                
                 break;
             
         }
