@@ -1,7 +1,7 @@
 body {
     height: 100%;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #000000, #8A2BE2); /* Dégradé de noir à violet */
+    background: linear-gradient(to right, #000000, #8A2BE2); 
     background-size: cover;
     color: white;
     margin: 0; 

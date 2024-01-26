@@ -4,7 +4,7 @@ body, html {
   padding: 0;
   height: 100%;
   overflow: auto;
-  background: linear-gradient(45deg, #000000, #220033, #220055, #220077, #ff00ff, #00ffff); /* Noir en premier, puis les autres couleurs */
+  background: linear-gradient(45deg, #000000, #220033, #220055, #220077, #ff00ff, #00ffff); 
   background-size: 500% 500%;
   animation: gradientAnimation 10s ease infinite;
   z-index: 2;
@@ -60,7 +60,7 @@ body, html {
   margin-bottom: 10px;
 }
 .descriptionBombe, .audio-player {
-  display: none; /* Cache le texte et le lecteur audio par défaut */
+  display: none; 
 }
 
 .card-boutique:hover .descriptionBombe, 
@@ -68,7 +68,7 @@ body, html {
   display: block; 
 }
 .descriptionHydro, .audio-player {
-  display: none; /* Cache le texte et le lecteur audio par défaut */
+  display: none;
 }
 
 .card-boutique:hover .descriptionHydro, 
@@ -76,7 +76,7 @@ body, html {
   display: block; 
 } 
 .descriptionMur, .audio-player {
-  display: none; /* Cache le texte et le lecteur audio par défaut */
+  display: none; 
 }
 
 .card-boutique:hover .descriptionMur, 
@@ -96,11 +96,11 @@ p.intro {
 font-size: 18px;
 color: #f9f5f9;
 margin-bottom: 20px;
-border: 2px solid #f7f2f6; /* Ajout de la bordure */
-padding: 10px; /* Ajout du padding pour l'encadré */
-border-radius: 8px; /* Coins arrondis */
-font-weight: bold; /* Ajout du style gras */
-background-color: rgba(52, 152, 219, 0.1); /* Couleur de fond transparente */
+border: 2px solid #f7f2f6; 
+padding: 10px; 
+border-radius: 8px; 
+font-weight: bold;
+background-color: rgba(52, 152, 219, 0.1); 
 }
 
 p.highlight {
@@ -112,13 +112,12 @@ color: #e74c3c;
 font-style: italic;
 }
 
-/* Ajoutez ces styles pour les règles */
 .rules-container {
   margin-top: 20px;
   padding: 10px;
   border: 2px solid #3498db;
   border-radius: 8px;
-  background-color: rgba(242, 242, 242, 0.2); /* Couleur de fond avec opacité */
+  background-color: rgba(242, 242, 242, 0.2);
 }
 
 .rules-container p {

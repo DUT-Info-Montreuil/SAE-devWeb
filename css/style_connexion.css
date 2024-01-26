@@ -2,7 +2,7 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: auto; /* Modifié de 'hidden' à 'auto' */
+    overflow: auto; 
     background: #000;
     z-index: 2;
     position: relative;
@@ -17,9 +17,9 @@ body, html {
     height: 100%;
     background: linear-gradient(
         270deg,
-        rgba(0, 0, 0, 0.8), /* Noir semi-transparent */
-        rgba(75, 0, 130, 0.8), /* Violet foncé */
-        rgba(0, 0, 0, 0.8) /* Retour au noir */
+        rgba(0, 0, 0, 0.8), 
+        rgba(75, 0, 130, 0.8), 
+        rgba(0, 0, 0, 0.8) 
     );
     background-size: 400% 400%;
     animation: moveGradient 10s ease infinite;
@@ -39,11 +39,10 @@ body, html {
 }
 
 .conteneur-formulaire {
-    position: relative; /* Important pour que le z-index soit effectif */
-    z-index: 2; /* Plus élevé que celui de l'arrière-plan */
+    position: relative; 
+    z-index: 2;
 }
 
-/* Styles pour la connexion et l'inscription */
 .connexion-form, .inscription-form {
     display: flex;
     flex-direction: column;

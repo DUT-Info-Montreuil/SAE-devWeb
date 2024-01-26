@@ -3,7 +3,7 @@ body, html {
     padding: 0;
     height: 100%;
     overflow: auto;
-    background: linear-gradient(45deg, #000000, #220033, #220055, #220077, #ff00ff, #00ffff); /* Noir en premier, puis les autres couleurs */
+    background: linear-gradient(45deg, #000000, #220033, #220055, #220077, #ff00ff, #00ffff); 
     background-size: 500% 500%;
     animation: gradientAnimation 10s ease infinite;
     z-index: 2;

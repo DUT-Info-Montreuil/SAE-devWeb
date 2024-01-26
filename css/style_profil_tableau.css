@@ -24,14 +24,14 @@ body, html {
 }
 
 .parties-container {
-    display: flex;        /* Utilise Flexbox */
-    justify-content: center; /* Centre horizontalement */
-    align-items: center;     /* Centre verticalement */
-    height: 60vh;       /* Hauteur de la vue complète */
+    display: flex;      
+    justify-content: center; 
+    align-items: center;   
+    height: 60vh;    
     margin: 0;
     padding: 20px;
-    overflow-x: hidden;    /* Pour gérer le débordement horizontal */
-    top: 60px; /* Ajustez selon vos besoins */
+    overflow-x: hidden;  
+    top: 60px; 
     
 }
 
