@@ -18,9 +18,6 @@ class VueBoutique extends VueGenerique {
                     <div class="card-content">
                         <h2>Bombe</h2>
                         <p class="descriptionBombe">Une bombe à faible puissance, mais sa capacité à exploser si un ennemi est suffisamment proche, la rend destructrice</p>
-                        <audio class="audio-player" controls>
-                            <source src="sons/ExplosionBombe.wav" type="audio/wav">
-                        </audio>
                     </div>
                 </div>
 
@@ -29,9 +26,6 @@ class VueBoutique extends VueGenerique {
                     <div class="card-content">
                         <h2>Hydrogène</h2>
                         <p class="descriptionHydro">Sa version initiale était tellement puissante que les structures alliées tombaient sous son souffle, cette version moins puissante, permet de ravager les lignes ennemies, sans se soucier des pertes alliées.</p>
-                        <audio class="audio-player" controls>
-                            <source src="sons/bruit.wav" type="audio/wav">
-                        </audio>
                     </div>
                 </div>
 
@@ -40,9 +34,6 @@ class VueBoutique extends VueGenerique {
                     <div class="card-content">
                         <h2>Mur</h2>
                         <p class="descriptionMur">Le Mur, bâti par le plus grand maçon de bordeldeciel, il est très résistant, permettant ainsi de bloquer les lignes ennemies, et "accompagné le avec une bombe et bonjour les dégâts"</p>
-                        <audio class="audio-player" controls>
-                            <source src="sons/travail_termine.wav" type="audio/wav">
-                        </audio>
                     </div>
                 </div>
 

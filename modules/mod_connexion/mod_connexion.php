@@ -13,5 +13,4 @@ class ModConnexion {
         $this->controleur->exec();
     }
 }
-
 ?>

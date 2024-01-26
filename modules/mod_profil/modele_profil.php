@@ -10,7 +10,6 @@ class ModeleProfil extends Connexion {
         $this->connexion->getBdd()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-
     public function recupererPartiesJoueurConnecte() {
         $donnees = [];
         if (isset($_SESSION['idUtilisateur'])) {
@@ -157,6 +156,7 @@ class ModeleProfil extends Connexion {
             return null; 
         }
     }
+
     public function rechercherJoueur($recherche) {
         $resultats = [];
         $requete = is_numeric($recherche) ? 
@@ -192,10 +192,6 @@ class ModeleProfil extends Connexion {
             return null;
         }
     }
-    
-    
-    
-
 }
 
 ?>

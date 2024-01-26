@@ -17,7 +17,9 @@ class ContInscriptions {
     public function traiterSoumissionFormulaire() {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-                echo 'Erreur CSRF : Qui es-tu ?';
+?>
+                <script>alert('<?php echo addslashes("Erreur CSRF : Qui es-tu ?"); ?>');</script>
+<?php
                 exit;
             }
             $login = $_POST["login"];
@@ -25,11 +27,14 @@ class ContInscriptions {
             $password = $_POST["password"];
             $password_confirm = $_POST["password_confirm"];
             if (strlen($password) < 10) {
-                die('Mot de passe trop court (minimum 10 caractères).');
+?>
+            <script>alert('<?php echo addslashes("Mot de passe trop court (minimum 10 caractères)."); ?>');</script>
+<?php
             }
             if (!preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).*$/', $password)) {
-                die('Mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial.');
-                
+?>
+            <script>alert('<?php echo addslashes("Mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial."); ?>');</script>
+<?php               
             }
             // Vérifiez d'abord si les mots de passe correspondent
             if ($password === $password_confirm) {
@@ -63,7 +68,6 @@ class ContInscriptions {
                 break;
         }
     }
-
 }
 
 ?>

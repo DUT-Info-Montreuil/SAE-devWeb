@@ -4,151 +4,157 @@ require_once 'vue_generique.php';
 class VueProfil extends VueGenerique { 
 
     public function afficherCartes() {
-        echo '<div class="cartes-container">';
-        echo '<link rel="stylesheet" type="text/css" href="css/style_profil.css">';
+        ?>
+            <div class="cartes-container">
+                <link rel="stylesheet" type="text/css" href="css/style_profil.css">
+                
+        <?php
+            $cartes = [
+                ['MES PARTIES JOUÉES', 'index.php?module=profil&action=partie','images/profil/partie.png'],
+                ['MES ENNEMIS TUÉS', 'index.php?module=profil&action=ennemis_tues', 'images/profil/ennemis_tues.png'],
+                ['LES ENNEMIS PARTIE', 'index.php?module=profil&action=ennemis_partie', 'images/profil/ennemis.png'],
+                ['MES TOURS PLACÉS', 'index.php?module=profil&action=tours', 'images/profil/tours.png'],
+                ['CLASSEMENT', 'index.php?module=profil&action=classement', 'images/profil/classement.png'],
+                ['AMI', 'index.php?module=profil&action=ami', 'images/profil/ami.png'],
+            ];
         
-        $cartes = [
-            ['MES PARTIES JOUÉES', 'index.php?module=profil&action=partie','images/profil/partie.png'],
-            ['MES ENNEMIS TUÉS', 'index.php?module=profil&action=ennemis_tues', 'images/profil/ennemis_tues.png'],
-            ['LES ENNEMIS PARTIE', 'index.php?module=profil&action=ennemis_partie', 'images/profil/ennemis.png'],
-            ['MES TOURS PLACÉS', 'index.php?module=profil&action=tours', 'images/profil/tours.png'],
-            ['CLASSEMENT', 'index.php?module=profil&action=classement', 'images/profil/classement.png'],
-            ['Ami', 'index.php?module=profil&action=ami', 'images/profil/ami.png'],
-        ];
-
-        foreach ($cartes as $carte) {
-            echo '<div class="card" data-url="' . $carte[1] . '">';
-            echo '<img src="' . $carte[2] . '" alt="' . $carte[0] . '">';
-            echo $carte[0];
-            echo '</div>';
+            foreach ($cartes as $carte) {
+        ?>
+                <div class="card" data-url="<?php echo $carte[1]; ?>">
+                    <img src="<?php echo $carte[2]; ?>" alt="<?php echo $carte[0]; ?>">
+                    <?php echo $carte[0]; ?>
+                </div>
+        <?php
+            }
+        ?>
+            </div>
+            <script src="js/script_click_profil.js"></script>
+        <?php
         }
-        echo '</div>';
-        echo '<script src="js/script_click_profil.js"></script>';
-       
-    }
-
-    public function boutton_profil() {
-        echo '<link rel="stylesheet" type="text/css" href="css/style_profil_bouton.css">';
-        echo '<div class="btn-container">';
-        echo '<a href="index.php?module=profil&action=profil" class="boutton">';
-        echo '<strong>PROFIL</strong>';
-        echo '<div id="container-stars">';
-        echo '<div id="stars"></div>';
-        echo '</div>';
-        echo '<div id="glow">';
-        echo '<div class="circle"></div>';
-        echo '<div class="circle"></div>';
-        echo '</div>';
-        echo '</a>';
-        echo '</div>';     
-    }
+        
     
 /* PROFIL PARTIEE */
-    public function afficherTableauParties($donnees) {
-        echo '<link rel="stylesheet" type="text/css" href="css/style_profil_tableau.css">';
-        if ($donnees) {
-            // Afficher le tableau
-            echo '<div class="parties-container">';
-            echo '<table class="styled-table">';
-            echo '<thead><tr><th>ID Partie</th><th>Date</th><th>Heure</th><th>Score</th><th>Temps</th><th>ID Joueur</th><th>ID Terrain</th></tr></thead>';
-            echo '<tbody>';
-            foreach ($donnees as $row) {
-                echo '<tr>';
-                echo '<td>' . htmlspecialchars($row['idPartie']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['date']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['heure']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['score']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['temps']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['id_joueur']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['id_terrain']) . '</td>';
-                echo '</tr>';
-            }
-            echo '</tbody></table>';
-            $this->afficherGraphiquePartiesSimplifie($donnees);
-            echo '</div>'; 
-
-           
-        } 
+public function afficherTableauParties($donnees) {
+    ?>
+        <link rel="stylesheet" type="text/css" href="css/style_profil_tableau.css">
+        <?php if ($donnees): ?>
+            <div class="parties-container">
+                <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>ID Partie</th>
+                            <th>Date</th>
+                            <th>Heure</th>
+                            <th>Score</th>
+                            <th>Temps</th>
+                            <th>ID Joueur</th>
+                            <th>ID Terrain</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($donnees as $row): ?>
+                            <tr>
+                                <td><?= htmlspecialchars($row['idPartie']) ?></td>
+                                <td><?= htmlspecialchars($row['date']) ?></td>
+                                <td><?= htmlspecialchars($row['heure']) ?></td>
+                                <td><?= htmlspecialchars($row['score']) ?></td>
+                                <td><?= htmlspecialchars($row['temps']) ?></td>
+                                <td><?= htmlspecialchars($row['id_joueur']) ?></td>
+                                <td><?= htmlspecialchars($row['id_terrain']) ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+                <?php $this->afficherGraphiquePartiesSimplifie($donnees); ?>
+            </div>
+        <?php endif;
     }
     
     public function afficherGraphiquePartiesSimplifie($donnees) {
-        echo '<canvas id="partiesChart" width="200" height="200"></canvas>';
-        echo '<script>';
-        echo 'var ctx = document.getElementById("partiesChart").getContext("2d");';
-        echo 'var partiesData = ' . json_encode($donnees) . ';'; // Convertir les données PHP en JSON
-        echo 'var labels = partiesData.map(function(partie) { return partie.idPartie; });';
-        echo 'var scores = partiesData.map(function(partie) { return partie.score; });';
-        echo 'var chart = new Chart(ctx, {';
-        echo '    type: "bar",';
-        echo '    data: {';
-        echo '        labels: labels,';
-        echo '        datasets: [{';
-        echo '            label: "Scores des parties",';
-        echo '            data: scores,';
-        echo '            backgroundColor: "rgba(75, 192, 192, 0.2)",';
-        echo '            borderColor: "rgba(75, 192, 192, 1)",';
-        echo '            borderWidth: 1';
-        echo '        }]';
-        echo '    }';
-        echo '});';
-        echo '</script>';
+    ?>
+        <canvas id="partiesChart" width="200" height="200"></canvas>
+        <script>
+            var ctx = document.getElementById("partiesChart").getContext("2d");
+            var partiesData = <?= json_encode($donnees) ?>;
+            var labels = partiesData.map(function(partie) { return partie.idPartie; });
+            var scores = partiesData.map(function(partie) { return partie.score; });
+            var chart = new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: "Scores des parties",
+                        data: scores,
+                        backgroundColor: "rgba(75, 192, 192, 0.2)",
+                        borderColor: "rgba(75, 192, 192, 1)",
+                        borderWidth: 1
+                    }]
+                }
+            });
+        </script>
+    <?php
     }
     
     public function afficherExplicationTableau() {
-        echo '<link rel="stylesheet" type="text/css" href="css/style_profil.css">';
-        echo' <div class="explication-tableau">
-        <h2>Graphique des Scores</h2>
-        <p>Bienvenue sur votre tableau des scores, un aperçu visuel de votre performance dans différentes parties du jeu. Ce graphique présente un résumé des scores obtenus au fil des parties.</p>
-        <p><strong>Comment lire le tableau :</strong></p>
-        <ul>
-            <li><strong>ID Partie :</strong> Identifiant unique de chaque partie enregistrée.</li>
-            <li><strong>Date et Heure :</strong> Le moment précis où la partie a été jouée.</li>
-            <li><strong>Score :</strong> Le score total obtenu dans cette partie.</li>
-            <li><strong>Temps :</strong> La durée totale de la partie.</li>
-            <li><strong>ID Joueur :</strong> Votre identifiant unique associé à cette partie.</li>
-            <li><strong>ID Terrain :</strong> L\'identifiant du terrain sur lequel la partie a eu lieu.</li>
-        </ul>
-        <p>Explorez ce tableau interactif pour analyser les tendances, repérer les performances exceptionnelles, et suivre l\'évolution des scores au fil du temps.</p>
-        <p>Prenez le contrôle de votre progression et aspirez à de nouveaux sommets. Bonne exploration ! 🚀🎮</p>
-    </div>';
+    ?>
+        <link rel="stylesheet" type="text/css" href="css/style_profil.css">
+        <div class="explication-tableau">
+            <h2>Graphique des Scores</h2>
+            <p>Bienvenue sur votre tableau des scores, un aperçu visuel de votre performance dans différentes parties du jeu. Ce graphique présente un résumé des scores obtenus au fil des parties.</p>
+            <p><strong>Comment lire le tableau :</strong></p>
+            <ul>
+                <li><strong>ID Partie :</strong> Identifiant unique de chaque partie enregistrée.</li>
+                <li><strong>Date et Heure :</strong> Le moment précis où la partie a été jouée.</li>
+                <li><strong>Score :</strong> Le score total obtenu dans cette partie.</li>
+                <li><strong>Temps :</strong> La durée totale de la partie.</li>
+                <li><strong>ID Joueur :</strong> Votre identifiant unique associé à cette partie.</li>
+                <li><strong>ID Terrain :</strong> L'identifiant du terrain sur lequel la partie a eu lieu.</li>
+            </ul>
+            <p>Explorez ce tableau interactif pour analyser les tendances, repérer les performances exceptionnelles, et suivre l'évolution des scores au fil du temps.</p>
+            <p>Prenez le contrôle de votre progression et aspirez à de nouveaux sommets. Bonne exploration ! 🚀🎮</p>
+        </div>
     
-        echo '<div style="margin-bottom: 80px;"></div>';
-    
-        //$this->boutton_profil();
-    }
+        <div style="margin-bottom: 80px;"></div>
+    <?php
+    }    
       
 /* PROFIL ENNEMIS */
-    public function afficherTableauEnnemisPartie($donnees) {
-        echo '<link rel="stylesheet" type="text/css" href="css/style_profil_tableau.css">';
-        
-        if ($donnees) {
-            echo '<div class="parties-container">';
-            // Afficher le tableau
-            echo '<div class="table-container">';
-            echo '<table class="styled-table">';
-            echo '<thead><tr><th>ID Ennemi</th><th>ID Partie</th><th>Vie Partie</th><th>Position X</th><th>Position Y</th></tr></thead>';
-            echo '<tbody>';
-            foreach ($donnees as $row) {
-                echo '<tr>';
-                echo '<td>' . htmlspecialchars($row['id_ennemi']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['idPartie']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['Vie_partie']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['position_X']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['position_Y']) . '</td>';
-                echo '</tr>';
-            }
-            echo '</tbody></table>';
-            echo '</div>'; // Fin de la table-container
+public function afficherTableauEnnemisPartie($donnees) {
+    ?>
+        <link rel="stylesheet" type="text/css" href="css/style_profil_tableau.css">
+        <?php if ($donnees): ?>
+            <div class="parties-container">
+                <div class="table-container">
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>ID Ennemi</th>
+                                <th>ID Partie</th>
+                                <th>Vie Partie</th>
+                                <th>Position X</th>
+                                <th>Position Y</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($donnees as $row): ?>
+                                <tr>
+                                    <td><?= htmlspecialchars($row['id_ennemi']) ?></td>
+                                    <td><?= htmlspecialchars($row['idPartie']) ?></td>
+                                    <td><?= htmlspecialchars($row['Vie_partie']) ?></td>
+                                    <td><?= htmlspecialchars($row['position_X']) ?></td>
+                                    <td><?= htmlspecialchars($row['position_Y']) ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
     
-            // Afficher le graphique
-            $this->afficherGraphiqueEnnemisPartie($donnees);
+                <?php $this->afficherGraphiqueEnnemisPartie($donnees); ?>
     
-            echo '</div>'; // Fin de la parties-container
-        } else {
-            echo "Aucun ennemi tué trouvé pour le joueur connecté.";
-        }
-    
-        //$this->boutton_profil();
+            </div>
+        <?php else: ?>
+            Aucun ennemi tué trouvé pour le joueur connecté.
+        <?php endif;
     }
     
     public function afficherGraphiqueEnnemisPartie($donnees) {
@@ -164,196 +170,233 @@ class VueProfil extends VueGenerique {
         // Nombre d'ennemis morts et vivants
         $nombreEnnemisMorts = count($ennemisMorts);
         $nombreEnnemisVivants = count($ennemisVivants);
+    ?>
     
-        echo '<canvas id="ennemisChart" width="200" height="200"></canvas>';
-        echo '<script>';
-        echo 'var ctx = document.getElementById("ennemisChart").getContext("2d");';
-        echo 'var ennemisData = {';
-        echo '    morts: ' . $nombreEnnemisMorts . ',';
-        echo '    vivants: ' . $nombreEnnemisVivants;
-        echo '};';
-        echo 'var chart = new Chart(ctx, {';
-        echo '    type: "bar",';
-        echo '    data: {';
-        echo '        labels: ["Ennemis Morts", "Ennemis Vivants"],';
-        echo '        datasets: [{';
-        echo '            label: "Nombre d\'ennemis",';
-        echo '            data: [ennemisData.morts, ennemisData.vivants],';
-        echo '            backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(75, 192, 192, 0.2)"],';
-        echo '            borderColor: ["rgba(255, 99, 132, 1)", "rgba(75, 192, 192, 1)"],';
-        echo '            borderWidth: 1';
-        echo '        }]';
-        echo '    }';
-        echo '});';
-        echo '</script>';
+    <canvas id="ennemisChart" width="200" height="200"></canvas>
+    <script>
+        var ctx = document.getElementById("ennemisChart").getContext("2d");
+        var ennemisData = {
+            morts: <?= $nombreEnnemisMorts ?>,
+            vivants: <?= $nombreEnnemisVivants ?>
+        };
+    
+        var chart = new Chart(ctx, {
+            type: "bar",
+            data: {
+                labels: ["Ennemis Morts", "Ennemis Vivants"],
+                datasets: [{
+                    label: "Nombre d'ennemis",
+                    data: [ennemisData.morts, ennemisData.vivants],
+                    backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(75, 192, 192, 0.2)"],
+                    borderColor: ["rgba(255, 99, 132, 1)", "rgba(75, 192, 192, 1)"],
+                    borderWidth: 1
+                }]
+            }
+        });
+    </script>
+    
+    <?php
     }
     
     public function afficherExplicationEnnemisPartie() {
-        echo '<link rel="stylesheet" type="text/css" href="css/style_profil.css">';
-        echo '<div class="explication-tableau">
-            <h2>Graphique d\'Ennemis</h2>
-            <p>Bienvenue sur votre tableau des ennemis tués, un récapitulatif visuel de votre performance dans le jeu. Ce tableau présente des détails sur chaque ennemi que vous avez éliminé au cours des parties, accompagné d\'un graphique pour une vue d\'ensemble.</p>
+    ?>
+        <link rel="stylesheet" type="text/css" href="css/style_profil.css">
+        <div class="explication-tableau">
+            <h2>Graphique d'Ennemis</h2>
+            <p>Bienvenue sur votre tableau des ennemis tués, un récapitulatif visuel de votre performance dans le jeu. Ce tableau présente des détails sur chaque ennemi que vous avez éliminé au cours des parties, accompagné d'un graphique pour une vue d'ensemble.</p>
             <p><strong>Comment lire le tableau :</strong></p>
             <ul>
                 <li><strong>ID Ennemi :</strong> Identifiant unique de chaque ennemi.</li>
-                <li><strong>ID Partie :</strong> Identifiant unique de la partie où l\'ennemi a été tué.</li>
+                <li><strong>ID Partie :</strong> Identifiant unique de la partie où l'ennemi a été tué.</li>
                 <li><strong>Vie Partie :</strong> La vie totale de la partie.</li>
-                <li><strong>Position X et Y :</strong> La position où l\'ennemi a été tué.</li>
+                <li><strong>Position X et Y :</strong> La position où l'ennemi a été tué.</li>
             </ul>
             <p>Explorez ce tableau interactif pour analyser vos performances contre chaque ennemi spécifique et comprenez les tendances générales.</p>
             <p>Le graphique à côté offre une visualisation plus complète des ennemis tués, vous permettant de comparer différentes parties et de suivre votre évolution. 🚀🎮</p>
-        </div>';
+        </div>
     
-        echo '<div style="margin-bottom: 80px;"></div>';
+        <div style="margin-bottom: 80px;"></div>
+    <?php
+    }
     
-        // $this->boutton_profil();
-    }    
 
     /* PROFIL ENNEMIS TUEES */
     public function afficherTableauEnnemisTues($donnees) {
-        echo '<link rel="stylesheet" type="text/css" href="css/style_profil_tableau.css">';
-        if ($donnees) {
-            echo '<div class="parties-container">';
-            echo '<div class="table-container">';
-            echo '<table class="styled-table">';
-            echo '<thead><tr><th>ID Ennemi</th><th>Nom Ennemi</th><th>Vie Ennemi</th><th>Dégat</th><th>Portée</th><th>Contourner Mur</th><th>Récompense</th><th>ID Partie</th></tr></thead>';
-            echo '<tbody>';
-            foreach ($donnees as $row) {
-                echo '<tr>';
-                echo '<td>' . htmlspecialchars($row['id_ennemi']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['nom_ennemi']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['vie']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['degat']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['portee']) . '</td>';
-                echo '<td>' . ($row['contourner_mur'] ? 'Oui' : 'Non') . '</td>';
-                echo '<td>' . htmlspecialchars($row['recompense']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['idPartie']) . '</td>';
-                echo '</tr>';
-            }
-            echo '</tbody></table></div>';
-            echo '<div class="graph-container">';
-            $this->afficherGraphiqueTypesEnnemisTues($donnees);
-            echo '</div>';
-            echo '</div>'; 
+        ?>
+            <link rel="stylesheet" type="text/css" href="css/style_profil_tableau.css">
+            <?php if ($donnees): ?>
+                <div class="parties-container">
+                    <div class="table-container">
+                        <table class="styled-table">
+                            <thead>
+                                <tr>
+                                    <th>ID Ennemi</th>
+                                    <th>Nom Ennemi</th>
+                                    <th>Vie Ennemi</th>
+                                    <th>Dégat</th>
+                                    <th>Portée</th>
+                                    <th>Contourner Mur</th>
+                                    <th>Récompense</th>
+                                    <th>ID Partie</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php foreach ($donnees as $row): ?>
+                                    <tr>
+                                        <td><?= htmlspecialchars($row['id_ennemi']) ?></td>
+                                        <td><?= htmlspecialchars($row['nom_ennemi']) ?></td>
+                                        <td><?= htmlspecialchars($row['vie']) ?></td>
+                                        <td><?= htmlspecialchars($row['degat']) ?></td>
+                                        <td><?= htmlspecialchars($row['portee']) ?></td>
+                                        <td><?= $row['contourner_mur'] ? 'Oui' : 'Non' ?></td>
+                                        <td><?= htmlspecialchars($row['recompense']) ?></td>
+                                        <td><?= htmlspecialchars($row['idPartie']) ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+        
+                    <div class="graph-container">
+                        <?php $this->afficherGraphiqueTypesEnnemisTues($donnees); ?>
+                    </div>
+        
+                </div>
+            <?php endif;
         }
-    }
-
-    public function afficherGraphiqueTypesEnnemisTues($donnees) {
-        $typesEnnemis = [];
-        foreach ($donnees as $ennemi) {
-            $type = $ennemi['nom_ennemi'];
-            if (!isset($typesEnnemis[$type])) {
-                $typesEnnemis[$type] = 1;
-            } else {
-                $typesEnnemis[$type]++;
+        
+        public function afficherGraphiqueTypesEnnemisTues($donnees) {
+            $typesEnnemis = [];
+            foreach ($donnees as $ennemi) {
+                $type = $ennemi['nom_ennemi'];
+                if (!isset($typesEnnemis[$type])) {
+                    $typesEnnemis[$type] = 1;
+                } else {
+                    $typesEnnemis[$type]++;
+                }
             }
+        ?>
+            <canvas id="typesEnnemisChart" width="300" height="200"></canvas>
+            <script>
+                var ctx = document.getElementById("typesEnnemisChart").getContext("2d");
+                var typesEnnemisData = <?= json_encode(array_values($typesEnnemis)) ?>;
+                var labels = <?= json_encode(array_keys($typesEnnemis)) ?>;
+                var chart = new Chart(ctx, {
+                    type: "bar",
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: "Nombre d'ennemis tués par type",
+                            data: typesEnnemisData,
+                            backgroundColor: "rgba(75, 192, 192, 0.2)",
+                            borderColor: "rgba(75, 192, 192, 1)",
+                            borderWidth: 1
+                        }]
+                    }
+                });
+            </script>
+        <?php
         }
-        echo '<canvas id="typesEnnemisChart" width="300" height="200"></canvas>';
-        echo '<script>';
-        echo 'var ctx = document.getElementById("typesEnnemisChart").getContext("2d");';
-        echo 'var typesEnnemisData = ' . json_encode(array_values($typesEnnemis)) . ';';
-        echo 'var labels = ' . json_encode(array_keys($typesEnnemis)) . ';';
-        echo 'var chart = new Chart(ctx, {';
-        echo '    type: "bar",';
-        echo '    data: {';
-        echo '        labels: labels,';
-        echo '        datasets: [{';
-        echo '            label: "Nombre d\'ennemis tués par type",';
-        echo '            data: typesEnnemisData,';
-        echo '            backgroundColor: "rgba(75, 192, 192, 0.2)",';
-        echo '            borderColor: "rgba(75, 192, 192, 1)",';
-        echo '            borderWidth: 1';
-        echo '        }]';
-        echo '    }';
-        echo '});';
-        echo '</script>';
-    }
-    
-    public function afficherExplicationEnnemisTues() {
-        echo '<link rel="stylesheet" type="text/css" href="css/style_profil.css">';
-        echo '<div class="explication-tableau">
-            <h2>Graphique d\'Ennemis Tués</h2>
-            <p>Bienvenue sur votre tableau des ennemis tués, un récapitulatif visuel de votre performance dans le jeu. Ce tableau présente des détails sur chaque ennemi que vous avez éliminé au cours des parties.</p>
-            <p><strong>Comment lire le tableau :</strong></p>
-            <ul>
-                <li><strong>ID Ennemi :</strong> Identifiant unique de chaque ennemi.</li>
-                <li><strong>Nom Ennemi :</strong> Le nom de l\'ennemi éliminé.</li>
-                <li><strong>Vie Ennemi :</strong> La vie de l\'ennemi.</li>
-                <li><strong>Dégât :</strong> Les dégâts infligés par l\'ennemi.</li>
-                <li><strong>Portée :</strong> La portée de l\'ennemi.</li>
-                <li><strong>Récompense :</strong> La récompense obtenue en éliminant cet ennemi.</li>
-                <li><strong>ID Partie :</strong> Identifiant unique de la partie où l\'ennemi a été tué.</li>
-            </ul>
-            <p>Explorez ce tableau interactif pour analyser vos tactiques, découvrir vos ennemis les plus redoutables, et améliorer votre stratégie au fil du temps.</p>
-            <p>Continuez à affiner vos compétences et devenez le maître du champ de bataille ! 🚀🎮</p>
-        </div>';
-    
-        echo '<div style="margin-bottom: 80px;"></div>';
-    
-      //  $this->boutton_profil();
-    }
+        
+        public function afficherExplicationEnnemisTues() {
+        ?>
+            <link rel="stylesheet" type="text/css" href="css/style_profil.css">
+            <div class="explication-tableau">
+                <h2>Graphique d'Ennemis Tués</h2>
+                <p>Bienvenue sur votre tableau des ennemis tués, un récapitulatif visuel de votre performance dans le jeu. Ce tableau présente des détails sur chaque ennemi que vous avez éliminé au cours des parties.</p>
+                <p><strong>Comment lire le tableau :</strong></p>
+                <ul>
+                    <li><strong>ID Ennemi :</strong> Identifiant unique de chaque ennemi.</li>
+                    <li><strong>Nom Ennemi :</strong> Le nom de l'ennemi éliminé.</li>
+                    <li><strong>Vie Ennemi :</strong> La vie de l'ennemi.</li>
+                    <li><strong>Dégât :</strong> Les dégâts infligés par l'ennemi.</li>
+                    <li><strong>Portée :</strong> La portée de l'ennemi.</li>
+                    <li><strong>Récompense :</strong> La récompense obtenue en éliminant cet ennemi.</li>
+                    <li><strong>ID Partie :</strong> Identifiant unique de la partie où l'ennemi a été tué.</li>
+                </ul>
+                <p>Explorez ce tableau interactif pour analyser vos tactiques, découvrir vos ennemis les plus redoutables, et améliorer votre stratégie au fil du temps.</p>
+                <p>Continuez à affiner vos compétences et devenez le maître du champ de bataille ! 🚀🎮</p>
+            </div>
+        
+            <div style="margin-bottom: 80px;"></div>
+        <?php
+        }
+        
     
 /* PROFIL TOURS */
-    public function afficherTableauToursPlacees($donnees) {
-        echo '<link rel="stylesheet" type="text/css" href="css/style_profil_tableau.css">';
+public function afficherTableauToursPlacees($donnees) {
+    ?>
+        <link rel="stylesheet" type="text/css" href="css/style_profil_tableau.css">
+        <?php if ($donnees): ?>
+            <div class="parties-container">
+                <div class="table-container">
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>ID Tour Placée</th>
+                                <th>ID Partie</th>
+                                <th>Vie Partie</th>
+                                <th>Position X</th>
+                                <th>Position Y</th>
+                                <th>Nom Tour</th>
+                                <th>Vie Tour</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($donnees as $row): ?>
+                                <tr>
+                                    <td><?= htmlspecialchars($row['id_tour']) ?></td>
+                                    <td><?= htmlspecialchars($row['idPartie']) ?></td>
+                                    <td><?= htmlspecialchars($row['Vie_partie']) ?></td>
+                                    <td><?= htmlspecialchars($row['position_X']) ?></td>
+                                    <td><?= htmlspecialchars($row['position_Y']) ?></td>
+                                    <td><?= htmlspecialchars($row['nom_tour']) ?></td>
+                                    <td><?= htmlspecialchars($row['vie']) ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
     
-        if ($donnees) {
-            echo '<div class="parties-container">';
-            // Afficher le tableau
-            echo '<div class="table-container">';
-            echo '<table class="styled-table">';
-            echo '<thead><tr><th>ID Tour Placée</th><th>ID Partie</th><th>Vie Partie</th><th>Position X</th><th>Position Y</th><th>Nom Tour</th><th>Vie Tour</th></tr></thead>';
-            echo '<tbody>';
-            foreach ($donnees as $row) {
-                echo '<tr>';
-                echo '<td>' . htmlspecialchars($row['id_tour']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['idPartie']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['Vie_partie']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['position_X']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['position_Y']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['nom_tour']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['vie']) . '</td>';
-                echo '</tr>';
-            }
-            echo '</tbody></table>';
-            echo '</div>'; // Fin de la table-container
+                <div class="graph-container">
+                    <?php $this->afficherGraphiqueToursPlacees($donnees); ?>
+                </div>
     
-            // Afficher le graphique
-            $this->afficherGraphiqueToursPlacees($donnees);
-    
-            echo '</div>'; // Fin de la parties-container
-        } else {
-            echo "Aucune tour placée trouvée pour le joueur connecté.";
-        }
-   
+            </div>
+        <?php else: ?>
+            Aucune tour placée trouvée pour le joueur connecté.
+        <?php endif;
     }
-
+    
     public function afficherGraphiqueToursPlacees($donnees) {
-        echo '<canvas id="toursChart" width="200" height="200"></canvas>';
-        echo '<script>';
-        echo 'var ctx = document.getElementById("toursChart").getContext("2d");';
-        echo 'var toursData = ' . json_encode($donnees) . ';';
-        echo 'var labels = toursData.map(function(tour) { return tour.nom_tour; });';
-        echo 'var vies = toursData.map(function(tour) { return tour.vie; });';
-        echo 'var chart = new Chart(ctx, {';
-        echo '    type: "bar",';
-        echo '    data: {';
-        echo '        labels: labels,';
-        echo '        datasets: [{';
-        echo '            label: "Vie des Tours",';
-        echo '            data: vies,';
-        echo '            backgroundColor: "rgba(75, 192, 192, 0.2)",';
-        echo '            borderColor: "rgba(75, 192, 192, 1)",';
-        echo '            borderWidth: 1';
-        echo '        }]';
-        echo '    }';
-        echo '});';
-        echo '</script>';
+    ?>
+        <canvas id="toursChart" width="200" height="200"></canvas>
+        <script>
+            var ctx = document.getElementById("toursChart").getContext("2d");
+            var toursData = <?= json_encode($donnees) ?>;
+            var labels = toursData.map(function(tour) { return tour.nom_tour; });
+            var vies = toursData.map(function(tour) { return tour.vie; });
+            var chart = new Chart(ctx, {
+                type: "bar",
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: "Vie des Tours",
+                        data: vies,
+                        backgroundColor: "rgba(75, 192, 192, 0.2)",
+                        borderColor: "rgba(75, 192, 192, 1)",
+                        borderWidth: 1
+                    }]
+                }
+            });
+        </script>
+    <?php
     }
     
     public function afficherExplicationToursPlacees() {
-        echo '<link rel="stylesheet" type="text/css" href="css/style_profil.css">';
-        echo '<div class="explication-tableau">
+    ?>
+        <link rel="stylesheet" type="text/css" href="css/style_profil.css">
+        <div class="explication-tableau">
             <h2>Graphique des Tours Placées</h2>
             <p>Bienvenue sur votre tableau des tours placées, un récapitulatif visuel de votre performance dans la construction de tours. Ce tableau présente des détails sur chaque tour que vous avez placée au cours des parties.</p>
             <p><strong>Comment lire le tableau :</strong></p>
@@ -364,102 +407,109 @@ class VueProfil extends VueGenerique {
                 <li><strong>Vie Tour :</strong> La vie de la tour.</li>
             </ul>
             <p>Explorez ce tableau interactif pour analyser vos choix de construction, améliorer vos stratégies, et devenir un maître de la défense ! 🚀🎮</p>
-        </div>';
+        </div>
     
-        echo '<div style="margin-bottom: 80px;"></div>';
-    
-        //$this->boutton_profil();
-    }
+        <div style="margin-bottom: 80px;"></div>
+    <?php
+    }    
     
     /* PROFIL CLASSEMENT */
     public function afficherClassementParties($classement) {
-        echo '<link rel="stylesheet" type="text/css" href="css/style_profil_tableau.css">';
-    
-        if ($classement) {
-            echo '<div class="parties-container">';
-            
-            // Affichage du tableau de classement
-            echo '<table class="styled-table">';
-            echo '<thead><tr><th>Classement</th><th>ID Partie</th><th>Score</th></tr></thead>';
-            echo '<tbody>';
-            foreach ($classement as $row) {
-                echo '<tr>';
-                echo '<td>' . htmlspecialchars($row['classement']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['idPartie']) . '</td>';
-                echo '<td>' . htmlspecialchars($row['score']) . '</td>';
-                echo '</tr>';
-            }
-            echo '</tbody></table>';
-            
-            // Affichage du graphique
-            $this->afficherGraphiqueClassementParties($classement);
-            
-            echo '</div>';
-        } else {
-            echo "Aucune partie trouvée pour le joueur connecté.";
-        }
-
-    }
-    public function afficherGraphiqueClassementParties($classement) {
-        echo '<canvas id="classementChart" width="200" height="200"></canvas>';
-        echo '<script>';
-        echo 'var ctx = document.getElementById("classementChart").getContext("2d");';
-        echo 'var classementData = ' . json_encode($classement) . ';';
-        echo 'var labels = classementData.map(function(partie) { return partie.idPartie; });';
-        echo 'var scores = classementData.map(function(partie) { return partie.score; });';
-        echo 'var chart = new Chart(ctx, {';
-        echo '    type: "bar",';
-        echo '    data: {';
-        echo '        labels: labels,';
-        echo '        datasets: [{';
-        echo '            label: "Scores des parties",';
-        echo '            data: scores,';
-        echo '            backgroundColor: "rgba(75, 192, 192, 0.2)",';
-        echo '            borderColor: "rgba(75, 192, 192, 1)",';
-        echo '            borderWidth: 1';
-        echo '        }]';
-        echo '    }';
-        echo '});';
-        echo '</script>';
-    }
-
-    public function afficherExplicationClassement() {
-        echo '<link rel="stylesheet" type="text/css" href="css/style_profil.css">';
-        echo' <div class="explication-tableau">
-            <h2>Graphique de Classement</h2>
-            <p>Bienvenue sur votre tableau de classement, une représentation visuelle de votre performance par rapport à d\'autres parties. Ce graphique présente un résumé des classements obtenus au fil des parties.</p>
-            <p><strong>Comment lire le tableau :</strong></p>
-            <ul>
-                <li><strong>ID Partie :</strong> Identifiant unique de chaque partie enregistrée.</li>
-                <li><strong>Classement :</strong> Votre position dans le classement pour cette partie.</li>
-                <li><strong>Score :</strong> Le score total obtenu dans cette partie.</li>
-            </ul>
-            <p>Explorez ce tableau interactif pour analyser les tendances, repérer les performances exceptionnelles, et suivre l\'évolution de votre classement au fil du temps.</p>
-            <p>Prenez le contrôle de votre position et aspirez à atteindre le sommet du classement. Bonne compétition ! 🚀🏆</p>
-        </div>';
+        ?>
+            <link rel="stylesheet" type="text/css" href="css/style_profil_tableau.css">
+            <?php if ($classement): ?>
+                <div class="parties-container">
+                    <table class="styled-table">
+                        <thead>
+                            <tr>
+                                <th>Classement</th>
+                                <th>ID Partie</th>
+                                <th>Score</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($classement as $row): ?>
+                                <tr>
+                                    <td><?= htmlspecialchars($row['classement']) ?></td>
+                                    <td><?= htmlspecialchars($row['idPartie']) ?></td>
+                                    <td><?= htmlspecialchars($row['score']) ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
         
-        echo '<div style="margin-bottom: 80px;"></div>';
+                    <div class="graph-container">
+                        <?php $this->afficherGraphiqueClassementParties($classement); ?>
+                    </div>
         
-       // $this->boutton_profil();
-    }
-    
-    public function afficherResultatsRecherche($resultats) {
-        if (!empty($resultats)) {
-            echo'<link rel="stylesheet" type="text/css" href="css/style_ami_affichage.css">';
-            echo '<div class="resultats-recherche">';
-            foreach ($resultats as $joueur) {
-                echo '<div class="joueur">';
-                echo '<span class="info-joueur"><strong>ID:</strong> ' . htmlspecialchars($joueur['id_joueur']) . '</span>';
-                echo '<span class="info-joueur"><strong>Nom:</strong> ' . htmlspecialchars($joueur['Nom_joueur']) . '</span>';
-                echo '<a href="index.php?module=profil&action=voir_stats_joueur&idJoueur=' . htmlspecialchars($joueur['id_joueur']) . '" class="lien-stats">Voir les statistiques</a>';
-                echo '</div>';
-            }
-            echo '</div>';
-        } else {
-            echo '<p>Aucun joueur trouvé.</p>';
+                </div>
+            <?php else: ?>
+                Aucune partie trouvée pour le joueur connecté.
+            <?php endif;
         }
-       // $this->boutton_profil();
-    }
-    
+        
+        public function afficherGraphiqueClassementParties($classement) {
+        ?>
+            <canvas id="classementChart" width="200" height="200"></canvas>
+            <script>
+                var ctx = document.getElementById("classementChart").getContext("2d");
+                var classementData = <?= json_encode($classement) ?>;
+                var labels = classementData.map(function(partie) { return partie.idPartie; });
+                var scores = classementData.map(function(partie) { return partie.score; });
+                var chart = new Chart(ctx, {
+                    type: "bar",
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: "Scores des parties",
+                            data: scores,
+                            backgroundColor: "rgba(75, 192, 192, 0.2)",
+                            borderColor: "rgba(75, 192, 192, 1)",
+                            borderWidth: 1
+                        }]
+                    }
+                });
+            </script>
+        <?php
+        }
+        
+        public function afficherExplicationClassement() {
+        ?>
+            <link rel="stylesheet" type="text/css" href="css/style_profil.css">
+            <div class="explication-tableau">
+                <h2>Graphique de Classement</h2>
+                <p>Bienvenue sur votre tableau de classement, une représentation visuelle de votre performance par rapport à d'autres parties. Ce graphique présente un résumé des classements obtenus au fil des parties.</p>
+                <p><strong>Comment lire le tableau :</strong></p>
+                <ul>
+                    <li><strong>ID Partie :</strong> Identifiant unique de chaque partie enregistrée.</li>
+                    <li><strong>Classement :</strong> Votre position dans le classement pour cette partie.</li>
+                    <li><strong>Score :</strong> Le score total obtenu dans cette partie.</li>
+                </ul>
+                <p>Explorez ce tableau interactif pour analyser les tendances, repérer les performances exceptionnelles, et suivre l'évolution de votre classement au fil du temps.</p>
+                <p>Prenez le contrôle de votre position et aspirez à atteindre le sommet du classement. Bonne compétition ! 🚀🏆</p>
+            </div>
+        
+            <div style="margin-bottom: 80px;"></div>
+        <?php
+        }
+        
+        public function afficherResultatsRecherche($resultats) {
+            if (!empty($resultats)) {
+        ?>
+                <link rel="stylesheet" type="text/css" href="css/style_ami_affichage.css">
+                <div class="resultats-recherche">
+                    <?php foreach ($resultats as $joueur): ?>
+                        <div class="joueur">
+                            <span class="info-joueur"><strong>ID:</strong> <?= htmlspecialchars($joueur['id_joueur']) ?></span>
+                            <span class="info-joueur"><strong>Nom:</strong> <?= htmlspecialchars($joueur['Nom_joueur']) ?></span>
+                            <a href="index.php?module=profil&action=voir_stats_joueur&idJoueur=<?= htmlspecialchars($joueur['id_joueur']) ?>" class="lien-stats">Voir les statistiques</a>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php
+            } else {
+                echo '<p>Aucun joueur trouvé.</p>';
+            }
+        }        
 }
 ?>

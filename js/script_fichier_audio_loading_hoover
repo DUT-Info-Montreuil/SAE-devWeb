@@ -1,8 +1,0 @@
-document.querySelectorAll('.card-boutique').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        let audioPlayer = this.querySelector('.audio-player');
-        if (audioPlayer && !audioPlayer.src) {
-            audioPlayer.src = 'sons/bruit.wav';
-        }
-    });
-});

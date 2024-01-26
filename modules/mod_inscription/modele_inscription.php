@@ -17,7 +17,6 @@ class ModeleInscriptions extends Connexion {
     
             // Si count est supérieur à 0, cela signifie que l'email existe déjà
             return $row['count'] > 0;
-
     }
     
 
@@ -27,11 +26,15 @@ class ModeleInscriptions extends Connexion {
         $result = $query->execute(array($login, $hashedPassword, $email));
         
         if ($result) {
-            echo 'Vous êtes désormais inscrit !';
+?>
+            <script>alert('<?php echo addslashes("Vous êtes désormais inscrit !"); ?>');</script>
+<?php
             header('Location: index.php?module=connexion');
             exit(); 
         } else {
-            echo 'Insertion impossible !';
+?>
+            <script>alert('<?php echo addslashes("Inscription impossible !"); ?>');</script>
+<?php
         }
     }
 }

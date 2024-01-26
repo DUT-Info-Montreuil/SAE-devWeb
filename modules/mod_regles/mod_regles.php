@@ -9,8 +9,8 @@ class ModRegles{
         $this->controleur = new ContRegles();
 
     }
+    
     public function exec() {
-        // Appel de la méthode exec() du contrôleur
         $this->controleur->exec();
     }
 }

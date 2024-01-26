@@ -9,8 +9,8 @@ class ModProfil{
         $this->controleur = new ContProfil();
 
     }
+    
     public function exec() {
-        // Appel de la méthode exec() du contrôleur
         $this->controleur->exec();
     }
 }
