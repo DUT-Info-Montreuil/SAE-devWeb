@@ -192,6 +192,27 @@ class ModeleProfil extends Connexion {
             return null;
         }
     }
+    public function ajouterAmi($idJoueur1, $idJoueur2) {
+        $requete = "INSERT INTO amis (idJoueur1, idJoueur2, statutAmi) VALUES (?, ?, 'Accepte')";
+        $stmt = $this->connexion->getBdd()->prepare($requete);
+        $stmt->bindParam(1, $idJoueur1, PDO::PARAM_INT); 
+        $stmt->bindParam(2, $idJoueur2, PDO::PARAM_INT); 
+        $stmt->execute();   
+        $stmt->closeCursor(); 
+        
+    }
+    public function supprimerAmi($idUtilisateur, $idAmi) {
+        $requete = "DELETE FROM amis WHERE (idJoueur1 = ? AND idJoueur2 = ?) OR (idJoueur1 = ? AND idJoueur2 = ?)";
+        $stmt = $this->connexion->getBdd()->prepare($requete);
+        $stmt->bindParam(1, $idUtilisateur, PDO::PARAM_INT);
+        $stmt->bindParam(2, $idAmi, PDO::PARAM_INT);
+        $stmt->bindParam(3, $idAmi, PDO::PARAM_INT);
+        $stmt->bindParam(4, $idUtilisateur, PDO::PARAM_INT);
+
+        $stmt->execute();
+        $stmt->closeCursor();
+    }
+    
 }
 
 ?>

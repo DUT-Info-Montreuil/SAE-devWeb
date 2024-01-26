@@ -57,7 +57,7 @@ class ContProfil {
                     }
                     $recherche = $_POST['recherche'];
                     $resultats = $this->modele->rechercherJoueur($recherche);
-                    $this->vue->afficherResultatsRecherche($resultats);
+                    $this->vue->afficherResultatsRechercheAmi($resultats);
                 }
             break;
             case 'voir_stats_joueur':
@@ -66,7 +66,24 @@ class ContProfil {
                     $donneesEnnemisTues = $this->modele->AmiRecupererEnnemisTues($idJoueur);
                     $this->vue->afficherTableauEnnemisTues($donneesEnnemisTues);
                 }
-                break;         
+                break;      
+               case 'ajouterAmi':
+                if (isset($_GET['idJoueur'])&& isset($_SESSION['idUtilisateur'])) {
+                    $idUtilisateur = $_SESSION['idUtilisateur'];
+                    $idAmi = $_GET['idJoueur'];
+                    $this->modele->ajouterAmi($idUtilisateur, $idAmi);
+                    $this->vue->demandeAmiEnvoyer();
+                }
+                break;
+                case 'supprimerAmi':
+                    if (isset($_GET['idJoueur']) && isset($_SESSION['idUtilisateur'])) {
+                        $idUtilisateur = $_SESSION['idUtilisateur'];
+                        $idAmi = $_GET['idJoueur'];
+                        $this->modele->supprimerAmi($idUtilisateur, $idAmi);
+                         $this->vue->SuppressionAmiEnvoyer();
+
+                    }
+                    break;   
         }
     }
 }

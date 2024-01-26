@@ -261,7 +261,7 @@ public function afficherTableauEnnemisPartie($donnees) {
                         <?php $this->afficherGraphiqueTypesEnnemisTues($donnees); ?>
                     </div>
                 </div>
-                <a href="index.php?module=profil" class="btn">Button</a>
+                <a href="index.php?module=profil" class="btn">Retour Page Profil</a>
             <?php endif;
         }
         
@@ -505,6 +505,7 @@ public function afficherTableauToursPlacees($donnees) {
                     <span class="info-joueur"><strong>ID:</strong> <?= htmlspecialchars($joueur['id_joueur']) ?></span>
                     <span class="info-joueur"><strong>Nom:</strong> <?= htmlspecialchars($joueur['Nom_joueur']) ?></span>
                     <a href="index.php?module=profil&action=voir_stats_joueur&idJoueur=<?= htmlspecialchars($joueur['id_joueur']) ?>" class="lien-stats">Voir les statistiques</a>
+                    <a href="index.php?module=profil&action=supprimerAmi&idJoueur=<?= htmlspecialchars($joueur['id_joueur']) ?>" class="lien-stats">Supprimer l'ami</a>
                 </div>
     <?php
             }
@@ -527,6 +528,50 @@ public function afficherTableauToursPlacees($donnees) {
                 </form>
             </div>
         <?php
-        }         
+        }  
+        public function afficherResultatsRechercheAmi($resultats) {
+            if (!empty($resultats)) {
+        ?>
+                <link rel="stylesheet" type="text/css" href="css/style_ami_affichage.css">
+                <div class="resultats-recherche">
+        <?php
+                foreach ($resultats as $joueur) {
+        ?>
+                    <div class="joueur">
+                        <span class="info-joueur"><strong>ID:</strong> <?= htmlspecialchars($joueur['id_joueur']) ?></span>
+                        <span class="info-joueur"><strong>Nom:</strong> <?= htmlspecialchars($joueur['Nom_joueur']) ?></span>
+                        <a href="index.php?module=profil&action=voir_stats_joueur&idJoueur=<?= htmlspecialchars($joueur['id_joueur']) ?>" class="lien-stats">Voir les statistiques</a>
+                        <a href="index.php?module=profil&action=ajouterAmi&idJoueur=<?= htmlspecialchars($joueur['id_joueur']) ?>" class="lien-stats">Ajouter en tant qu'ami</a>
+                    </div>
+        <?php
+                }
+        ?>
+                </div>
+        <?php
+            } else {
+                echo '<p>Aucun ami trouvé.</p>';
+            }  
+        }
+        public function demandeAmiEnvoyer() {
+            ?>
+            <div id="popupAmiEnvoye" class="popup-overlay">
+                    <div class="popup-content">
+                        <h2>Demande d'ami envoyée</h2>
+                        <p>Votre demande d'ami a été envoyée avec succès.</p>
+                    </div>
+                  </div>
+                  
+        <?php
+        }    
+        public function SuppressionAmiEnvoyer() {
+            ?>
+            <div id="popupAmiEnvoye" class="popup-overlay">
+                    <div class="popup-content">
+                        <h2>Demande de suppression achevée</h2>
+                        <p>Vous n'est plus ami avec cette personne</p>
+                    </div>
+                  </div>
+        <?php
+        }    
 }
 ?>
