@@ -45,18 +45,6 @@ class VueMenu {
         $this->affichage .= '</div>';
         
         $this->affichage .= '</nav>';
-        $this->affichage .= '<div class="menu-toggle"><img src = "/images/header/menu-btn.png" alt="menu hamburger" class="menu-hamburger"></div>';
-        $this->affichage .= '<link rel="stylesheet" type="text/css" href="/css/style_index.css">';
-
-        // Ajout du script JavaScript
-        $this->affichage .= '<script>
-        const menuHamburger = document.querySelector(".menu-hamburger")
-        const navLinks = document.querySelector(".nav-links")
- 
-        menuHamburger.addEventListener(\'click\',()=>{
-        navLinks.classList.toggle(\'mobile-menu\')
-        })
-        </script>';
     }
 
     public function getAffichage() {

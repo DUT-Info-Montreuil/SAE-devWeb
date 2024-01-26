@@ -30,25 +30,18 @@ class ContConnexions {
                 $this->vue->form_connexion();
             }
         } else {
-            echo "Erreur lors de la connexion!";
+?>
+            <script>alert('<?php echo addslashes("Erreur lors de la connexion!"); ?>');</script>
+<?php
         }
     }
 
-
-
-
     public function seDeconnecter() {
-        // Détruire toutes les variables de session
         session_unset();
-
-        // Détruire la session
         session_destroy();
-
-        // Rediriger vers la page d'accueil
         header('Location: index.php?module=debut');
         exit();
     }
-
 
     public function exec() {
         switch ($this->action) {

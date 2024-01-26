@@ -63,7 +63,6 @@ class VueDebut extends VueGenerique {
             echo '<script>
             var imageProfil = document.getElementById(\'imageProfil\');
             imageProfil.classList.add(\'show\');
-            </script>';
-            
+            </script>';         
     }
 }
