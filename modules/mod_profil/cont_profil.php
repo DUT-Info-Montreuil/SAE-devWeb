@@ -66,12 +66,8 @@ class ContProfil {
                     $donneesEnnemisTues = $this->modele->AmiRecupererEnnemisTues($idJoueur);
                     $this->vue->afficherTableauEnnemisTues($donneesEnnemisTues);
                 }
-                break;
-
-            
+                break;         
         }
     }
-
 }
-
 ?>

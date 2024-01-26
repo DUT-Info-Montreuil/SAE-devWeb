@@ -16,12 +16,10 @@ class ModeleRegles extends Connexion {
             $requete->execute();
             $regles = $requete->fetchAll(PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
-            return $null;
+            return null;
         }
         return $regles;
     }
-    
-
 }
 
 ?>

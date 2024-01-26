@@ -8,7 +8,6 @@ class CompFooter  {
 		$this->vue = new VueCompFooter();
 	}
 
-
 	public function exec () {
 		echo $this->vue->getAffichage();
 	}	

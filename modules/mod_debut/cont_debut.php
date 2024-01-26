@@ -14,24 +14,16 @@ class ContDebut {
         $this->action = isset($_GET['action']) ? $_GET['action'] : 'pagePrincipale';  
     }
 
-    public function seConnecter() {
-    
-    }
-
-    
-    public function seDeconnecter() {
-      
-    }
-
     public function traiter() {
         if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['email'])) {
             $email = $_POST['email'];
             $message = $this->modele->souscrire($email);
-            echo "<script>alert('" . addslashes($message) . "');</script>";
+?>
+            <script>alert('<?php echo addslashes($message); ?>');</script>
+<?php
         }
     }
     
-
     public function exec() {
         switch ($this->action) {
             case 'pagePrincipale':
@@ -39,10 +31,8 @@ class ContDebut {
                 break;
             case 'souscrire':
                 $this->vue->afficherAccueil();
-                $this->traiter();
-                
-                break;
-            
+                $this->traiter();   
+                break;       
         }
     }
 }

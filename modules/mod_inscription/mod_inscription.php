@@ -9,8 +9,8 @@ class ModInscription{
         $this->controleur = new ContInscriptions();
 
     }
+    
     public function exec() {
-        // Appel de la méthode exec() du contrôleur
         $this->controleur->exec();
     }
 }

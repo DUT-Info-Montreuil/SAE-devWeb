@@ -1,24 +1,22 @@
-
 body {
+  height: 100%;
   font-family: 'Arial', sans-serif;
-  background-image: url('../images/param.png');
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: scroll;
+  background: black; 
   background-size: cover;
   color: white;
-  margin: 0; /* Remove default body margin */
+  margin: 0; 
 }
+
 
 .container1 {
     position: relative;
     max-width: 500px;
     width: 100%;
-    background: rgb(31, 24, 47);
+    background: black;
     padding: 25px;
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(246, 244, 244, 0.1);
-    margin: 0 auto; /* Pour centrer horizontalement */
+    margin: 0 auto;
 }
 
 .container1 header {
@@ -31,19 +29,19 @@ body {
 .container1 .form {
     margin-top: 15px;
 }
-  
+
 .input-box {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centre verticalement les champs de saisie */
-    text-align: center; /* Centre le texte horizontalement dans les champs de saisie */
-    margin-bottom: 15px; /* Ajoute de l'espace entre les rubriques */
+    align-items: center;
+    text-align: center;
+    margin-bottom: 15px;
 }
 
 .input-box label {
     color: #f8f3f3;
-    font-weight: 600; /* Ajoute du poids à l'étiquette pour la mettre en évidence */
-    margin-bottom: 5px; /* Espacement entre l'étiquette et le champ de saisie */
+    font-weight: 600;
+    margin-bottom: 5px;
 }
 
 .form :where(.input-box input, .select-box) {
@@ -56,7 +54,7 @@ body {
     margin-top: 5px;
     border: 1px solid #28032e;
     border-radius: 6px;
-    padding: 15px 5px; /* Augmente la marge intérieure pour un meilleur aspect */
+    padding: 15px 5px;
     background: #FCEDDA;
 }
 
@@ -64,43 +62,43 @@ body {
     box-shadow: 0 1px 0 rgba(246, 243, 243, 0.1);
 }
 
-  .form .column {
+.form .column {
     display: flex;
     column-gap: 15px;
-  }
-  
-  .form .gender-box {
+}
+
+.form .gender-box {
     margin-top: 50px;
-  }
-  
-  .form :where(.gender-option, .gender) {
+}
+
+.form :where(.gender-option, .gender) {
     display: flex;
     align-items: center;
     column-gap: 50px;
     flex-wrap: wrap;
-  }
-  
-  .form .gender {
+}
+
+.form .gender {
     column-gap: 5px;
-  }
-  
-  .gender input {
+}
+
+.gender input {
     accent-color: #67117e;
-  }
-  
-  .form :where(.gender input, .gender label) {
+}
+
+.form :where(.gender input, .gender label) {
     cursor: pointer;
-  }
-  
-  .gender label {
+}
+
+.gender label {
     color: #f9f5f5;
-  }
-  
-  .address :where(input, .select-box) {
+}
+
+.address :where(input, .select-box) {
     margin-top: 10px;
-  }
-  
-  .select-box select {
+}
+
+.select-box select {
     height: 100%;
     width: 100%;
     outline: none;
@@ -108,15 +106,15 @@ body {
     color: #808080;
     font-size: 1rem;
     background: #FCEDDA;
-  }
-  
-  .form button {
-    height: 30px; /* Ajustez la hauteur à la même valeur que les champs de saisie */
+}
+
+.form button {
+    height: 30px;
     width: 100%;
     color: #faf8f8;
     font-size: 1rem;
     font-weight: 400;
-    margin-top: 5px; /* Ajustez la marge supérieure à la même valeur que les champs de saisie */
+    margin-top: 5px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
@@ -124,12 +122,11 @@ body {
     background: #67117e;
 }
 
-  
-  .form button:hover {
+.form button:hover {
     background: #67117e;
-  }
+}
 
-  .erreur-message {
+.erreur-message {
     color: red;
     font-size: 16px;
     font-weight: bold;
@@ -137,7 +134,7 @@ body {
     text-align: center;
     animation: fadein 2s;
     z-index: 3;
-    position: relative; 
+    position: relative;
 }
 
 @keyframes fadein {
@@ -145,17 +142,15 @@ body {
     to   { opacity: 1; }
 }
 
-
-/* Style de l'aperçu de l'image de profil */
 .profil-image-preview {
   text-align: center;
   margin-bottom: 10px;
 }
 
 .profil-image-preview img {
-  max-width: 100px; /* Ajustez la taille de l'aperçu selon vos besoins */
-  max-height: 100px; /* Ajustez la taille de l'aperçu selon vos besoins */
-  border-radius: 50%; /* Création du cercle autour de l'image */
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 50%;
 }
 
 .no-image {
@@ -163,26 +158,24 @@ body {
   color: #999;
 }
 
-/* Style du bouton "+" */
 .profil-image-upload-button {
   display: inline-block;
   position: absolute;
-  bottom: 5px; /* Ajustez la position verticale selon vos besoins */
-  right: 5px; /* Ajustez la position horizontale selon vos besoins */
-  width: 30px; /* Largeur du bouton "+" */
-  height: 30px; /* Hauteur du bouton "+" */
+  bottom: 5px;
+  right: 5px;
+  width: 30px;
+  height: 30px;
   background-color: #67117e;
-  color: #fff; /* Couleur du texte */
+  color: #fff;
   font-size: 24px;
   text-align: center;
   line-height: 30px;
-  border-radius: 50%; /* Création du cercle */
+  border-radius: 50%;
   cursor: pointer;
   z-index: 3;
-    position: relative;  
+  position: relative;
 }
 
-/* Style de l'aperçu de l'image de profil */
 .profil-image-preview {
   text-align: center;
   margin-bottom: 10px;
@@ -194,12 +187,11 @@ body {
 }
 
 .profile-image-container img {
-  max-width: 100px; /* Ajustez la taille de l'aperçu selon vos besoins */
-  max-height: 100px; /* Ajustez la taille de l'aperçu selon vos besoins */
-  border-radius: 50%; /* Création du cercle autour de l'image */
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 50%;
 }
 
-
 .profil-image-upload-button:hover {
-  background-color: #0056b3; /* Couleur de fond du bouton "+" au survol */
+  background-color: #0056b3;
 }

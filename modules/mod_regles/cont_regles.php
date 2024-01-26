@@ -15,16 +15,13 @@ class ContRegles {
     }
 
     public function exec() {
-        switch ($this->action) {
-         
+        switch ($this->action) {  
             case 'regles':
                 $regles = $this->modele->recupererRegles();
                 $this->vue->afficherRegles($regles);
                 break;
         }
     }
-    
-
 }
 
 ?>

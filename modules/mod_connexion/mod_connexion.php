@@ -10,9 +10,7 @@ class ModConnexion {
     }
 
     public function exec() {
-        // Appel de la méthode exec() du contrôleur
         $this->controleur->exec();
     }
 }
-
 ?>

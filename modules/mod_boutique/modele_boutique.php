@@ -8,8 +8,6 @@ class ModeleBoutique extends Connexion {
         $this->connexion = new Connexion();
         $this->connexion::initConnexion();
         $this->connexion->getBdd()->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    }
-    
+    }   
 }
-
 ?>
