@@ -13,9 +13,9 @@ class VueInscriptions extends VueGenerique {
         echo '</div>';
 
         echo '<h3>Votre légende commence ici !</h3>';
-
         echo '<div class="form-container">';
         echo '<form class="container" action="index.php?module=inscription&action=inscription" method="POST" onsubmit="return verifierMotsDePasse();">';
+        echo '<input type="hidden" name="csrf_token" value="' . $_SESSION['csrf_token'] . '">';
         echo '<div class="input-container">';
         echo '<div class="input-content">';
         echo '<div class="input-dist">';

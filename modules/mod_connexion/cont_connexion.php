@@ -15,8 +15,13 @@ class ContConnexions {
     }
 
     public function seConnecter() {
-        if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['email']) && isset($_POST['password'])) {
-            $email = $_POST['email'];
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+                die('Erreur de validation CSRF.');
+            }
+            
+        if (isset($_POST['login']) && isset($_POST['password'])) {
+            $login = $_POST['login'];
             $password = $_POST['password'];
             $_SESSION['email'] = $email;
             list($verifie, $idUtilisateur, $login,  $logo) = $this->modele->verifierUtilisateur($email, $password);
@@ -32,9 +37,9 @@ class ContConnexions {
         } else {
             echo "Erreur lors de la connexion!";
         }
-    }
-
-
+    }}
+    
+    
 
 
     public function seDeconnecter() {
@@ -68,4 +73,5 @@ class ContConnexions {
         }
     }
 }
+
 ?>
