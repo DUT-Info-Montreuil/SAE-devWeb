@@ -20,8 +20,8 @@ class ContConnexions {
                 die('Erreur de validation CSRF.');
             }
             
-        if (isset($_POST['login']) && isset($_POST['password'])) {
-            $login = $_POST['login'];
+        if (isset($_POST['email']) && isset($_POST['password'])) {
+            $email = $_POST['email'];
             $password = $_POST['password'];
             $_SESSION['email'] = $email;
             list($verifie, $idUtilisateur, $login,  $logo) = $this->modele->verifierUtilisateur($email, $password);
