@@ -16,7 +16,11 @@ class ControleurParametre {
     }
 
     public function modifier() {
+        
         if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['ancienPassword']) && isset($_POST['newPassword']) && isset($_POST['password_confirm']) && isset($_POST['login']) && isset($_POST['email'])) {
+            if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+                die('Erreur de validation CSRF.');
+            }
             $ancienPassword = $_POST['ancienPassword'];
             $newPassword = $_POST['newPassword'];
             $password_confirm = $_POST["password_confirm"];
@@ -51,6 +55,9 @@ class ControleurParametre {
             case 'modifier':
                 $this->vue->form_modification();
                     if ($_SERVER["REQUEST_METHOD"] === "POST") {
+                        if(!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']){
+                            die('Erreur de validation csrf, mais qui êtes vous ? ');
+                        }
                         $this->modifier();
                     }
                 break;   

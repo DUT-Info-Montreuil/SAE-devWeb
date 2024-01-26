@@ -15,7 +15,12 @@ class ContConnexions {
     }
 
     public function seConnecter() {
-        if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['email']) && isset($_POST['password'])) {
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+                die('Erreur de validation CSRF.');
+            }
+            
+        if (isset($_POST['email']) && isset($_POST['password'])) {
             $email = $_POST['email'];
             $password = $_POST['password'];
             $_SESSION['email'] = $email;
@@ -34,7 +39,10 @@ class ContConnexions {
             <script>alert('<?php echo addslashes("Erreur lors de la connexion!"); ?>');</script>
 <?php
         }
-    }
+    }}
+    
+    
+
 
     public function seDeconnecter() {
         session_unset();
@@ -61,4 +69,5 @@ class ContConnexions {
         }
     }
 }
+
 ?>

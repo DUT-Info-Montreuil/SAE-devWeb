@@ -4,40 +4,40 @@ require_once 'vue_generique.php';
 class VueConnexions extends VueGenerique { 
 
     public function form_connexion($login = null) {
-?>
-        <link rel="stylesheet" type="text/css" href="css/style_connexion.css">
-        <div class="animated-background"></div>
-        <div class="welcome-message">
-            <p>"Chaque grand voyage commence par un petit pas."</p>
-        </div>
-        <h3>Bienvenue de retour, aventurier !</h3>
+        echo '<link rel="stylesheet" type="text/css" href="css/style_connexion.css">';
+        echo '<div class="animated-background"></div>';
 
-<?php
+        // Bloc de message de bienvenue
+        echo '<div class="welcome-message">';
+        echo '<p>"Chaque grand voyage commence par un petit pas."</p>';
+        echo '</div>';
+        echo '<h3>Bienvenue de retour, aventurier !</h3>';
         if ($login) {
-?>
+            ?>
             <script>alert('<?php echo addslashes("Vous êtes déjà connecté."); ?>');</script> 
 <?php
         } else {
-?>
-            <div class="form-container">
-                <form class="container" action="index.php?module=connexion&action=connexion" method="POST">
-                    <div class="input-container">
-                        <div class="input-content">
-                            <div class="input-dist">
-                                <div class="input-type">
-                                    <input class="input-is" type="email" name="email" required placeholder="E-mail" />
-                                    <input class="input-is" type="password" name="password" required placeholder="Mot de Passe" />
-                                    <button class="submit" type="submit">Connexion</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-
-                <p>Pour créer un compte, <a href="index.php?module=inscription&action=inscription">cliquer ici</a></p>
-            </div>
-            <script src="js/script_champ_manquant.js"></script>
-<?php
+            
+            echo '<div class="form-container">';
+            echo '<form class="container" action="index.php?module=connexion&action=connexion" method="POST">';
+            echo '<input type="hidden" name="csrf_token" value="' . $_SESSION['csrf_token'] . '">';
+            echo '<div class="input-container">';
+            echo '<div class="input-content">';
+            echo '<div class="input-dist">';
+            echo '<div class="input-type">';
+            echo '<input class="input-is" type="email" name="email" required placeholder="E-mail" />';
+            echo '<input class="input-is" type="password" name="password" required placeholder="Mot de Passe" />';
+    
+            echo '<button class="submit" type="submit">Connexion</button>';
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+            echo '</form>';
+            
+            echo '<p>Pour créer un compte, <a href="index.php?module=inscription&action=inscription">cliquer ici</a></p>';
+            echo '</div>';
+            echo'<script src="js/script_champ_manquant.js"></script>';
         }
     }
 }
