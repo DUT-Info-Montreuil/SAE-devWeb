@@ -122,3 +122,46 @@ body, html {
 .explication-tableau strong {
     color: #007bff;
 }
+
+.recherche-ami-container {
+    max-width: flex;
+    margin: auto;
+    padding: 20px;
+    background-color: rgba(243, 243, 243, 0.23); 
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recherche-ami-container form {
+    display: 400px;
+    gap: 10px;
+}
+
+.recherche-ami-container input[type="text"] {
+    flex-grow: 1; 
+    padding: 10px; 
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box; 
+}
+
+.recherche-ami-container button {
+    padding: 10px 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    box-sizing: border-box; 
+}
+
+.recherche-ami-container button:hover {
+    background-color: #333;
+}
+
+.recherche-ami-container input[type="hidden"] {
+    border: none;
+    background-color: transparent;
+}

@@ -460,6 +460,18 @@ class VueProfil extends VueGenerique {
         }
        // $this->boutton_profil();
     }
-    
+    public function afficherButtonRechercheAmi() {
+        ?>
+       <link rel="stylesheet" type="text/css" href="css/style_profil.css">
+       <div class="recherche-ami-container">
+       <form action="index.php?module=profil&action=rechercher" method="POST">
+        <input type="text" name="recherche" placeholder="Rechercher un Joueur..." />
+        <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+        <button type="submit">Rechercher</button>
+        </form>
+        </div>
+    <?php
+    }
+   
 }
 ?>
