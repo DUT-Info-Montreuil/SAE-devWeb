@@ -7,7 +7,10 @@ class VueMenu {
     public function __construct() {
         
         $this->affichage = '<a href="?module=debut"><img src="images/logo.png" alt="logo" width = 100></a>'; 
-        $this->affichage .= '<nav>';
+        $this->affichage .= '<nav class="navbar">'; // Ajout de la classe "navbar" à la balise <nav>
+
+        // Ajout d'un div avec la classe nav-links autour de la première ul
+        $this->affichage .= '<div class="nav-links">';
         $this->affichage .= '<ul>';
 
         $this->affichage .= '<li><button class="btn"><a href="index.php?module=tours&action=tours">Tours</a></button></li>';
@@ -37,16 +40,28 @@ class VueMenu {
         }
 
         $this->affichage .= '</ul>';
+
+        // Fermeture du div nav-links autour de la première ul
+        $this->affichage .= '</div>';
+        
         $this->affichage .= '</nav>';
-        echo' <script src="js/script_sous_menu.js"></script>';
+        $this->affichage .= '<div class="menu-toggle"><img src = "/images/header/menu-btn.png" alt="menu hamburger" class="menu-hamburger"></div>';
+        $this->affichage .= '<link rel="stylesheet" type="text/css" href="/css/style_index.css">';
+
+        // Ajout du script JavaScript
+        $this->affichage .= '<script>
+        const menuHamburger = document.querySelector(".menu-hamburger")
+        const navLinks = document.querySelector(".nav-links")
+ 
+        menuHamburger.addEventListener(\'click\',()=>{
+        navLinks.classList.toggle(\'mobile-menu\')
+        })
+        </script>';
     }
 
     public function getAffichage() {
         return $this->affichage;
     }
 }
-
-
-
 
 ?>
