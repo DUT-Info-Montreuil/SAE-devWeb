@@ -26,15 +26,11 @@ class ModeleInscriptions extends Connexion {
         $result = $query->execute(array($login, $hashedPassword, $email));
         
         if ($result) {
-?>
-            <script>alert('<?php echo addslashes("Vous êtes désormais inscrit !"); ?>');</script>
-<?php
+            die('Vous êtes désormais inscrit !');
             header('Location: index.php?module=connexion');
             exit(); 
         } else {
-?>
-            <script>alert('<?php echo addslashes("Inscription impossible !"); ?>');</script>
-<?php
+            die('Inscription impossible !');
         }
     }
 }

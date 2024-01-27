@@ -17,12 +17,6 @@ class ContContacts {
         $this->vue->afficherFormulaireMessage();
     }
 
-    public function afficherErreur(){
-        ?>
-        <script>alert('<?php echo addslashes("Erreur lors de l'envoie !"); ?>');</script>
-        <?php
-    }
-
     public function envoyerMessage() {
         if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['email']) && isset($_POST['message'])) {
             $email = $_POST['email'];
@@ -32,13 +26,12 @@ class ContContacts {
             
             if ($enregistrementReussi) {
                 header('Location: index.php?module=debut');
-            
-               echo '<script>alert("Votre message à été envoyé !")</script>';
+                die('Votre message à été envoyé !');
             } else {
-                $this->afficherErreur();
+                die('Erreur lors de l\'envoie !');
             }
         } else {
-            $this->afficherErreur();
+            die('Erreur lors de l\'envoie !');
         }
     }
 
@@ -51,7 +44,7 @@ class ContContacts {
                 $this->envoyerMessage();
                 break;
             default:
-            $this->afficherErreur();
+            die('Erreur lors de l\'envoie !');
                 break;
         }
     }

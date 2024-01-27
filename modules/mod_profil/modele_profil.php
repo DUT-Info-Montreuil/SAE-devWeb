@@ -106,7 +106,6 @@ class ModeleProfil extends Connexion {
         if (isset($_SESSION['idUtilisateur'])) {
             $idJoueur = $_SESSION['idUtilisateur'];
     
-            // Sélectionnez les parties du joueur avec leur score
             $requete = "SELECT idPartie, score FROM partie WHERE id_joueur = :idJoueur";
             $stmt = $this->connexion->getBdd()->prepare($requete);
             $stmt->bindParam(':idJoueur', $idJoueur, PDO::PARAM_INT);

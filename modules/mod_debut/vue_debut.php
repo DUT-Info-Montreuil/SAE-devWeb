@@ -64,5 +64,11 @@ class VueDebut extends VueGenerique {
         </script>
 <?php
     }
+
+    public function message($message){
+?>
+        <script>alert('<?php echo addslashes($message); ?>');</script>
+<?php
+    }
 }
 ?>

@@ -58,5 +58,9 @@ class VueParametre extends VueGenerique {
         </section>
 <?php
     }
+    
+    public function afficherAlerte($message) {
+        echo "<script>alert('" . addslashes($message) . "');</script>";
+    }
 }
 ?>

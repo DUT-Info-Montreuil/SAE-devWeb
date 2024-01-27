@@ -6,8 +6,6 @@ class VueAPropos extends VueGenerique {
     public function afficherAPropos() {
 ?>
 <link rel="stylesheet" href="css/style_aPropos.css">
-
-<!-- Ajout du texte À propos -->
 <div class="container1">
     <h3>À propos de Nous</h3>
     <p>

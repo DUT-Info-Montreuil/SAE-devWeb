@@ -17,7 +17,7 @@ class ControleurParametre {
     public function modifier() {
         if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['ancienPassword']) && isset($_POST['newPassword']) && isset($_POST['password_confirm']) && isset($_POST['login']) && isset($_POST['email'])) {
             if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-                $this->afficherAlerte("Erreur de validation CSRF.");
+                $this->vue->afficherAlerte("Erreur de validation CSRF.");
             }
 
             $ancienPassword = $_POST['ancienPassword'];
@@ -27,13 +27,13 @@ class ControleurParametre {
             $login = $_SESSION['login'];
 
             if (strlen($newPassword) < 10) {
-                $this->afficherAlerte("Mot de passe trop court (minimum 10 caractères).");
+                $this->vue->afficherAlerte("Mot de passe trop court (minimum 10 caractères).");
             }
             if (!preg_match('/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[\W_]).*$/', $newPassword)) {
-                $this->afficherAlerte("Mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial.");         
+                $this->vue->afficherAlerte("Mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial.");         
             }
             if ($newPassword === $ancienPassword) {
-                $this->afficherAlerte("Le nouveau mot de passe ne peut pas être similaire à l'ancien.");         
+                $this->vue->afficherAlerte("Le nouveau mot de passe ne peut pas être similaire à l'ancien.");         
             }
             if ($newPassword === $password_confirm && $this->modele->verifierMotDePasse($login, $ancienPassword)) {
                 if (isset($_FILES['profil_image']) && $_FILES['profil_image']['error'] === UPLOAD_ERR_OK) {
@@ -42,21 +42,17 @@ class ControleurParametre {
                     
                     if (move_uploaded_file($_FILES['profil_image']['tmp_name'], $cheminDestination)) {
                         $this->modele->modifierParametre($login, $newPassword, $newEmail, $cheminDestination);
-                        $this->afficherAlerte("Paramètres mis à jour avec succès.");
+                        $this->vue->afficherAlerte("Paramètres mis à jour avec succès.");
                     } else {
-                        $this->afficherAlerte("Erreur lors du téléchargement de l'image de profil.");
+                        $this->vue->afficherAlerte("Erreur lors du téléchargement de l'image de profil.");
                     }
                 } else {
-                    $this->afficherAlerte("Veuillez sélectionner une image de profil valide.");
+                    $this->vue->afficherAlerte("Veuillez sélectionner une image de profil valide.");
                 }
             } else {
-                $this->afficherAlerte("Mot de passe incorrect ou les mots de passe ne correspondent pas.");
+                $this->vue->afficherAlerte("Mot de passe incorrect ou les mots de passe ne correspondent pas.");
             }
         }
-    }
-
-    private function afficherAlerte($message) {
-        echo "<script>alert('" . addslashes($message) . "');</script>";
     }
 
     public function exec() {
@@ -65,7 +61,7 @@ class ControleurParametre {
                 $this->vue->form_modification();
                 if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     if(!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']){
-                        $this->afficherAlerte("Erreur de validation csrf, mais qui êtes vous ? ");
+                        $this->vue->afficherAlerte("Erreur de validation csrf, mais qui êtes vous ? ");
                     }
                     $this->modifier();
                 }

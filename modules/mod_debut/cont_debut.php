@@ -18,9 +18,7 @@ class ContDebut {
         if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['email'])) {
             $email = $_POST['email'];
             $message = $this->modele->souscrire($email);
-?>
-            <script>alert('<?php echo addslashes($message); ?>');</script>
-<?php
+            $this->vue->message($message);
         }
     }
     

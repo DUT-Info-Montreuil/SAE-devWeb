@@ -3,7 +3,7 @@ require_once 'vue_generique.php';
 
 class VueConnexions extends VueGenerique { 
 
-    public function form_connexion($login = null) {
+    public function form_connexion() {
 ?>
         <link rel="stylesheet" type="text/css" href="css/style_connexion.css">
         <div class="animated-background"></div>
@@ -12,13 +12,6 @@ class VueConnexions extends VueGenerique {
             <p>"Chaque grand voyage commence par un petit pas."</p>
         </div>
         <h3>Bienvenue de retour, aventurier !</h3>
-<?php
-        if ($login) {
-?>
-            <script>alert('<?php echo addslashes("Vous êtes déjà connecté."); ?>');</script>
-<?php
-        } else {
-?>
             <div class="form-container">
                 <form class="container" action="index.php?module=connexion&action=connexion" method="POST">
                     <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
@@ -39,7 +32,6 @@ class VueConnexions extends VueGenerique {
             </div>
             <script src="js/script_champ_manquant.js"></script>
 <?php
-        }
     }
 }
 ?>

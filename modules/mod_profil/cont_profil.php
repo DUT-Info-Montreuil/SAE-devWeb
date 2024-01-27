@@ -81,7 +81,6 @@ class ContProfil {
                         $idAmi = $_GET['idJoueur'];
                         $this->modele->supprimerAmi($idUtilisateur, $idAmi);
                          $this->vue->SuppressionAmiEnvoyer();
-
                     }
                     break;   
         }

@@ -17,9 +17,7 @@ class ContConnexions {
     public function seConnecter() {
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
-?>
-            <script>alert('<?php echo addslashes("Erreur de validation CSRF."); ?>');</script>
-<?php
+                die('Erreur de validation CSRF.');
             }
             
         if (isset($_POST['email']) && isset($_POST['password'])) {
@@ -37,12 +35,13 @@ class ContConnexions {
                 $this->vue->form_connexion();
             }
         } else {
-?>
-            <script>alert('<?php echo addslashes("Erreur lors de la connexion!"); ?>');</script>
-<?php
+            die('Erreur lors de la connexion!');
         }
     }}
     
+    
+
+
     public function seDeconnecter() {
         session_unset();
         session_destroy();
@@ -53,11 +52,7 @@ class ContConnexions {
     public function exec() {
         switch ($this->action) {
             case 'formulaire':
-                if (isset($_SESSION['email'])) {
-                    $this->vue->form_connexion($_SESSION['email']);
-                } else {
-                    $this->vue->form_connexion();
-                }
+                $this->vue->form_connexion();   
                 break;
             case 'connexion':
                 $this->seConnecter();

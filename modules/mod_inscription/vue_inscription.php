@@ -8,7 +8,6 @@ class VueInscriptions extends VueGenerique {
         <link rel="stylesheet" type="text/css" href="css/style_connexion.css">
         <div class="animated-background"></div>
 
-        <!-- Bloc de message de bienvenue -->
         <div class="welcome-message">
             <p>"Chaque grand voyage commence par un petit pas."</p>
         </div>
@@ -42,5 +41,10 @@ class VueInscriptions extends VueGenerique {
         <script src="js/script_mail.js"></script>
 <?php
     }
+    public function message($message){
+        ?>
+            <script>alert('<?php echo addslashes($message); ?>');</script>
+        <?php
+            }
 }
 ?>
