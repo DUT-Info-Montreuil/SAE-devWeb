@@ -1,5 +1,5 @@
 <?php
-require_once 'controleur_parametre.php';
+require_once 'cont_parametre.php';
         
 class ModParametre{
 
